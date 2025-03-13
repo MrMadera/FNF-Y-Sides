@@ -53,10 +53,9 @@ class MainMenuState extends MusicBeatState
 
 		persistentUpdate = persistentDraw = true;
 
-		var yScroll:Float = 0.25;
 		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
-		bg.scrollFactor.set(0, yScroll);
+		bg.scrollFactor.set(0, 0);
 		bg.setGraphicSize(Std.int(bg.width * 1.175));
 		bg.updateHitbox();
 		bg.screenCenter();
@@ -67,7 +66,7 @@ class MainMenuState extends MusicBeatState
 
 		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
 		magenta.antialiasing = ClientPrefs.data.antialiasing;
-		magenta.scrollFactor.set(0, yScroll);
+		magenta.scrollFactor.set(0, 0);
 		magenta.setGraphicSize(Std.int(magenta.width * 1.175));
 		magenta.updateHitbox();
 		magenta.screenCenter();
@@ -136,8 +135,8 @@ class MainMenuState extends MusicBeatState
 	{
 		var menuItem:FlxSprite = new FlxSprite(x, y);
 		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_$name');
-		menuItem.animation.addByPrefix('idle', '$name idle', 24, true);
-		menuItem.animation.addByPrefix('selected', '$name selected', 24, true);
+		menuItem.animation.addByPrefix('idle', '$name basic', 24, true);
+		menuItem.animation.addByPrefix('selected', '$name white', 24, true);
 		menuItem.animation.play('idle');
 		menuItem.updateHitbox();
 		
