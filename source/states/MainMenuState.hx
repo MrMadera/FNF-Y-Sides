@@ -89,6 +89,14 @@ class MainMenuState extends MusicBeatState
 			//item.screenCenter(X);
 		}
 
+		var characters:FlxSprite = new FlxSprite(500, 0);
+		characters.frames = Paths.getSparrowAtlas('mainmenu/menu_characters');
+		characters.animation.addByPrefix('idle', 'characters');
+		characters.animation.play('idle');
+		characters.screenCenter(Y);
+		characters.scrollFactor.set();
+		add(characters);
+
 		if (leftOption != null)
 			leftItem = createMenuItem(leftOption, 60, 490);
 		if (rightOption != null)
