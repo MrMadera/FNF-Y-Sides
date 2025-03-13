@@ -5,35 +5,22 @@ import objects.Character;
 
 class StageWeek1 extends BaseStage
 {
-	var dadbattleBlack:BGSprite;
-	var dadbattleLight:BGSprite;
-	var dadbattleFog:DadBattleFog;
 	override function create()
 	{
-		var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
-		add(bg);
+		var sky:BGSprite = new BGSprite('sky', -1300, -840, 0.8, 0.8);
+		add(sky);
 
-		var stageFront:BGSprite = new BGSprite('stagefront', -650, 600, 0.9, 0.9);
-		stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
-		stageFront.updateHitbox();
-		add(stageFront);
-		if(!ClientPrefs.data.lowQuality) {
-			var stageLight:BGSprite = new BGSprite('stage_light', -125, -100, 0.9, 0.9);
-			stageLight.setGraphicSize(Std.int(stageLight.width * 1.1));
-			stageLight.updateHitbox();
-			add(stageLight);
-			var stageLight:BGSprite = new BGSprite('stage_light', 1225, -100, 0.9, 0.9);
-			stageLight.setGraphicSize(Std.int(stageLight.width * 1.1));
-			stageLight.updateHitbox();
-			stageLight.flipX = true;
-			add(stageLight);
-
-			var stageCurtains:BGSprite = new BGSprite('stagecurtains', -500, -300, 1.3, 1.3);
-			stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
-			stageCurtains.updateHitbox();
-			add(stageCurtains);
-		}
+		var gym:BGSprite = new BGSprite('gym', -1300, -840, 1, 1);
+		add(gym);
 	}
+
+	override function createPost()
+	{
+		var front:BGSprite = new BGSprite('front', -1300, -840, 1.1, 1.1);
+		add(front);
+	}
+	
+	/*
 	override function eventPushed(event:objects.Note.EventNote)
 	{
 		switch(event.event)
@@ -94,4 +81,5 @@ class StageWeek1 extends BaseStage
 				}
 		}
 	}
+	*/
 }
