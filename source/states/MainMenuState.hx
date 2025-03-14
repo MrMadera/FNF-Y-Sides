@@ -1,5 +1,6 @@
 package states;
 
+import flixel.addons.display.FlxBackdrop;
 import flixel.FlxObject;
 import flixel.effects.FlxFlicker;
 import lime.app.Application;
@@ -74,6 +75,12 @@ class MainMenuState extends MusicBeatState
 		magenta.screenCenter();
 		magenta.visible = false;
 		add(magenta);
+		
+		var icons = new FlxBackdrop(Paths.image('mainmenu/icons'), XY);
+		icons.velocity.set(10, 10);
+		icons.alpha = 0.45;
+		icons.scrollFactor.set(0, 0);
+		add(icons);
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
