@@ -2976,6 +2976,25 @@ class PlayState extends MusicBeatState
 					if(char.getAnimationName() == holdAnim || char.getAnimationName() == holdAnim + '-loop') canPlay = false;
 				}
 
+				var cameraOffset:Float = 10; // 30 is good option
+	
+				if(!SONG.notes[curSection].mustHitSection)
+				{
+					switch(animToPlay)
+					{
+						case 'singLEFT':
+							camFollow.setPosition(dad.getMidpoint().x + 150 + (dad.cameraPosition[0] + opponentCameraOffset[0]) - cameraOffset, dad.getMidpoint().y - 100 + (dad.cameraPosition[1] + opponentCameraOffset[1]));
+						case 'singRIGHT':
+							camFollow.setPosition(dad.getMidpoint().x + 150 + (dad.cameraPosition[0] + opponentCameraOffset[0]) + cameraOffset, dad.getMidpoint().y - 100 + (dad.cameraPosition[1] + opponentCameraOffset[1]));
+						case 'singDOWN':
+							camFollow.setPosition(dad.getMidpoint().x + 150 + (dad.cameraPosition[0] + opponentCameraOffset[0]), dad.getMidpoint().y - 100 + (dad.cameraPosition[1] + opponentCameraOffset[1] + cameraOffset));
+						case 'singUP':
+							camFollow.setPosition(dad.getMidpoint().x + 150 + (dad.cameraPosition[0] + opponentCameraOffset[0]), dad.getMidpoint().y - 100 + (dad.cameraPosition[1] + opponentCameraOffset[1] - cameraOffset));
+						default:
+							camFollow.setPosition(dad.getMidpoint().x + 150 + (dad.cameraPosition[0] + opponentCameraOffset[0]), dad.getMidpoint().y - 100 + (dad.cameraPosition[1] + opponentCameraOffset[1]));
+					}
+				}
+
 				if(canPlay) char.playAnim(animToPlay, true);
 				char.holdTimer = 0;
 			}
@@ -3033,6 +3052,26 @@ class PlayState extends MusicBeatState
 						var holdAnim:String = animToPlay + '-hold';
 						if(char.animation.exists(holdAnim)) animToPlay = holdAnim;
 						if(char.getAnimationName() == holdAnim || char.getAnimationName() == holdAnim + '-loop') canPlay = false;
+					}
+
+					
+					var cameraOffset:Float = 10; // 30 is good option
+
+					if(SONG.notes[curSection].mustHitSection)
+					{
+						switch(animToPlay)
+						{
+							case 'singLEFT':
+								camFollow.setPosition(boyfriend.getMidpoint().x - 100 - (boyfriend.cameraPosition[0] - boyfriendCameraOffset[0]) - cameraOffset, boyfriend.getMidpoint().y - 100 + (boyfriend.cameraPosition[1] + boyfriendCameraOffset[1]));
+							case 'singRIGHT':
+								camFollow.setPosition(boyfriend.getMidpoint().x - 100 - (boyfriend.cameraPosition[0] - boyfriendCameraOffset[0]) + cameraOffset, boyfriend.getMidpoint().y - 100 + (boyfriend.cameraPosition[1] + boyfriendCameraOffset[1]));
+							case 'singDOWN':
+								camFollow.setPosition(boyfriend.getMidpoint().x - 100 - (boyfriend.cameraPosition[0] - boyfriendCameraOffset[0]), boyfriend.getMidpoint().y - 100 + (boyfriend.cameraPosition[1] + boyfriendCameraOffset[1]) + cameraOffset);
+							case 'singUP':
+								camFollow.setPosition(boyfriend.getMidpoint().x - 100 - (boyfriend.cameraPosition[0] - boyfriendCameraOffset[0]), boyfriend.getMidpoint().y - 100 + (boyfriend.cameraPosition[1] + boyfriendCameraOffset[1]) - cameraOffset);
+							default:
+								camFollow.setPosition(boyfriend.getMidpoint().x - 100 - (boyfriend.cameraPosition[0] - boyfriendCameraOffset[0]), boyfriend.getMidpoint().y - 100 + (boyfriend.cameraPosition[1] + boyfriendCameraOffset[1]));
+						}
 					}
 	
 					if(canPlay) char.playAnim(animToPlay, true);
