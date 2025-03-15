@@ -38,6 +38,9 @@ class MusicBeatState extends FlxState
 		}
 		FlxTransitionableState.skipNextTransOut = false;
 		timePassedOnState = 0;
+		
+		var sprite = new FlxSprite().loadGraphic(Paths.image('mouse'));
+		FlxG.mouse.load(sprite.pixels);
 	}
 
 	public function initPsychCamera():PsychCamera
