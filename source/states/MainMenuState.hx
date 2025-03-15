@@ -77,6 +77,7 @@ class MainMenuState extends MusicBeatState
 		var icons = new FlxBackdrop(Paths.image('mainmenu/icons'), XY);
 		icons.velocity.set(10, 10);
 		icons.alpha = 0.45;
+		icons.antialiasing = ClientPrefs.data.antialiasing;
 		add(icons);
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
@@ -205,6 +206,7 @@ class MainMenuState extends MusicBeatState
 
 				if(distItem2 != -1 && selectedItem != menuItems2.members[distItem2])
 				{
+					actualRightColumn = true;
 					curColumn = RIGHT;
 					curSelected = distItem2;
 					changeItem();
@@ -229,6 +231,7 @@ class MainMenuState extends MusicBeatState
 
 				if(distItem != -1 && selectedItem != menuItems.members[distItem])
 				{
+					actualRightColumn = false;
 					curColumn = LEFT;
 					curSelected = distItem;
 					changeItem();
@@ -390,8 +393,10 @@ class MainMenuState extends MusicBeatState
 			case RIGHT:
 				selectedItem = menuItems2.members[curSelected];
 		}
-		selectedItem.animation.play('selected');
-		selectedItem.centerOffsets();
-		camFollow.y = selectedItem.getGraphicMidpoint().y;
+		if(selectedItem != null) {
+			selectedItem.animation.play('selected');
+			selectedItem.centerOffsets();
+			camFollow.y = selectedItem.getGraphicMidpoint().y;
+		}
 	}
 }
