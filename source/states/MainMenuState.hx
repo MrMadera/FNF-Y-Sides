@@ -17,7 +17,7 @@ class MainMenuState extends MusicBeatState
 	public static var psychEngineVersion:String = '1.0.3'; // This is also used for Discord RPC
 	public static var curSelected:Int = 0;
 	public static var curColumn:MainMenuColumn = LEFT;
-	var allowMouse:Bool = false; //Turn this off to block mouse movement in menus
+	var allowMouse:Bool = true; //Turn this off to block mouse movement in menus
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	var menuItems2:FlxTypedGroup<FlxSprite>;
@@ -164,6 +164,76 @@ class MainMenuState extends MusicBeatState
 
 		if (!selectedSomethin)
 		{
+			var allowMouse:Bool = allowMouse;
+			if (allowMouse && ((FlxG.mouse.deltaScreenX != 0 && FlxG.mouse.deltaScreenY != 0) || FlxG.mouse.justPressed)) //FlxG.mouse.deltaScreenX/Y checks is more accurate than FlxG.mouse.justMoved
+			{
+				allowMouse = false;
+				FlxG.mouse.visible = true;
+				timeNotMoving = 0;
+
+				var selectedItem:FlxSprite;
+				switch(curColumn)
+				{
+					case LEFT:
+						selectedItem = menuItems.members[curSelected];
+					case RIGHT:
+						selectedItem = menuItems2.members[curSelected];
+				}
+
+				var dist2:Float = -1;
+				var distItem2:Int = -1;
+				for (i in 0...optionShit2.length)
+				{
+					var memb2:FlxSprite = menuItems2.members[i];
+					if(FlxG.mouse.overlaps(memb2))
+					{
+						var distance:Float = Math.sqrt(Math.pow(memb2.getGraphicMidpoint().x - FlxG.mouse.screenX, 2) + Math.pow(memb2.getGraphicMidpoint().y - FlxG.mouse.screenY, 2));
+						if (dist2 < 0 || distance < dist2)
+						{
+							dist2 = distance;
+							distItem2 = i;
+							allowMouse = true;
+						}
+					}
+				}
+
+				if(distItem2 != -1 && selectedItem != menuItems2.members[distItem2])
+				{
+					curColumn = RIGHT;
+					curSelected = distItem2;
+					changeItem();
+				}
+				
+				var dist:Float = -1;
+				var distItem:Int = -1;
+				for (i in 0...optionShit.length)
+				{
+					var memb:FlxSprite = menuItems.members[i];
+					if(FlxG.mouse.overlaps(memb))
+					{
+						var distance:Float = Math.sqrt(Math.pow(memb.getGraphicMidpoint().x - FlxG.mouse.screenX, 2) + Math.pow(memb.getGraphicMidpoint().y - FlxG.mouse.screenY, 2));
+						if (dist < 0 || distance < dist)
+						{
+							dist = distance;
+							distItem = i;
+							allowMouse = true;
+						}
+					}
+				}
+
+				if(distItem != -1 && selectedItem != menuItems.members[distItem])
+				{
+					curColumn = LEFT;
+					curSelected = distItem;
+					changeItem();
+				}
+			}
+			else
+			{
+				timeNotMoving += elapsed;
+				if(timeNotMoving > 2) FlxG.mouse.visible = false;
+			}
+
 			if(controls.UI_LEFT_P)
 			{
 				curColumn = LEFT;
