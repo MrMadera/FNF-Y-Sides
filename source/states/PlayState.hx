@@ -6,6 +6,9 @@ import backend.WeekData;
 import backend.Song;
 import backend.Rating;
 
+import flixel.graphics.frames.FlxBitmapFont;
+import flixel.text.FlxBitmapText;
+
 import flixel.FlxBasic;
 import flixel.FlxObject;
 import flixel.FlxSubState;
@@ -215,7 +218,7 @@ class PlayState extends MusicBeatState
 	public var songHits:Int = 0;
 	public var songMisses:Int = 0;
 	public var scoreTxt:FlxText;
-	var timeTxt:FlxText;
+	var timeTxt:FlxBitmapText;
 	var scoreTxtTween:FlxTween;
 
 	public static var campaignScore:Int = 0;
@@ -480,28 +483,25 @@ class PlayState extends MusicBeatState
 		timeBar.visible = showTime;
 		uiGroup.add(timeBar);
 
-		timeTxt = new FlxText(STRUM_X + (FlxG.width / 2) - 248, timeBar.y + timeBar.height / 4, 400, "", 32);
-		timeTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		var fontLetters:String = "0123456789:";
+		timeTxt = new FlxBitmapText(FlxBitmapFont.fromMonospace(Paths.image("hud/font_gym"), fontLetters, FlxPoint.get(49, 62)));
+		timeTxt.text = "";
+		timeTxt.letterSpacing = -15;
 		timeTxt.scrollFactor.set();
 		timeTxt.alpha = 0;
-		timeTxt.borderSize = 2;
 		timeTxt.screenCenter(X);
+		timeTxt.scale.set(0.85, 0.85);
+		timeTxt.x = timeBar.x + 25;
+		timeTxt.y = timeBar.y + timeBar.height / 4 - 7;
 		timeTxt.visible = updateTime = showTime;
 		if(ClientPrefs.data.downScroll) 
 		{
 			timeBar.y = FlxG.height - timeBar.height - 25;
 			timeTxt.y = timeBar.y + timeBar.height / 4;
 		}
-		if(ClientPrefs.data.timeBarType == 'Song Name') timeTxt.text = SONG.song;
 		uiGroup.add(timeTxt);
 
 		noteGroup.add(strumLineNotes);
-
-		if(ClientPrefs.data.timeBarType == 'Song Name')
-		{
-			timeTxt.size = 24;
-			timeTxt.y += 3;
-		}
 
 		generateSong();
 

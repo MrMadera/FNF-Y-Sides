@@ -84,13 +84,6 @@ class VisualsSettingsSubState extends BaseOptionsMenu
 			'hideHud',
 			BOOL);
 		addOption(option);
-		
-		var option:Option = new Option('Time Bar:',
-			"What should the Time Bar display?",
-			'timeBarType',
-			STRING,
-			['Time Left', 'Time Elapsed', 'Song Name', 'Disabled']);
-		addOption(option);
 
 		var option:Option = new Option('Flashing Lights',
 			"Uncheck this if you're sensitive to flashing lights!",
