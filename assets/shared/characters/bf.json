@@ -1,133 +1,95 @@
 {
 	"animations": [
 		{
-			"offsets": [
-				-5,
-				0
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [-5, 0],
 			"anim": "idle",
-			"indices": [],
-			"name": "idle"
+			"fps": 24,
+			"name": "idle",
+			"indices": []
 		},
 		{
-			"offsets": [
-				55,
-				-9
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [55, -9],
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "left"
+			"fps": 24,
+			"name": "left",
+			"indices": []
 		},
 		{
-			"offsets": [
-				1,
-				-31
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [1, -31],
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "down"
+			"fps": 24,
+			"name": "down",
+			"indices": []
 		},
 		{
-			"offsets": [
-				9,
-				32
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [9, 32],
 			"anim": "singUP",
-			"indices": [],
-			"name": "up"
+			"fps": 24,
+			"name": "up",
+			"indices": []
 		},
 		{
-			"offsets": [
-				-59,
-				-4
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [-59, -4],
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "right"
+			"fps": 24,
+			"name": "right",
+			"indices": []
 		},
 		{
-			"offsets": [
-				63,
-				-15
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [63, -15],
 			"anim": "singLEFTmiss",
-			"indices": [],
-			"name": "mleft"
+			"fps": 24,
+			"name": "mleft",
+			"indices": []
 		},
 		{
-			"offsets": [
-				29,
-				-98
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [29, -98],
 			"anim": "singDOWNmiss",
-			"indices": [],
-			"name": "mdown"
+			"fps": 24,
+			"name": "mdown",
+			"indices": []
 		},
 		{
-			"offsets": [
-				8,
-				37
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [8, 37],
 			"anim": "singUPmiss",
-			"indices": [],
-			"name": "mup"
+			"fps": 24,
+			"name": "mup",
+			"indices": []
 		},
 		{
-			"offsets": [
-				-66,
-				-5
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [-66, -5],
 			"anim": "singRIGHTmiss",
-			"indices": [],
-			"name": "mright"
+			"fps": 24,
+			"name": "mright",
+			"indices": []
 		},
 		{
-			"offsets": [
-				-14,
-				25
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [-14, 25],
 			"anim": "hey",
-			"indices": [],
-			"name": "hey"
+			"fps": 24,
+			"name": "hey",
+			"indices": []
 		}
 	],
+	"vocals_file": "",
 	"no_antialiasing": false,
 	"image": "characters/bf-Ysides",
-	"position": [
-		0,
-		0
-	],
+	"position": [0, 0],
 	"healthicon": "bf",
 	"flip_x": true,
-	"healthbar_colors": [
-		255,
-		115,
-		29
-	],
-	"camera_position": [
-		100,
-		50
-	],
+	"healthbar_colors": [255, 189, 36],
+	"camera_position": [100, 50],
 	"sing_duration": 4,
-	"scale": 1
+	"scale": 1,
+	"_editor_isPlayer": true
 }
