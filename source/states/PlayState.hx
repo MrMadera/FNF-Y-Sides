@@ -525,7 +525,7 @@ class PlayState extends MusicBeatState
 		FlxG.worldBounds.set(0, 0, FlxG.width, FlxG.height);
 		moveCameraSection();
 
-		healthBar = new Bar(0, FlxG.height * (!ClientPrefs.data.downScroll ? 0.85 : 0.025), 'hud/hb', function() return healthShower, 0, 2, true, 'hud/hbfill');
+		healthBar = new Bar(0, FlxG.height * (!ClientPrefs.data.downScroll ? 0.805 : 0.025), 'hud/hb', function() return healthShower, 0, 2, true, 'hud/hbfill');
 		healthBar.screenCenter(X);
 		healthBar.barOffset = new FlxPoint(0, 0);
 
@@ -543,7 +543,7 @@ class PlayState extends MusicBeatState
 		healthBar.updateBar();
 		uiGroup.add(healthBar);
 
-		fcSprite = new FlxSprite(0, 30);
+		fcSprite = new FlxSprite(0, 15);
 		fcSprite.frames = Paths.getSparrowAtlas('hud/ratings_HUD');
 		fcSprite.animation.addByPrefix('sfc', 'ratings_HUD SFC', 24, false);
 		fcSprite.animation.addByPrefix('gfc', 'ratings_HUD GFC', 24, false);
@@ -569,7 +569,7 @@ class PlayState extends MusicBeatState
 		iconP2.alpha = ClientPrefs.data.healthBarAlpha;
 		uiGroup.add(iconP2);
 
-		scoreTxt = new FlxText(0, healthBar.y + 40, FlxG.width, "", 20);
+		scoreTxt = new FlxText(0, healthBar.y + healthBar.height + 17, FlxG.width, "", 20);
 		scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		scoreTxt.scrollFactor.set();
 		scoreTxt.borderSize = 1.25;
@@ -1175,8 +1175,8 @@ class PlayState extends MusicBeatState
 		}
 
 		var tempScore:String;
-		if(!instakillOnMiss) tempScore = Language.getPhrase('score_text', 'Score: {1} | Misses: {2} | Rating: {3}', [songScore, songMisses, str]);
-		else tempScore = Language.getPhrase('score_text_instakill', 'Score: {1} | Rating: {2}', [songScore, str]);
+		if(!instakillOnMiss) tempScore = Language.getPhrase('score_text', 'Score: {1} | Misses: {2}', [songScore, songMisses, str]);
+		else tempScore = Language.getPhrase('score_text_instakill', 'Score: {1}', [songScore, str]);
 		scoreTxt.text = tempScore;
 	}
 
