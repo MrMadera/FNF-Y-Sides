@@ -1,28 +1,28 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [20, 0],
+			"loop": false,
+			"fps": 24,
 			"anim": "firstDeath",
-			"fps": 24,
-			"name": "firstdeath",
-			"indices": []
+			"indices": [],
+			"name": "firstdeath"
 		},
 		{
-			"loop": false,
 			"offsets": [-53, -101],
-			"anim": "deathLoop",
+			"loop": true,
 			"fps": 24,
-			"name": "deathloop",
-			"indices": []
+			"anim": "deathLoop",
+			"indices": [],
+			"name": "deathloop"
 		},
 		{
-			"loop": false,
 			"offsets": [-53, 110],
-			"anim": "deathConfirm",
+			"loop": false,
 			"fps": 24,
-			"name": "deathend",
-			"indices": []
+			"anim": "deathConfirm",
+			"indices": [],
+			"name": "deathend"
 		}
 	],
 	"vocals_file": "",
