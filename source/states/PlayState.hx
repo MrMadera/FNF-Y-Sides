@@ -174,6 +174,7 @@ class PlayState extends MusicBeatState
 
 	public var gfSpeed:Int = 1;
 	public var health(default, set):Float = 1;
+	public var healthShower:Float = 1;
 	public var combo:Int = 0;
 
 	public var healthBar:Bar;
@@ -516,7 +517,7 @@ class PlayState extends MusicBeatState
 		FlxG.worldBounds.set(0, 0, FlxG.width, FlxG.height);
 		moveCameraSection();
 
-		healthBar = new Bar(0, FlxG.height * (!ClientPrefs.data.downScroll ? 0.85 : 0.15), 'hud/hb', function() return health, 0, 2, true, 'hud/hbfill');
+		healthBar = new Bar(0, FlxG.height * (!ClientPrefs.data.downScroll ? 0.85 : 0.15), 'hud/hb', function() return healthShower, 0, 2, true, 'hud/hbfill');
 		healthBar.screenCenter(X);
 		healthBar.barOffset = new FlxPoint(0, 0);
 
@@ -1766,6 +1767,7 @@ class PlayState extends MusicBeatState
 		if (!ClientPrefs.data.noReset && controls.RESET && canReset && !inCutscene && startedCountdown && !endingSong)
 		{
 			health = 0;
+			healthShower = 0;
 			trace("RESET = True");
 		}
 		doDeathCheck();
@@ -1883,6 +1885,8 @@ class PlayState extends MusicBeatState
 	}
 
 	var iconsAnimations:Bool = true;
+	var healthTween:FlxTween;
+
 	function set_health(value:Float):Float // You can alter how icon animations work here
 	{
 		value = FlxMath.roundDecimal(value, 5); //Fix Float imprecision
@@ -1894,6 +1898,14 @@ class PlayState extends MusicBeatState
 
 		// update health bar
 		health = value;
+
+		if(healthTween != null) healthTween.cancel();
+		
+		healthTween = FlxTween.num(healthShower, value, 0.115, {ease: FlxEase.quartOut, onComplete: function(t:FlxTween) {healthTween = null;}}, function(v:Float)
+		{
+			healthShower = v;
+		});
+
 		var newPercent:Null<Float> = FlxMath.remapToRange(FlxMath.bound(healthBar.valueFunction(), healthBar.bounds.min, healthBar.bounds.max), healthBar.bounds.min, healthBar.bounds.max, 0, 100);
 		healthBar.percent = (newPercent != null ? newPercent : 0);
 
