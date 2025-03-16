@@ -178,6 +178,7 @@ class PlayState extends MusicBeatState
 	public var combo:Int = 0;
 
 	public var healthBar:Bar;
+	public var fcSprite:FlxSprite;
 	public var timeBar:FlxSprite;
 	var songPercent:Float = 0;
 
@@ -486,7 +487,11 @@ class PlayState extends MusicBeatState
 		timeTxt.borderSize = 2;
 		timeTxt.screenCenter(X);
 		timeTxt.visible = updateTime = showTime;
-		if(ClientPrefs.data.downScroll) timeTxt.y = FlxG.height - 54;
+		if(ClientPrefs.data.downScroll) 
+		{
+			timeBar.y = FlxG.height - timeBar.height - 25;
+			timeTxt.y = timeBar.y + timeBar.height / 4;
+		}
 		if(ClientPrefs.data.timeBarType == 'Song Name') timeTxt.text = SONG.song;
 		uiGroup.add(timeTxt);
 
@@ -520,7 +525,7 @@ class PlayState extends MusicBeatState
 		FlxG.worldBounds.set(0, 0, FlxG.width, FlxG.height);
 		moveCameraSection();
 
-		healthBar = new Bar(0, FlxG.height * (!ClientPrefs.data.downScroll ? 0.85 : 0.15), 'hud/hb', function() return healthShower, 0, 2, true, 'hud/hbfill');
+		healthBar = new Bar(0, FlxG.height * (!ClientPrefs.data.downScroll ? 0.85 : 0.025), 'hud/hb', function() return healthShower, 0, 2, true, 'hud/hbfill');
 		healthBar.screenCenter(X);
 		healthBar.barOffset = new FlxPoint(0, 0);
 
@@ -537,6 +542,20 @@ class PlayState extends MusicBeatState
 		reloadHealthBarColors();
 		healthBar.updateBar();
 		uiGroup.add(healthBar);
+
+		fcSprite = new FlxSprite(0, 30);
+		fcSprite.frames = Paths.getSparrowAtlas('hud/ratings_HUD');
+		fcSprite.animation.addByPrefix('sfc', 'ratings_HUD SFC', 24, false);
+		fcSprite.animation.addByPrefix('gfc', 'ratings_HUD GFC', 24, false);
+		fcSprite.animation.addByPrefix('fc', 'ratings_HUD FC', 24, false);
+		fcSprite.animation.addByPrefix('nofc', 'ratings_HUD NOFC', 24, false);
+		fcSprite.animation.play('sfc');
+		fcSprite.screenCenter(X);
+		fcSprite.antialiasing = ClientPrefs.data.antialiasing;
+		fcSprite.visible = !ClientPrefs.data.hideHud;
+		fcSprite.alpha = ClientPrefs.data.healthBarAlpha;
+		if(ClientPrefs.data.downScroll) fcSprite.y = -500;
+		uiGroup.add(fcSprite);
 
 		iconP1 = new HealthIcon(boyfriend.healthIcon, true);
 		iconP1.y = healthBar.y - 75;
@@ -1171,12 +1190,28 @@ class PlayState extends MusicBeatState
 		ratingFC = "";
 		if(songMisses == 0)
 		{
-			if (bads > 0 || shits > 0) ratingFC = 'FC';
-			else if (goods > 0) ratingFC = 'GFC';
-			else if (sicks > 0) ratingFC = 'SFC';
+			if (bads > 0 || shits > 0) 
+			{
+				ratingFC = 'FC';
+				fcSprite.animation.play('fc');
+			}
+			else if (goods > 0) 
+			{
+				ratingFC = 'GFC';
+				fcSprite.animation.play('gfc');
+			}
+			else if (sicks > 0) 
+			{
+				ratingFC = 'SFC';
+				fcSprite.animation.play('sfc');
+			}
 		}
 		else {
-			if (songMisses < 10) ratingFC = 'SDCB';
+			if (songMisses < 10) 
+			{
+				ratingFC = 'SDCB';
+				fcSprite.animation.play('nofc');
+			}
 			else ratingFC = 'Clear';
 		}
 	}
