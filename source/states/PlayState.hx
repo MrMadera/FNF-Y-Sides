@@ -484,15 +484,15 @@ class PlayState extends MusicBeatState
 		uiGroup.add(timeBar);
 
 		var fontLetters:String = "0123456789:";
-		timeTxt = new FlxBitmapText(FlxBitmapFont.fromMonospace(Paths.image("hud/font_gym"), fontLetters, FlxPoint.get(49, 62)));
+		timeTxt = new FlxBitmapText(FlxBitmapFont.fromMonospace(Paths.image("hud/font_gym"), fontLetters, FlxPoint.get(40, 56)));
 		timeTxt.text = "";
-		timeTxt.letterSpacing = -15;
+		//timeTxt.letterSpacing = -15;
 		timeTxt.scrollFactor.set();
 		timeTxt.alpha = 0;
 		timeTxt.screenCenter(X);
-		timeTxt.scale.set(0.85, 0.85);
-		timeTxt.x = timeBar.x + 25;
-		timeTxt.y = timeBar.y + timeBar.height / 4 - 7;
+		timeTxt.scale.set(0.75, 0.85);
+		timeTxt.x = timeBar.x + 17;
+		timeTxt.y = timeBar.y + timeBar.height / 4 - 4;
 		timeTxt.visible = updateTime = showTime;
 		if(ClientPrefs.data.downScroll) 
 		{
