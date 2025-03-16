@@ -17,12 +17,15 @@ class Bar extends FlxSpriteGroup
 	public var barWidth(default, set):Int = 1;
 	public var barHeight(default, set):Int = 1;
 	public var barOffset:FlxPoint = new FlxPoint(3, 3);
+	public var usesImages:Bool = false;
 
-	public function new(x:Float, y:Float, image:String = 'healthBar', valueFunction:Void->Float = null, boundX:Float = 0, boundY:Float = 1)
+	public function new(x:Float, y:Float, image:String = 'healthBar', valueFunction:Void->Float = null, boundX:Float = 0, boundY:Float = 1, ?usesImages:Bool = false, ?imagePath:String = '')
 	{
 		super(x, y);
 		
 		this.valueFunction = valueFunction;
+		this.usesImages = usesImages;
+
 		setBounds(boundX, boundY);
 		
 		bg = new FlxSprite().loadGraphic(Paths.image(image));
@@ -30,13 +33,26 @@ class Bar extends FlxSpriteGroup
 		barWidth = Std.int(bg.width - 6);
 		barHeight = Std.int(bg.height - 6);
 
-		leftBar = new FlxSprite().makeGraphic(Std.int(bg.width), Std.int(bg.height), FlxColor.WHITE);
-		//leftBar.color = FlxColor.WHITE;
-		leftBar.antialiasing = antialiasing = ClientPrefs.data.antialiasing;
-
-		rightBar = new FlxSprite().makeGraphic(Std.int(bg.width), Std.int(bg.height), FlxColor.WHITE);
-		rightBar.color = FlxColor.BLACK;
-		rightBar.antialiasing = ClientPrefs.data.antialiasing;
+		if(usesImages)
+		{
+			leftBar = new FlxSprite().loadGraphic(Paths.image(imagePath));
+			//leftBar.color = FlxColor.WHITE;
+			leftBar.antialiasing = antialiasing = ClientPrefs.data.antialiasing;
+	
+			rightBar = new FlxSprite().loadGraphic(Paths.image(imagePath));
+			rightBar.color = FlxColor.BLACK;
+			rightBar.antialiasing = ClientPrefs.data.antialiasing;
+		}
+		else
+		{
+			leftBar = new FlxSprite().makeGraphic(Std.int(bg.width), Std.int(bg.height), FlxColor.WHITE);
+			//leftBar.color = FlxColor.WHITE;
+			leftBar.antialiasing = antialiasing = ClientPrefs.data.antialiasing;
+	
+			rightBar = new FlxSprite().makeGraphic(Std.int(bg.width), Std.int(bg.height), FlxColor.WHITE);
+			rightBar.color = FlxColor.BLACK;
+			rightBar.antialiasing = ClientPrefs.data.antialiasing;
+		}
 
 		add(leftBar);
 		add(rightBar);
@@ -79,20 +95,23 @@ class Bar extends FlxSpriteGroup
 	{
 		if(leftBar == null || rightBar == null) return;
 
-		leftBar.setPosition(bg.x, bg.y);
-		rightBar.setPosition(bg.x, bg.y);
+		if(!usesImages)
+		{
+			leftBar.setPosition(bg.x, bg.y);
+			rightBar.setPosition(bg.x, bg.y);
+		}
 
 		var leftSize:Float = 0;
-		if(leftToRight) leftSize = FlxMath.lerp(0, barWidth, percent / 100);
-		else leftSize = FlxMath.lerp(0, barWidth, 1 - percent / 100);
+		if(leftToRight) leftSize = FlxMath.lerp(0, leftBar.width, percent / 100);
+		else leftSize = FlxMath.lerp(0, leftBar.width, 1 - percent / 100);
 
 		leftBar.clipRect.width = leftSize;
-		leftBar.clipRect.height = barHeight;
+		leftBar.clipRect.height = leftBar.height;
 		leftBar.clipRect.x = barOffset.x;
 		leftBar.clipRect.y = barOffset.y;
 
-		rightBar.clipRect.width = barWidth - leftSize;
-		rightBar.clipRect.height = barHeight;
+		rightBar.clipRect.width = rightBar.width - leftSize;
+		rightBar.clipRect.height = rightBar.height;
 		rightBar.clipRect.x = barOffset.x + leftSize;
 		rightBar.clipRect.y = barOffset.y;
 
@@ -107,15 +126,21 @@ class Bar extends FlxSpriteGroup
 	{
 		if(leftBar != null)
 		{
-			leftBar.setGraphicSize(Std.int(bg.width), Std.int(bg.height));
-			leftBar.updateHitbox();
-			leftBar.clipRect = new FlxRect(0, 0, Std.int(bg.width), Std.int(bg.height));
+			if(!usesImages)
+			{
+				leftBar.setGraphicSize(Std.int(bg.width), Std.int(bg.height));
+				leftBar.updateHitbox();
+			}
+			leftBar.clipRect = new FlxRect(0, 0, Std.int(leftBar.width), Std.int(leftBar.height));
 		}
 		if(rightBar != null)
 		{
-			rightBar.setGraphicSize(Std.int(bg.width), Std.int(bg.height));
-			rightBar.updateHitbox();
-			rightBar.clipRect = new FlxRect(0, 0, Std.int(bg.width), Std.int(bg.height));
+			if(!usesImages)
+			{
+				rightBar.setGraphicSize(Std.int(bg.width), Std.int(bg.height));
+				rightBar.updateHitbox();
+			}
+			rightBar.clipRect = new FlxRect(0, 0, Std.int(rightBar.width), Std.int(rightBar.height));
 		}
 		updateBar();
 	}

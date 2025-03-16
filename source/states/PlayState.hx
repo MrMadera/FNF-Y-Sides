@@ -516,13 +516,22 @@ class PlayState extends MusicBeatState
 		FlxG.worldBounds.set(0, 0, FlxG.width, FlxG.height);
 		moveCameraSection();
 
-		healthBar = new Bar(0, FlxG.height * (!ClientPrefs.data.downScroll ? 0.89 : 0.11), 'healthBar', function() return health, 0, 2);
+		healthBar = new Bar(0, FlxG.height * (!ClientPrefs.data.downScroll ? 0.85 : 0.15), 'hud/hb', function() return health, 0, 2, true, 'hud/hbfill');
 		healthBar.screenCenter(X);
+		healthBar.barOffset = new FlxPoint(0, 0);
+
+		healthBar.leftBar.x += 26;
+		healthBar.leftBar.y += 18;
+
+		healthBar.rightBar.x += 26;
+		healthBar.rightBar.y += 18;
+
 		healthBar.leftToRight = false;
 		healthBar.scrollFactor.set();
 		healthBar.visible = !ClientPrefs.data.hideHud;
 		healthBar.alpha = ClientPrefs.data.healthBarAlpha;
 		reloadHealthBarColors();
+		healthBar.updateBar();
 		uiGroup.add(healthBar);
 
 		iconP1 = new HealthIcon(boyfriend.healthIcon, true);
