@@ -16,6 +16,7 @@
 
 ### MENUS
 
+- [ ] Title Menu
 - [x] Main Menu
 - [ ] Story Mode
 - [ ] Freeplay
