@@ -6,6 +6,7 @@ import flixel.effects.FlxFlicker;
 import lime.app.Application;
 import states.editors.MasterEditorMenu;
 import options.OptionsState;
+import openfl.geom.ColorTransform;
 
 enum MainMenuColumn {
 	LEFT;
@@ -36,7 +37,11 @@ class MainMenuState extends MusicBeatState
 		'awards'
 	];
 
+	var bg:FlxSprite;
 	var magenta:FlxSprite;
+	var icons:FlxBackdrop;
+	var characters:FlxSprite;
+	var charactersWhite:FlxSprite;
 	var camFollow:FlxObject;
 
 	static var showOutdatedWarning:Bool = true;
@@ -56,7 +61,7 @@ class MainMenuState extends MusicBeatState
 
 		persistentUpdate = persistentDraw = true;
 
-		var bg:FlxSprite = new FlxSprite(-80).makeGraphic(1280, 720, 0xFFEEE4FF);
+		bg = new FlxSprite(-80).makeGraphic(1280, 720, 0xFFEEE4FF);
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.setGraphicSize(Std.int(bg.width * 1.175));
 		bg.updateHitbox();
@@ -74,7 +79,7 @@ class MainMenuState extends MusicBeatState
 		magenta.visible = false;
 		add(magenta);
 		
-		var icons = new FlxBackdrop(Paths.image('mainmenu/icons'), XY);
+		icons = new FlxBackdrop(Paths.image('mainmenu/icons'), XY);
 		icons.velocity.set(10, 10);
 		icons.alpha = 0.45;
 		icons.antialiasing = ClientPrefs.data.antialiasing;
@@ -89,16 +94,26 @@ class MainMenuState extends MusicBeatState
 		var scale:Float = 0.9;
 		for (num => option in optionShit)
 		{
-			var item:FlxSprite = createMenuItem(option, 55, (num * 205) + 10);
+			var item:FlxSprite = createMenuItem(option, -350, (num * 205) + 10);
 			item.scale.set(scale, scale);
 			item.updateHitbox();
 			if(num == 1) item.y += 30;
 			if(num == 0 || num == 2) item.x += 30;
 			//item.y += (4 - optionShit.length) * 70; // Offsets for when you have anything other than 4 items
 			//item.screenCenter(X);
+
+			switch(num)
+			{
+				case 0 | 2:
+					FlxTween.tween(item, {x: 85}, 1.25, {ease: FlxEase.quartOut, startDelay: 0.1 * num});
+				case 1:
+					FlxTween.tween(item, {x: 55}, 1.25, {ease: FlxEase.quartOut, startDelay: 0.1 * num});
+				default:
+					FlxTween.tween(item, {x: 55}, 1.25, {ease: FlxEase.quartOut, startDelay: 0.1 * num});
+			}
 		}
 
-		var characters:FlxSprite = new FlxSprite(500, 0);
+		characters = new FlxSprite(500, 0);
 		characters.frames = Paths.getSparrowAtlas('mainmenu/menu_characters');
 		characters.animation.addByPrefix('idle', 'characters', 24, true);
 		characters.animation.play('idle');
@@ -106,11 +121,22 @@ class MainMenuState extends MusicBeatState
 		characters.screenCenter(Y);
 		add(characters);
 
+		charactersWhite = new FlxSprite(500, 0);
+		charactersWhite.frames = Paths.getSparrowAtlas('mainmenu/menu_characters_white');
+		charactersWhite.animation.addByPrefix('idle', 'characters', 24, true);
+		charactersWhite.animation.play('idle');
+		charactersWhite.antialiasing = ClientPrefs.data.antialiasing;
+		charactersWhite.screenCenter(Y);
+		charactersWhite.alpha = 0;
+		add(charactersWhite);
+
 		for(num => option in optionShit2)
 		{
-			var item:FlxSprite = createMenuItem(option, FlxG.width - 190, (num * 155) + 200, true);
+			var item:FlxSprite = createMenuItem(option, FlxG.width + 10, (num * 155) + 200, true);
 			item.scale.set(scale, scale);
 			item.updateHitbox();
+
+			FlxTween.tween(item, {x: FlxG.width - 190}, 1.25, {ease: FlxEase.quartOut, startDelay: 0.1 * num});
 		}
 		
 		changeItem();
@@ -154,7 +180,7 @@ class MainMenuState extends MusicBeatState
 	var actualRightColumn:Bool = false;
 	var timeNotMoving:Float = 0;
 	var selectedSomethin:Bool = false;
-	var scrollMultiplier:Float = 2;
+	var scrollMultiplier:Float = 3;
 
 	override function update(elapsed:Float)
 	{
@@ -272,7 +298,7 @@ class MainMenuState extends MusicBeatState
 				selectedSomethin = true;
 				FlxG.mouse.visible = false;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
-				MusicBeatState.switchState(new TitleState());
+				transitionBack();
 			}
 
 			if (controls.ACCEPT || (FlxG.mouse.justPressed && allowMouse))
@@ -297,12 +323,16 @@ class MainMenuState extends MusicBeatState
 						item = menuItems2.members[curSelected];
 				}
 
+				if(option == 'story_mode') {
+					transitionToMenu();
+				}
+
 				FlxFlicker.flicker(item, 1, 0.06, false, false, function(flick:FlxFlicker)
 				{
 					switch (option)
 					{
 						case 'story_mode':
-							MusicBeatState.switchState(new StoryMenuState());
+							//transitionToMenu();
 						case 'freeplay':
 							MusicBeatState.switchState(new FreeplayState());
 
@@ -365,6 +395,48 @@ class MainMenuState extends MusicBeatState
 		}
 
 		super.update(elapsed);
+	}
+
+	function transitionBack()
+	{
+		for (memb in menuItems)
+		{
+			FlxTween.tween(memb, {x: -350}, 0.5, {ease: FlxEase.quadOut});
+		}
+
+		for (memb in menuItems2)
+		{
+			FlxTween.tween(memb, {x: FlxG.width + 10}, 0.5, {ease: FlxEase.quadOut});
+		}
+
+		FlxTween.tween(FlxG.camera, {zoom: 1.05}, 0.3, {ease: FlxEase.quadOut});
+		FlxG.camera.fade(0xFF000000, 0.4, false, null, true);
+
+		new FlxTimer().start(1, function(t:FlxTimer) 
+		{
+			MusicBeatState.switchState(new TitleState());
+		});
+	}
+
+	function transitionToMenu()
+	{
+		new FlxTimer().start(0.4, function(tmr:FlxTimer)
+		{
+			//FlxTween.tween(icons, {alpha: 0}, 0.15);
+			FlxTween.tween(charactersWhite, {alpha: 1}, 0.25, {onComplete: function(twn:FlxTween)
+			{
+				new FlxTimer().start(0.35, function(tmr:FlxTimer)
+				{
+					FlxTween.tween(icons, {alpha: 0}, 0.3);
+					FlxTween.color(bg, 0.3, 0xFFEEE4FF, 0xFFFFFFFF);
+					FlxTween.tween(charactersWhite, {"scale.x": 15, "scale.y": 15}, 0.3, {onComplete: function(twn2:FlxTween) {
+						MusicBeatState.switchState(new StoryMenuState());
+					}});
+				});
+			}});
+
+			FlxTween.tween(characters, {alpha: 0}, 0.25);
+		});
 	}
 
 	function changeItem(change:Int = 0, ?rightColumn:Bool)
