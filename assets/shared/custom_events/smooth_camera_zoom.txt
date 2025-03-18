@@ -1,2 +1,2 @@
 Value 1: Zoom
-Value 2: Duration
+Value 2: Duration / Ease (splitted by comma)
