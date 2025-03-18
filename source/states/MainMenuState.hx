@@ -427,9 +427,9 @@ class MainMenuState extends MusicBeatState
 			{
 				new FlxTimer().start(0.35, function(tmr:FlxTimer)
 				{
-					FlxTween.tween(icons, {alpha: 0}, 0.3);
-					FlxTween.color(bg, 0.3, 0xFFEEE4FF, 0xFFFFFFFF);
-					FlxTween.tween(charactersWhite, {"scale.x": 15, "scale.y": 15}, 0.3, {onComplete: function(twn2:FlxTween) {
+					FlxTween.tween(icons, {alpha: 0}, 0.3, {ease: FlxEase.quartIn});
+					FlxTween.color(bg, 0.3, 0xFFEEE4FF, 0xFFFFFFFF, {ease: FlxEase.quartIn});
+					FlxTween.tween(charactersWhite, {"scale.x": 15, "scale.y": 15}, 0.3, {ease: FlxEase.quartIn,onComplete: function(twn2:FlxTween) {
 						MusicBeatState.switchState(new StoryMenuState());
 					}});
 				});
