@@ -1,5 +1,6 @@
 ###
 
+- [x] Main Menu
 - [ ] Story Mode
 - [ ] Freeplay
 - [ ] Options
