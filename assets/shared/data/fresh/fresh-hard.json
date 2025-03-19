@@ -801,14 +801,12 @@
 			56000,
 			[
 				["smooth_camera_zoom", "0.86", "1.1, quartOut"],
-				["cutscene_bars", "6", "1.5, quartOut"],
 				["smooth_camera_zoom", "0.86", "1.1, quartOut"]
 			]
 		],
 		[
 			64000,
 			[
-				["cutscene_bars", "0", "1.5, quartOut"],
 				["smooth_camera_zoom", "0.75", "1.2, quartOut"],
 				["camera_flash", "0.8", ""]
 			]
