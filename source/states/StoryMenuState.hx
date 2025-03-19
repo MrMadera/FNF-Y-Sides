@@ -155,8 +155,8 @@ class StoryMenuState extends MusicBeatState
 		rightArrow = new FlxSprite(leftArrow.x + 376, leftArrow.y);
 		rightArrow.antialiasing = ClientPrefs.data.antialiasing;
 		rightArrow.frames = Paths.getSparrowAtlas('storymenu/arrow_right');
-		rightArrow.animation.addByPrefix('idle', 'arrow_right_press');
-		rightArrow.animation.addByPrefix('press', "arrow_right_static");
+		rightArrow.animation.addByPrefix('idle', 'arrow_right_static');
+		rightArrow.animation.addByPrefix('press', "arrow_right_press");
 		rightArrow.animation.play('idle');
 		difficultySelectors.add(rightArrow);
 
@@ -243,12 +243,12 @@ class StoryMenuState extends MusicBeatState
 				changeDifficulty();
 			}
 
-			if (controls.UI_RIGHT_P)
+			if (controls.UI_RIGHT)
 				rightArrow.animation.play('press');
 			else
 				rightArrow.animation.play('idle');
 
-			if (controls.UI_LEFT_P)
+			if (controls.UI_LEFT)
 				leftArrow.animation.play('press');
 			else
 				leftArrow.animation.play('idle');

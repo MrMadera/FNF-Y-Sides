@@ -10,12 +10,12 @@
 	<SubTexture name="arrow_right_press0005" x="47" y="5" width="26" height="36"/>
 	<SubTexture name="arrow_right_press0006" x="47" y="5" width="26" height="36"/>
 	<SubTexture name="arrow_right_press0007" x="47" y="5" width="26" height="36"/>
-	<SubTexture name="arrow_right_static0000" x="89" y="5" width="33" height="27" frameX="-11" frameY="-8" frameWidth="44" frameHeight="43"/>
-	<SubTexture name="arrow_right_static0001" x="89" y="5" width="33" height="27" frameX="-11" frameY="-8" frameWidth="44" frameHeight="43"/>
-	<SubTexture name="arrow_right_static0002" x="5" y="57" width="25" height="43" frameX="0" frameY="0" frameWidth="44" frameHeight="43"/>
-	<SubTexture name="arrow_right_static0003" x="5" y="57" width="25" height="43" frameX="0" frameY="0" frameWidth="44" frameHeight="43"/>
-	<SubTexture name="arrow_right_static0004" x="46" y="57" width="26" height="36" frameX="-4" frameY="-3" frameWidth="44" frameHeight="43"/>
-	<SubTexture name="arrow_right_static0005" x="46" y="57" width="26" height="36" frameX="-4" frameY="-3" frameWidth="44" frameHeight="43"/>
-	<SubTexture name="arrow_right_static0006" x="46" y="57" width="26" height="36" frameX="-4" frameY="-3" frameWidth="44" frameHeight="43"/>
-	<SubTexture name="arrow_right_static0007" x="46" y="57" width="26" height="36" frameX="-4" frameY="-3" frameWidth="44" frameHeight="43"/>
+	<SubTexture name="arrow_right_static0000" x="89" y="5" width="26" height="36"/>
+	<SubTexture name="arrow_right_static0001" x="89" y="5" width="26" height="36"/>
+	<SubTexture name="arrow_right_static0002" x="89" y="5" width="26" height="36"/>
+	<SubTexture name="arrow_right_static0003" x="89" y="5" width="26" height="36"/>
+	<SubTexture name="arrow_right_static0004" x="5" y="57" width="26" height="36"/>
+	<SubTexture name="arrow_right_static0005" x="5" y="57" width="26" height="36"/>
+	<SubTexture name="arrow_right_static0006" x="5" y="57" width="26" height="36"/>
+	<SubTexture name="arrow_right_static0007" x="5" y="57" width="26" height="36"/>
 </TextureAtlas>
