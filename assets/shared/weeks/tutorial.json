@@ -9,6 +9,7 @@
 		"gf"
 	],
 	"weekBackground": "stage",
+	"difficulties": "Hard",
 
 	"storyName": "",
 	"weekBefore": "tutorial",
