@@ -6,6 +6,7 @@ import backend.Song;
 
 import flixel.group.FlxGroup;
 import flixel.graphics.FlxGraphic;
+import flixel.addons.display.FlxBackdrop;
 
 import objects.MenuItem;
 import objects.MenuCharacter;
@@ -38,6 +39,7 @@ class StoryMenuState extends MusicBeatState
 	var rightArrow:FlxSprite;
 
 	var bg:FlxSprite;
+	var icons:FlxBackdrop;
 	var tv:FlxSprite;
 	var escapeButton:FlxSprite;
 	var tracksSpriteBack:FlxSprite;
@@ -74,6 +76,12 @@ class StoryMenuState extends MusicBeatState
 		bg = new FlxSprite();
 		bg.makeGraphic(1280, 720, 0xFFEEE4FF);
 		add(bg);
+
+		icons = new FlxBackdrop(Paths.image('mainmenu/icons'), XY);
+		icons.velocity.set(-25, 0);
+		icons.alpha = 0.3;
+		icons.antialiasing = ClientPrefs.data.antialiasing;
+		add(icons);
 
 		tv = new FlxSprite();
 		tv.loadGraphic(Paths.image('storymenu/TV'));
