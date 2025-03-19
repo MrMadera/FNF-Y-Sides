@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="weekArrows.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="arrow_DOWN0000" x="5" y="5" width="51" height="208" frameX="0" frameY="0" frameWidth="62" frameHeight="208"/>
+	<SubTexture name="arrow_DOWN0001" x="5" y="5" width="51" height="208" frameX="0" frameY="0" frameWidth="62" frameHeight="208"/>
+	<SubTexture name="arrow_DOWN0002" x="72" y="5" width="62" height="191" frameX="0" frameY="0" frameWidth="62" frameHeight="208"/>
+	<SubTexture name="arrow_DOWN0003" x="72" y="5" width="62" height="191" frameX="0" frameY="0" frameWidth="62" frameHeight="208"/>
+	<SubTexture name="arrow_DOWN0004" x="359" y="5" width="52" height="200" frameX="0" frameY="-1" frameWidth="53" frameHeight="201"/>
+	<SubTexture name="arrow_DOWN0005" x="359" y="5" width="52" height="200" frameX="0" frameY="-1" frameWidth="53" frameHeight="201"/>
+	<SubTexture name="arrow_DOWN0006" x="359" y="5" width="52" height="200" frameX="0" frameY="-1" frameWidth="53" frameHeight="201"/>
+	<SubTexture name="arrow_DOWN0007" x="359" y="5" width="52" height="200" frameX="0" frameY="-1" frameWidth="53" frameHeight="201"/>
+	<SubTexture name="arrow_UP0000" x="150" y="5" width="49" height="211" frameX="-9" frameY="0" frameWidth="59" frameHeight="211"/>
+	<SubTexture name="arrow_UP0001" x="150" y="5" width="49" height="211" frameX="-9" frameY="0" frameWidth="59" frameHeight="211"/>
+	<SubTexture name="arrow_UP0002" x="215" y="5" width="59" height="188" frameX="0" frameY="-23" frameWidth="59" frameHeight="211"/>
+	<SubTexture name="arrow_UP0003" x="215" y="5" width="59" height="188" frameX="0" frameY="-23" frameWidth="59" frameHeight="211"/>
+	<SubTexture name="arrow_UP0004" x="359" y="5" width="52" height="200" frameX="-5" frameY="-11" frameWidth="53" frameHeight="201"/>
+	<SubTexture name="arrow_UP0005" x="359" y="5" width="52" height="200" frameX="-5" frameY="-11" frameWidth="53" frameHeight="201"/>
+	<SubTexture name="arrow_UP0006" x="359" y="5" width="52" height="200" frameX="-5" frameY="-11" frameWidth="53" frameHeight="201"/>
+	<SubTexture name="arrow_UP0007" x="359" y="5" width="52" height="200" frameX="-5" frameY="-11" frameWidth="53" frameHeight="201"/>
+	<SubTexture name="arrow_static0000" x="290" y="5" width="53" height="201"/>
+	<SubTexture name="arrow_static0001" x="290" y="5" width="53" height="201"/>
+	<SubTexture name="arrow_static0002" x="290" y="5" width="53" height="201"/>
+	<SubTexture name="arrow_static0003" x="290" y="5" width="53" height="201"/>
+	<SubTexture name="arrow_static0004" x="359" y="5" width="52" height="200" frameX="0" frameY="-1" frameWidth="53" frameHeight="201"/>
+	<SubTexture name="arrow_static0005" x="359" y="5" width="52" height="200" frameX="0" frameY="-1" frameWidth="53" frameHeight="201"/>
+	<SubTexture name="arrow_static0006" x="359" y="5" width="52" height="200" frameX="0" frameY="-1" frameWidth="53" frameHeight="201"/>
+	<SubTexture name="arrow_static0007" x="359" y="5" width="52" height="200" frameX="0" frameY="-1" frameWidth="53" frameHeight="201"/>
+</TextureAtlas>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="escape.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="esc_normal0000" x="5" y="5" width="193" height="121" frameX="0" frameY="0" frameWidth="194" frameHeight="121"/>
+	<SubTexture name="esc_normal0001" x="5" y="5" width="193" height="121" frameX="0" frameY="0" frameWidth="194" frameHeight="121"/>
+	<SubTexture name="esc_normal0002" x="5" y="5" width="193" height="121" frameX="0" frameY="0" frameWidth="194" frameHeight="121"/>
+	<SubTexture name="esc_normal0003" x="5" y="5" width="193" height="121" frameX="0" frameY="0" frameWidth="194" frameHeight="121"/>
+	<SubTexture name="esc_normal0004" x="214" y="5" width="194" height="120" frameX="0" frameY="0" frameWidth="194" frameHeight="121"/>
+	<SubTexture name="esc_normal0005" x="214" y="5" width="194" height="120" frameX="0" frameY="0" frameWidth="194" frameHeight="121"/>
+	<SubTexture name="esc_normal0006" x="214" y="5" width="194" height="120" frameX="0" frameY="0" frameWidth="194" frameHeight="121"/>
+	<SubTexture name="esc_normal0007" x="214" y="5" width="194" height="120" frameX="0" frameY="0" frameWidth="194" frameHeight="121"/>
+	<SubTexture name="esc_selected0000" x="424" y="5" width="193" height="121" frameX="0" frameY="0" frameWidth="194" frameHeight="121"/>
+	<SubTexture name="esc_selected0001" x="424" y="5" width="193" height="121" frameX="0" frameY="0" frameWidth="194" frameHeight="121"/>
+	<SubTexture name="esc_selected0002" x="424" y="5" width="193" height="121" frameX="0" frameY="0" frameWidth="194" frameHeight="121"/>
+	<SubTexture name="esc_selected0003" x="424" y="5" width="193" height="121" frameX="0" frameY="0" frameWidth="194" frameHeight="121"/>
+	<SubTexture name="esc_selected0004" x="633" y="5" width="194" height="120" frameX="0" frameY="0" frameWidth="194" frameHeight="121"/>
+	<SubTexture name="esc_selected0005" x="633" y="5" width="194" height="120" frameX="0" frameY="0" frameWidth="194" frameHeight="121"/>
+	<SubTexture name="esc_selected0006" x="633" y="5" width="194" height="120" frameX="0" frameY="0" frameWidth="194" frameHeight="121"/>
+	<SubTexture name="esc_selected0007" x="633" y="5" width="194" height="120" frameX="0" frameY="0" frameWidth="194" frameHeight="121"/>
+	<SubTexture name="esc_selectedAnim0000" x="843" y="5" width="163" height="147" frameX="-21" frameY="0" frameWidth="205" frameHeight="147"/>
+	<SubTexture name="esc_selectedAnim0001" x="843" y="5" width="163" height="147" frameX="-21" frameY="0" frameWidth="205" frameHeight="147"/>
+	<SubTexture name="esc_selectedAnim0002" x="5" y="168" width="205" height="95" frameX="0" frameY="-26" frameWidth="205" frameHeight="147"/>
+	<SubTexture name="esc_selectedAnim0003" x="5" y="168" width="205" height="95" frameX="0" frameY="-26" frameWidth="205" frameHeight="147"/>
+	<SubTexture name="esc_selectedAnim0004" x="226" y="168" width="190" height="123" frameX="-8" frameY="-12" frameWidth="205" frameHeight="147"/>
+	<SubTexture name="esc_selectedAnim0005" x="226" y="168" width="190" height="123" frameX="-8" frameY="-12" frameWidth="205" frameHeight="147"/>
+	<SubTexture name="esc_selectedAnim0006" x="633" y="5" width="194" height="120" frameX="-6" frameY="-13" frameWidth="194" frameHeight="121"/>
+	<SubTexture name="esc_selectedAnim0007" x="633" y="5" width="194" height="120" frameX="-6" frameY="-13" frameWidth="194" frameHeight="121"/>
+</TextureAtlas>

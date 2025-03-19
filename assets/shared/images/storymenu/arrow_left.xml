@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="arrow_left.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="arrow_left_press0000" x="5" y="5" width="23" height="42" frameX="-20" frameY="0" frameWidth="43" frameHeight="42"/>
+	<SubTexture name="arrow_left_press0001" x="5" y="5" width="23" height="42" frameX="-20" frameY="0" frameWidth="43" frameHeight="42"/>
+	<SubTexture name="arrow_left_press0002" x="44" y="5" width="29" height="27" frameX="0" frameY="-8" frameWidth="43" frameHeight="42"/>
+	<SubTexture name="arrow_left_press0003" x="44" y="5" width="29" height="27" frameX="0" frameY="-8" frameWidth="43" frameHeight="42"/>
+	<SubTexture name="arrow_left_press0004" x="5" y="63" width="26" height="34" frameX="-12" frameY="-4" frameWidth="26" frameHeight="34"/>
+	<SubTexture name="arrow_left_press0005" x="5" y="63" width="26" height="34" frameX="-12" frameY="-4" frameWidth="26" frameHeight="34"/>
+	<SubTexture name="arrow_left_press0006" x="5" y="63" width="26" height="34" frameX="-12" frameY="-4" frameWidth="26" frameHeight="34"/>
+	<SubTexture name="arrow_left_press0007" x="5" y="63" width="26" height="34" frameX="-12" frameY="-4" frameWidth="26" frameHeight="34"/>
+	<SubTexture name="arrow_left_static0000" x="89" y="5" width="26" height="34"/>
+	<SubTexture name="arrow_left_static0001" x="89" y="5" width="26" height="34"/>
+	<SubTexture name="arrow_left_static0002" x="89" y="5" width="26" height="34"/>
+	<SubTexture name="arrow_left_static0003" x="89" y="5" width="26" height="34"/>
+	<SubTexture name="arrow_left_static0004" x="5" y="63" width="26" height="34"/>
+	<SubTexture name="arrow_left_static0005" x="5" y="63" width="26" height="34"/>
+	<SubTexture name="arrow_left_static0006" x="5" y="63" width="26" height="34"/>
+	<SubTexture name="arrow_left_static0007" x="5" y="63" width="26" height="34"/>
+</TextureAtlas>

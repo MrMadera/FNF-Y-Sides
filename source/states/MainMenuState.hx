@@ -430,6 +430,8 @@ class MainMenuState extends MusicBeatState
 					FlxTween.tween(icons, {alpha: 0}, 0.3, {ease: FlxEase.quartIn});
 					FlxTween.color(bg, 0.3, 0xFFEEE4FF, 0xFFFFFFFF, {ease: FlxEase.quartIn});
 					FlxTween.tween(charactersWhite, {"scale.x": 15, "scale.y": 15}, 0.3, {ease: FlxEase.quartIn,onComplete: function(twn2:FlxTween) {
+						FlxTransitionableState.skipNextTransIn = true;
+						FlxTransitionableState.skipNextTransOut = true;
 						MusicBeatState.switchState(new StoryMenuState());
 					}});
 				});
