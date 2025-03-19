@@ -1,5 +1,6 @@
 package states;
 
+import openfl.filters.ShaderFilter;
 import backend.WeekData;
 import backend.Highscore;
 import backend.Song;
@@ -13,6 +14,8 @@ import objects.MenuCharacter;
 
 import options.GameplayChangersSubstate;
 import substates.ResetScoreSubState;
+
+import shaders.BlurShader;
 
 import backend.StageData;
 
@@ -47,6 +50,10 @@ class StoryMenuState extends MusicBeatState
 
 	var loadedWeeks:Array<WeekData> = [];
 
+	var weekBackground:FlxSprite;
+	var blurShader:BlurShader;
+	//var shaderFilter:ShaderFilter;
+
 	override function create()
 	{
 		Paths.clearStoredMemory();
@@ -55,6 +62,11 @@ class StoryMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 		PlayState.isStoryMode = true;
 		WeekData.reloadWeekFiles(true);
+
+		// shaders shit
+		blurShader = new BlurShader();
+		blurShader.radius.value = [5.0];
+		//shaderFilter = new ShaderFilter(blurShader);
 
 		#if DISCORD_ALLOWED
 		// Updating Discord Rich Presence
@@ -77,11 +89,16 @@ class StoryMenuState extends MusicBeatState
 		bg.makeGraphic(1280, 720, 0xFFEEE4FF);
 		add(bg);
 
+		weekBackground = new FlxSprite();
+		weekBackground.shader = blurShader;
+		//weekBackground.loadGraphic(Paths.image('storymenu/bgs/week1'));
+		add(weekBackground);
+
 		icons = new FlxBackdrop(Paths.image('mainmenu/icons'), XY);
 		icons.velocity.set(-25, 0);
 		icons.alpha = 0.3;
 		icons.antialiasing = ClientPrefs.data.antialiasing;
-		add(icons);
+		//add(icons);
 
 		tv = new FlxSprite();
 		tv.loadGraphic(Paths.image('storymenu/TV'));
@@ -428,6 +445,8 @@ class StoryMenuState extends MusicBeatState
 
 		Difficulty.loadFromWeek();
 		difficultySelectors.visible = unlocked;
+
+		weekBackground.loadGraphic(Paths.image('storymenu/bgs/${leWeek.fileName}'));
 
 		if(Difficulty.list.contains(Difficulty.getDefault()))
 			curDifficulty = Math.round(Math.max(0, Difficulty.defaultList.indexOf(Difficulty.getDefault())));
