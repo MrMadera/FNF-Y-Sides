@@ -130,6 +130,16 @@ class MainMenuState extends MusicBeatState
 		charactersWhite.alpha = 0;
 		add(charactersWhite);
 
+		if(StoryMenuState.backFromStoryMode) {
+			StoryMenuState.backFromStoryMode = false;
+			
+			icons.alpha = 0;
+			FlxTween.tween(icons, {alpha: 0.45}, 0.7, {ease: FlxEase.quartOut});
+
+			characters.alpha = 0;
+			FlxTween.tween(characters, {alpha: 1}, 0.7, {ease: FlxEase.quartOut});
+		}
+
 		for(num => option in optionShit2)
 		{
 			var item:FlxSprite = createMenuItem(option, FlxG.width + 10, (num * 155) + 200, true);

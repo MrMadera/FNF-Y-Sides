@@ -54,6 +54,8 @@ class StoryMenuState extends MusicBeatState
 	var blurShader:BlurShader;
 	//var shaderFilter:ShaderFilter;
 
+	public static var backFromStoryMode:Bool = false;
+
 	override function create()
 	{
 		Paths.clearStoredMemory();
@@ -247,9 +249,22 @@ class StoryMenuState extends MusicBeatState
 		{
 			if (controls.BACK && !movedBack && !selectedWeek)
 			{
+				FlxTween.tween(weekBackground, {alpha: 0}, 1, {ease: FlxEase.quartOut});
+				FlxTween.tween(tv, {y: FlxG.height}, 1, {ease: FlxEase.quartOut});
+				FlxTween.tween(escapeButton, {y: -escapeButton.height}, 1, {ease: FlxEase.quartOut});
+				FlxTween.tween(leftArrow, {y: leftArrow.y + 10, alpha: 0}, 0.5, {ease: FlxEase.quartOut, startDelay: 0.1});
+				FlxTween.tween(sprDifficulty, {y: sprDifficulty.y + 10, alpha: 0}, 0.5, {ease: FlxEase.quartOut, startDelay: 0.2});
+				FlxTween.tween(rightArrow, {y: rightArrow.y + 10, alpha: 0}, 0.5, {ease: FlxEase.quartOut, startDelay: 0.3});
+				FlxTween.tween(tracksSpriteBack, {y: -tracksSpriteBack.height}, 1, {ease: FlxEase.quartOut});
+				FlxTween.tween(songSpriteBack, {y: FlxG.height}, 1, {ease: FlxEase.quartOut, onComplete: function(twn:FlxTween)
+				{
+					FlxTransitionableState.skipNextTransIn = true;
+					FlxTransitionableState.skipNextTransOut = true;
+					MusicBeatState.switchState(new MainMenuState());
+				}});
+
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				movedBack = true;
-				MusicBeatState.switchState(new MainMenuState());
 			}
 			super.update(elapsed);
 			return;
@@ -330,7 +345,20 @@ class StoryMenuState extends MusicBeatState
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			movedBack = true;
-			MusicBeatState.switchState(new MainMenuState());
+			FlxTween.tween(weekBackground, {alpha: 0}, 0.6, {ease: FlxEase.quartOut});
+			FlxTween.tween(tv, {y: FlxG.height}, 0.6, {ease: FlxEase.quartOut});
+			FlxTween.tween(escapeButton, {y: -escapeButton.height}, 0.6, {ease: FlxEase.quartOut});
+			FlxTween.tween(leftArrow, {y: leftArrow.y + 10, alpha: 0}, 0.3, {ease: FlxEase.quartOut, startDelay: 0.1});
+			FlxTween.tween(sprDifficulty, {y: sprDifficulty.y + 10, alpha: 0}, 0.3, {ease: FlxEase.quartOut, startDelay: 0.2});
+			FlxTween.tween(rightArrow, {y: rightArrow.y + 10, alpha: 0}, 0.3, {ease: FlxEase.quartOut, startDelay: 0.3});
+			FlxTween.tween(tracksSpriteBack, {y: -tracksSpriteBack.height}, 0.6, {ease: FlxEase.quartOut});
+			FlxTween.tween(songSpriteBack, {y: FlxG.height}, 0.6, {ease: FlxEase.quartOut, onComplete: function(twn:FlxTween)
+			{
+				FlxTransitionableState.skipNextTransIn = true;
+				FlxTransitionableState.skipNextTransOut = true;
+				backFromStoryMode = true;
+				MusicBeatState.switchState(new MainMenuState());
+			}});
 		}
 
 		super.update(elapsed);
