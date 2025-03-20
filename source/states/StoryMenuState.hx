@@ -65,7 +65,7 @@ class StoryMenuState extends MusicBeatState
 
 		// shaders shit
 		blurShader = new BlurShader();
-		blurShader.radius.value = [5.0];
+		blurShader.radius.value = [8.0];
 		//shaderFilter = new ShaderFilter(blurShader);
 
 		#if DISCORD_ALLOWED
@@ -91,8 +91,11 @@ class StoryMenuState extends MusicBeatState
 
 		weekBackground = new FlxSprite();
 		weekBackground.shader = blurShader;
+		weekBackground.alpha = 0;
 		//weekBackground.loadGraphic(Paths.image('storymenu/bgs/week1'));
 		add(weekBackground);
+
+		FlxTween.tween(weekBackground, {alpha: 1}, 1, {ease: FlxEase.quartOut});
 
 		icons = new FlxBackdrop(Paths.image('mainmenu/icons'), XY);
 		icons.velocity.set(-25, 0);
@@ -102,8 +105,10 @@ class StoryMenuState extends MusicBeatState
 
 		tv = new FlxSprite();
 		tv.loadGraphic(Paths.image('storymenu/TV'));
-		tv.y = FlxG.height - tv.height;
+		tv.y = FlxG.height;
 		add(tv);
+
+		FlxTween.tween(tv, {y: FlxG.height - tv.height}, 1, {ease: FlxEase.quartOut});
 
 		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
 
@@ -151,7 +156,10 @@ class StoryMenuState extends MusicBeatState
 		escapeButton.animation.addByPrefix('select', 'esc_selected');
 		escapeButton.animation.addByPrefix('selectAnim', 'esc_selectedAnim');
 		escapeButton.animation.play('idle');
+		escapeButton.y = 0 - escapeButton.height;
 		add(escapeButton);
+
+		FlxTween.tween(escapeButton, {y: 10}, 1, {ease: FlxEase.quartOut});
 
 		WeekData.setDirectoryFromWeek(loadedWeeks[0]);
 
@@ -164,7 +172,10 @@ class StoryMenuState extends MusicBeatState
 		leftArrow.animation.addByPrefix('idle', "arrow_left_static");
 		leftArrow.animation.addByPrefix('press', "arrow_left_press");
 		leftArrow.animation.play('idle');
+		leftArrow.alpha = 0;
 		difficultySelectors.add(leftArrow);
+
+		FlxTween.tween(leftArrow, {y: leftArrow.y - 10, alpha: 1}, 0.5, {ease: FlxEase.quartOut, startDelay: 0.1});
 
 		Difficulty.resetList();
 		if(lastDifficultyName == '')
@@ -175,7 +186,10 @@ class StoryMenuState extends MusicBeatState
 		
 		sprDifficulty = new FlxSprite(0, leftArrow.y);
 		sprDifficulty.antialiasing = ClientPrefs.data.antialiasing;
+		sprDifficulty.alpha = 0;
 		difficultySelectors.add(sprDifficulty);
+
+		FlxTween.tween(sprDifficulty, {y: sprDifficulty.y - 10, alpha: 1}, 0.5, {ease: FlxEase.quartOut, startDelay: 0.2});
 
 		rightArrow = new FlxSprite(leftArrow.x + 376, leftArrow.y);
 		rightArrow.antialiasing = ClientPrefs.data.antialiasing;
@@ -183,12 +197,18 @@ class StoryMenuState extends MusicBeatState
 		rightArrow.animation.addByPrefix('idle', 'arrow_right_static');
 		rightArrow.animation.addByPrefix('press', "arrow_right_press");
 		rightArrow.animation.play('idle');
+		rightArrow.alpha = 0;
 		difficultySelectors.add(rightArrow);
+
+		FlxTween.tween(rightArrow, {y: rightArrow.y - 10, alpha: 1}, 0.5, {ease: FlxEase.quartOut, startDelay: 0.3});
 
 		tracksSpriteBack = new FlxSprite(0, 0).loadGraphic(Paths.image('storymenu/songThing'));
 		tracksSpriteBack.antialiasing = ClientPrefs.data.antialiasing;
 		tracksSpriteBack.x = FlxG.width - tracksSpriteBack.width - 10;
+		tracksSpriteBack.y = 0 - tracksSpriteBack.height;
 		add(tracksSpriteBack);
+
+		FlxTween.tween(tracksSpriteBack, {y: 0}, 1, {ease: FlxEase.quartOut});
 
 		txtTracklist = new FlxText(FlxG.width * 0.05, tracksSpriteBack.y + 120, tracksSpriteBack.width - 30, "", 32);
 		txtTracklist.alignment = CENTER;
@@ -199,8 +219,10 @@ class StoryMenuState extends MusicBeatState
 		songSpriteBack = new FlxSprite();
 		songSpriteBack.loadGraphic(Paths.image('storymenu/scoreThing'));
 		songSpriteBack.x = FlxG.width - songSpriteBack.width;
-		songSpriteBack.y = FlxG.height - songSpriteBack.height;
+		songSpriteBack.y = FlxG.height;
 		add(songSpriteBack);
+
+		FlxTween.tween(songSpriteBack, {y: FlxG.height - songSpriteBack.height}, 1, {ease: FlxEase.quartOut});
 
 		scoreText = new FlxText(songSpriteBack.x + 15, 0, 0, Language.getPhrase('week_score', 'WEEK SCORE: {1}', [lerpScore]), 36);
 		scoreText.setFormat(Paths.font("vcr.ttf"), 32);
@@ -232,6 +254,10 @@ class StoryMenuState extends MusicBeatState
 			super.update(elapsed);
 			return;
 		}
+
+		if(tv != null) grpWeekText.members[curWeek].y = tv.y + 310;
+		if(tracksSpriteBack != null) txtTracklist.y = tracksSpriteBack.y + 120;
+		if(songSpriteBack != null) scoreText.y = songSpriteBack.y + songSpriteBack.height/2 - scoreText.height/2;
 
 		// scoreText.setFormat(Paths.font("vcr.ttf"), 32);
 		if(intendedScore != lerpScore)
