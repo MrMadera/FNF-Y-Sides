@@ -48,6 +48,9 @@ class StoryMenuState extends MusicBeatState
 	var tracksSpriteBack:FlxSprite;
 	var songSpriteBack:FlxSprite;
 
+	var weekArrowUp:FlxSprite;
+	var weekArrowDown:FlxSprite;
+
 	var loadedWeeks:Array<WeekData> = [];
 
 	var weekBackground:FlxSprite;
@@ -150,6 +153,30 @@ class StoryMenuState extends MusicBeatState
 				num++;
 			}
 		}
+
+		weekArrowUp = new FlxSprite(0, 0);
+		//weekArrowUp.loadGraphic(Paths.image('storymenu/weekArrows_up'));
+		weekArrowUp.frames = Paths.getSparrowAtlas('storymenu/weekArrows_up');
+		weekArrowUp.animation.addByPrefix('idle', 'arrow_static');
+		weekArrowUp.animation.addByPrefix('press', 'arrow_UP', 24, false);
+		weekArrowUp.animation.play('idle');
+		weekArrowUp.x = tv.x + tv.width/2 - weekArrowUp.width/2;
+		weekArrowUp.y = 1000;
+		add(weekArrowUp);
+
+		FlxTween.tween(weekArrowUp, {y: 510}, 1, {ease: FlxEase.quartOut});
+
+		weekArrowDown = new FlxSprite(40, 0);
+		//weekArrowDown.loadGraphic(Paths.image('storymenu/weekArrows_down'));
+		weekArrowDown.frames = Paths.getSparrowAtlas('storymenu/weekArrows_down');
+		weekArrowDown.animation.addByPrefix('idle', 'arrow_static');
+		weekArrowDown.animation.addByPrefix('press', 'arrow_DOWN', 24, false);
+		weekArrowDown.animation.play('idle');
+		weekArrowDown.x = tv.x + tv.width/2 - weekArrowDown.width/2;
+		weekArrowDown.y = 1000;
+		add(weekArrowDown);
+
+		FlxTween.tween(weekArrowDown, {y: 510}, 1, {ease: FlxEase.quartOut});
 
 		escapeButton = new FlxSprite(10, 10);
 		//escapeButton.loadGraphic(Paths.image('storymenu/escape'));
@@ -290,6 +317,11 @@ class StoryMenuState extends MusicBeatState
 			var changeDiff = false;
 			if (controls.UI_UP_P)
 			{
+				weekArrowUp.animation.play('press');
+				weekArrowUp.animation.finishCallback = function(name:String)
+				{
+					if(name == 'press') weekArrowUp.animation.play('idle');
+				}
 				changeWeek(-1);
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeDiff = true;
@@ -297,6 +329,11 @@ class StoryMenuState extends MusicBeatState
 
 			if (controls.UI_DOWN_P)
 			{
+				weekArrowDown.animation.play('press');
+				weekArrowDown.animation.finishCallback = function(name:String)
+				{
+					if(name == 'press') weekArrowDown.animation.play('idle');
+				}
 				changeWeek(1);
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeDiff = true;
@@ -352,6 +389,8 @@ class StoryMenuState extends MusicBeatState
 			FlxTween.tween(sprDifficulty, {y: sprDifficulty.y + 10, alpha: 0}, 0.3, {ease: FlxEase.quartOut, startDelay: 0.2});
 			FlxTween.tween(rightArrow, {y: rightArrow.y + 10, alpha: 0}, 0.3, {ease: FlxEase.quartOut, startDelay: 0.3});
 			FlxTween.tween(tracksSpriteBack, {y: -tracksSpriteBack.height}, 0.6, {ease: FlxEase.quartOut});
+			FlxTween.tween(weekArrowUp, {y: 1000}, 1, {ease: FlxEase.quartOut});
+			FlxTween.tween(weekArrowDown, {y: 1000}, 1, {ease: FlxEase.quartOut});
 			FlxTween.tween(songSpriteBack, {y: FlxG.height}, 0.6, {ease: FlxEase.quartOut, onComplete: function(twn:FlxTween)
 			{
 				FlxTransitionableState.skipNextTransIn = true;
