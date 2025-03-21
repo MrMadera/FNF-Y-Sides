@@ -106,6 +106,12 @@ class TitleState extends MusicBeatState
 			FlxTransitionableState.skipNextTransOut = true;
 			MusicBeatState.switchState(new FlashingState());
 		}
+		else if(FlxG.save.data.performanceWarning == null && !PerformanceWarning.leftState) 
+		{
+			FlxTransitionableState.skipNextTransIn = true;
+			FlxTransitionableState.skipNextTransOut = true;
+			MusicBeatState.switchState(new PerformanceWarning());
+		}
 		else
 			startIntro();
 		#end

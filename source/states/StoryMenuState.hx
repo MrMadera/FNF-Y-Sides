@@ -92,7 +92,7 @@ class StoryMenuState extends MusicBeatState
 		add(bg);
 
 		weekBackground = new FlxSprite();
-		weekBackground.shader = blurShader;
+		if(!ClientPrefs.data.lowQuality) weekBackground.shader = blurShader;
 		weekBackground.alpha = 0;
 		//weekBackground.loadGraphic(Paths.image('storymenu/bgs/week1'));
 		add(weekBackground);
