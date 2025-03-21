@@ -253,9 +253,9 @@ class StoryMenuState extends MusicBeatState
 
 		FlxTween.tween(songSpriteBack, {y: FlxG.height - songSpriteBack.height}, 1, {ease: FlxEase.quartOut});
 
-		scoreText = new FlxText(songSpriteBack.x + 15, 0, 0, Language.getPhrase('week_score', 'WEEK SCORE: {1}', [lerpScore]), 36);
-		scoreText.setFormat(Paths.font("vcr.ttf"), 32);
-		scoreText.y = songSpriteBack.y + songSpriteBack.height/2 - scoreText.height/2;
+		scoreText = new FlxText(songSpriteBack.x + 25, 0, 0, Language.getPhrase('week_score', 'WEEK SCORE: {1}', [lerpScore]), 36);
+		scoreText.setFormat(Paths.font("FredokaOne-Regular.ttf"), 32);
+		scoreText.y = songSpriteBack.y + songSpriteBack.height/2 - scoreText.height/2 + 25;
 		add(scoreText);
 
 		changeWeek();
