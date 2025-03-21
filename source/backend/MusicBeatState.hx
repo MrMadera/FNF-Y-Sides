@@ -83,8 +83,37 @@ class MusicBeatState extends FlxState
 			stage.update(elapsed);
 		});
 
+		if(FlxG.mouse.visible)
+		{
+			if(FlxG.mouse.justPressed) {
+				createSplash();
+			}
+		}
+
 		super.update(elapsed);
 	}
+
+    function createSplash()
+	{
+        trace('creating splash');
+		var splash = new FlxSprite(FlxG.mouse.x, FlxG.mouse.y);
+		splash.frames = Paths.getSparrowAtlas("boing");
+		splash.animation.addByPrefix('s', 'boing', 24, false);
+		splash.animation.play('s');
+		splash.offset.set(30, 35);
+		add(splash);
+
+		trace('splash position: ${splash.x}, ${splash.y} | mouse position: ${FlxG.mouse.x}, ${FlxG.mouse.y}');
+
+		splash.animation.finishCallback = function(name:String)
+		{
+            if(name == 's')
+            {
+                splash.kill();
+                trace('killin splash');
+            }
+        }
+    }
 
 	private function updateSection():Void
 	{
