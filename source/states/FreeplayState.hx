@@ -39,6 +39,7 @@ class FreeplayState extends MusicBeatState
 	private var curPlaying:Bool = false;
 
 	private var iconArray:Array<HealthIcon> = [];
+	private var eachCenter:Array<Float> = [];
 
 	var bg:FlxSprite;
 	var intendedColor:Int;
@@ -119,6 +120,7 @@ class FreeplayState extends MusicBeatState
 			var songText:Alphabet = new Alphabet(0, 220, songs[i].songName, true);
 			songText.targetY = i;
 			songText.screenCenter(X);
+			eachCenter.push(songText.x);
 			grpSongs.add(songText);
 
 			songText.scaleX = Math.min(1, 980 / songText.width);
@@ -135,7 +137,6 @@ class FreeplayState extends MusicBeatState
 
 			// using a FlxGroup is too much fuss!
 			iconArray.push(icon);
-			add(icon);
 
 			// songText.x += 40;
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
@@ -549,8 +550,8 @@ class FreeplayState extends MusicBeatState
 		for (num => item in grpSongs.members)
 		{
 			var icon:HealthIcon = iconArray[num];
-			item.alpha = 0;
-			icon.alpha = 0;
+			item.alpha = 0.6;
+			icon.alpha = 0.6;
 			if (item.targetY == curSelected)
 			{
 				item.alpha = 1;
@@ -607,8 +608,18 @@ class FreeplayState extends MusicBeatState
 		{
 			var item:Alphabet = grpSongs.members[i];
 			item.visible = item.active = true;
-			item.x = ((item.targetY - lerpSelected) * item.distancePerItem.x) + item.startPosition.x;
-			item.y = ((item.targetY - lerpSelected) * 1.3 * item.distancePerItem.y) + item.startPosition.y;
+			
+			var xSpacing:Float = 16;
+			item.x = (((item.targetY - lerpSelected) * item.distancePerItem.x) * xSpacing) + item.startPosition.x + eachCenter[item.targetY];
+
+			var diff:Float = item.targetY - lerpSelected;
+			var yOffset:Float = diff * 1.3 * item.distancePerItem.y;
+
+			if(diff > 0) {
+			    yOffset *= -1;
+			}
+
+			item.y = yOffset + item.startPosition.y;
 
 			var icon:HealthIcon = iconArray[i];
 			icon.visible = icon.active = true;
