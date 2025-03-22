@@ -29,6 +29,7 @@
 
 - [ ] Dialogues
 - [ ] Mechanics
+- [ ] Main menu music
 
 ### SPECIFIC
 
