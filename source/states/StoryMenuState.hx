@@ -15,8 +15,6 @@ import objects.MenuCharacter;
 import options.GameplayChangersSubstate;
 import substates.ResetScoreSubState;
 
-import shaders.BlurShader;
-
 import backend.StageData;
 
 class StoryMenuState extends MusicBeatState
@@ -54,7 +52,6 @@ class StoryMenuState extends MusicBeatState
 	var loadedWeeks:Array<WeekData> = [];
 
 	var weekBackground:FlxSprite;
-	var blurShader:BlurShader;
 	//var shaderFilter:ShaderFilter;
 
 	public static var backFromStoryMode:Bool = false;
@@ -67,11 +64,6 @@ class StoryMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 		PlayState.isStoryMode = true;
 		WeekData.reloadWeekFiles(true);
-
-		// shaders shit
-		blurShader = new BlurShader();
-		blurShader.radius.value = [8.0];
-		//shaderFilter = new ShaderFilter(blurShader);
 
 		#if DISCORD_ALLOWED
 		// Updating Discord Rich Presence
@@ -95,7 +87,6 @@ class StoryMenuState extends MusicBeatState
 		add(bg);
 
 		weekBackground = new FlxSprite();
-		if(!ClientPrefs.data.lowQuality) weekBackground.shader = blurShader;
 		weekBackground.alpha = 0;
 		//weekBackground.loadGraphic(Paths.image('storymenu/bgs/week1'));
 		add(weekBackground);

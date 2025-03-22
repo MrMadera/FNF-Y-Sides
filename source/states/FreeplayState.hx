@@ -48,6 +48,9 @@ class FreeplayState extends MusicBeatState
 
 	var bottomString:String;
 	var bottomText:FlxText;
+	var bf:FlxSprite;
+	var cloud:FlxSprite;
+	var scoreThing:FlxSprite;
 	var bottomBG:FlxSprite;
 
 	var player:MusicPlayer;
@@ -113,8 +116,9 @@ class FreeplayState extends MusicBeatState
 
 		for (i in 0...songs.length)
 		{
-			var songText:Alphabet = new Alphabet(90, 320, songs[i].songName, true);
+			var songText:Alphabet = new Alphabet(0, 220, songs[i].songName, true);
 			songText.targetY = i;
+			songText.screenCenter(X);
 			grpSongs.add(songText);
 
 			songText.scaleX = Math.min(1, 980 / songText.width);
@@ -135,7 +139,6 @@ class FreeplayState extends MusicBeatState
 
 			// songText.x += 40;
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
-			// songText.screenCenter(X);
 		}
 		WeekData.setDirectoryFromWeek();
 
@@ -163,6 +166,22 @@ class FreeplayState extends MusicBeatState
 		missingText.scrollFactor.set();
 		missingText.visible = false;
 		add(missingText);
+
+		scoreThing = new FlxSprite(75, 350);
+		scoreThing.loadGraphic(Paths.image('freePlay/scoreThing'));
+		add(scoreThing);
+
+		cloud = new FlxSprite(750, 300);
+		cloud.loadGraphic(Paths.image('freePlay/cloud'));
+		add(cloud);
+
+		bf = new FlxSprite(0, 0);
+		bf.frames = Paths.getSparrowAtlas('freePlay/bf');
+		bf.animation.addByPrefix('idle', 'coso', 24, true);
+		bf.animation.play('idle');
+		bf.screenCenter(X);
+		bf.y = 475;
+		add(bf);
 
 		if(curSelected >= songs.length) curSelected = 0;
 		bg.color = songs[curSelected].color;
@@ -530,8 +549,8 @@ class FreeplayState extends MusicBeatState
 		for (num => item in grpSongs.members)
 		{
 			var icon:HealthIcon = iconArray[num];
-			item.alpha = 0.6;
-			icon.alpha = 0.6;
+			item.alpha = 0;
+			icon.alpha = 0;
 			if (item.targetY == curSelected)
 			{
 				item.alpha = 1;

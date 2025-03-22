@@ -1,115 +1,115 @@
 {
 	"animations": {
 		"blue2": {
-			"prefix": "note splash blue 2",
+			"prefix": "note splash blue",
 			"fps": [
-				22,
-				26
+				24,
+				24
 			],
 			"offsets": [
-				-52,
-				-48
+				-80,
+				-80
 			],
 			"indices": [],
-			"name": "blue2",
+			"name": "blue",
 			"noteData": 5
 		},
 		"purple": {
-			"prefix": "note splash purple 1",
+			"prefix": "note splash purple",
 			"fps": [
-				22,
-				26
+				24,
+				24
 			],
 			"offsets": [
-				-58,
-				-55
+				-85,
+				-75
 			],
 			"indices": [],
 			"name": "purple",
 			"noteData": 0
 		},
 		"red": {
-			"prefix": "note splash red 1",
+			"prefix": "note splash red",
 			"fps": [
-				22,
-				26
+				24,
+				24
 			],
 			"offsets": [
-				-58,
-				-55
+				-80,
+				-80
 			],
 			"indices": [],
 			"name": "red",
 			"noteData": 3
 		},
 		"red2": {
-			"prefix": "note splash red 2",
+			"prefix": "note splash red",
 			"fps": [
-				22,
-				26
+				24,
+				24
 			],
 			"offsets": [
-				-52,
-				-48
+				-80,
+				-80
 			],
 			"indices": [],
-			"name": "red2",
+			"name": "red",
 			"noteData": 7
 		},
 		"blue": {
-			"prefix": "note splash blue 1",
+			"prefix": "note splash blue",
 			"fps": [
-				22,
-				26
+				24,
+				24
 			],
 			"offsets": [
-				-58,
-				-55
+				-80,
+				-80
 			],
 			"indices": [],
 			"name": "blue",
 			"noteData": 1
 		},
 		"purple2": {
-			"prefix": "note splash purple 2",
+			"prefix": "note splash purple",
 			"fps": [
-				22,
-				26
+				24,
+				24
 			],
 			"offsets": [
-				-52,
-				-48
+				-80,
+				-80
 			],
 			"indices": [],
-			"name": "purple2",
+			"name": "purple",
 			"noteData": 4
 		},
 		"green": {
-			"prefix": "note splash green 1",
+			"prefix": "note splash green",
 			"fps": [
-				22,
-				26
+				24,
+				24
 			],
 			"offsets": [
-				-58,
-				-55
+				-80,
+				-80
 			],
 			"indices": [],
 			"name": "green",
 			"noteData": 2
 		},
 		"green2": {
-			"prefix": "note splash green 2",
+			"prefix": "note splash green",
 			"fps": [
-				22,
-				26
+				24,
+				24
 			],
 			"offsets": [
-				-52,
-				-48
+				-80,
+				-80
 			],
 			"indices": [],
-			"name": "green2",
+			"name": "green",
 			"noteData": 6
 		}
 	},
