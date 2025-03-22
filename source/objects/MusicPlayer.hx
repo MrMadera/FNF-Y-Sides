@@ -259,7 +259,6 @@ class MusicPlayer extends FlxGroup
 
 		if (playingMusic)
 		{
-			instance.bottomText.text = Language.getPhrase('musicplayer_tip', 'Press SPACE to Pause / Press ESCAPE to Exit / Press R to Reset the Song');
 			positionSong();
 			
 			progressBar.setRange(0, FlxG.sound.music.length);
@@ -274,7 +273,6 @@ class MusicPlayer extends FlxGroup
 			progressBar.setParent(null, "");
 			progressBar.numDivisions = 0;
 
-			instance.bottomText.text = instance.bottomString;
 			instance.positionHighscore();
 		}
 		progressBar.updateBar();

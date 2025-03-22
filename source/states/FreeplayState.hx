@@ -48,11 +48,10 @@ class FreeplayState extends MusicBeatState
 	var missingText:FlxText;
 
 	var bottomString:String;
-	var bottomText:FlxText;
 	var bf:FlxSprite;
 	var cloud:FlxSprite;
+	var currentIcon:FlxSprite;
 	var scoreThing:FlxSprite;
-	var bottomBG:FlxSprite;
 
 	var player:MusicPlayer;
 
@@ -130,7 +129,6 @@ class FreeplayState extends MusicBeatState
 			var icon:HealthIcon = new HealthIcon(songs[i].songCharacter);
 			icon.sprTracker = songText;
 
-			
 			// too laggy with a lot of songs, so i had to recode the logic for it
 			songText.visible = songText.active = songText.isMenuItem = false;
 			icon.visible = icon.active = false;
@@ -156,7 +154,6 @@ class FreeplayState extends MusicBeatState
 
 		add(scoreText);
 
-
 		missingTextBG = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		missingTextBG.alpha = 0.6;
 		missingTextBG.visible = false;
@@ -170,17 +167,24 @@ class FreeplayState extends MusicBeatState
 
 		scoreThing = new FlxSprite(75, 350);
 		scoreThing.loadGraphic(Paths.image('freePlay/scoreThing'));
+		scoreThing.antialiasing = ClientPrefs.data.antialiasing;
 		add(scoreThing);
 
 		cloud = new FlxSprite(750, 300);
 		cloud.loadGraphic(Paths.image('freePlay/cloud'));
+		cloud.antialiasing = ClientPrefs.data.antialiasing;
 		add(cloud);
+
+		currentIcon = new FlxSprite(cloud.x, cloud.y);
+		currentIcon.antialiasing = ClientPrefs.data.antialiasing;
+		add(currentIcon);
 
 		bf = new FlxSprite(0, 0);
 		bf.frames = Paths.getSparrowAtlas('freePlay/bf');
 		bf.animation.addByPrefix('idle', 'coso', 24, true);
 		bf.animation.play('idle');
 		bf.screenCenter(X);
+		bf.antialiasing = ClientPrefs.data.antialiasing;
 		bf.y = 475;
 		add(bf);
 
@@ -191,17 +195,9 @@ class FreeplayState extends MusicBeatState
 
 		curDifficulty = Math.round(Math.max(0, Difficulty.defaultList.indexOf(lastDifficultyName)));
 
-		bottomBG = new FlxSprite(0, FlxG.height - 26).makeGraphic(FlxG.width, 26, 0xFF000000);
-		bottomBG.alpha = 0.6;
-		add(bottomBG);
-
 		var leText:String = Language.getPhrase("freeplay_tip", "Press SPACE to listen to the Song / Press CTRL to open the Gameplay Changers Menu / Press RESET to Reset your Score and Accuracy.");
 		bottomString = leText;
 		var size:Int = 16;
-		bottomText = new FlxText(bottomBG.x, bottomBG.y + 4, FlxG.width, leText, size);
-		bottomText.setFormat(Paths.font("vcr.ttf"), size, FlxColor.WHITE, CENTER);
-		bottomText.scrollFactor.set();
-		add(bottomText);
 		
 		player = new MusicPlayer(this);
 		add(player);
@@ -235,8 +231,17 @@ class FreeplayState extends MusicBeatState
 	var holdTime:Float = 0;
 
 	var stopMusicPlay:Bool = false;
+	var iconTimer:Float = 0;
+	var iconAngleReverse:Bool = false;
 	override function update(elapsed:Float)
 	{
+		iconTimer += elapsed;
+		if(iconTimer > 1) {
+			iconTimer = 0;
+			iconAngleReverse = !iconAngleReverse;
+			currentIcon.angle = iconAngleReverse ? -5 : 5;
+		}
+
 		if(WeekData.weeksList.length < 1)
 			return;
 
@@ -550,10 +555,18 @@ class FreeplayState extends MusicBeatState
 		for (num => item in grpSongs.members)
 		{
 			var icon:HealthIcon = iconArray[num];
+
 			item.alpha = 0.6;
 			icon.alpha = 0.6;
 			if (item.targetY == curSelected)
 			{
+				currentIcon.frames = icon.frames;
+				currentIcon.animation = icon.animation;
+				currentIcon.animation.play(icon.animation.name);
+	
+				currentIcon.x = cloud.x + cloud.width/2 - currentIcon.width/2 + 70;
+				currentIcon.y = cloud.y + cloud.height/2 - currentIcon.height/2;
+
 				item.alpha = 1;
 				icon.alpha = 1;
 			}
