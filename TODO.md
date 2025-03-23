@@ -10,7 +10,7 @@
 
 - [x] Health bar
 - [x] Notes
-- [ ] Splahses
+- [x] Splahses
 - [x] Icons
 - [x] Time bar
 
