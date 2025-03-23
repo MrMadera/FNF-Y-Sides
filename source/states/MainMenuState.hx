@@ -361,7 +361,7 @@ class MainMenuState extends MusicBeatState
 						#end
 
 						case 'credits':
-							MusicBeatState.switchState(new CreditsState());
+							MusicBeatState.switchState(new CreditsState2());
 						case 'options':
 							MusicBeatState.switchState(new OptionsState());
 							OptionsState.onPlayState = false;
