@@ -334,7 +334,11 @@ class MainMenuState extends MusicBeatState
 				}
 
 				if(option == 'story_mode') {
-					transitionToMenu();
+					transitionToStoryMenu();
+				}
+
+				if(option == 'freeplay') {
+					transitionToFreeplay();
 				}
 
 				FlxFlicker.flicker(item, 1, 0.06, false, false, function(flick:FlxFlicker)
@@ -342,9 +346,9 @@ class MainMenuState extends MusicBeatState
 					switch (option)
 					{
 						case 'story_mode':
-							//transitionToMenu();
+							//transitionToStoryMenu();
 						case 'freeplay':
-							MusicBeatState.switchState(new FreeplayState());
+							//MusicBeatState.switchState(new FreeplayState());
 
 						#if MODS_ALLOWED
 						case 'mods':
@@ -428,7 +432,7 @@ class MainMenuState extends MusicBeatState
 		});
 	}
 
-	function transitionToMenu()
+	function transitionToStoryMenu()
 	{
 		new FlxTimer().start(0.4, function(tmr:FlxTimer)
 		{
@@ -444,6 +448,28 @@ class MainMenuState extends MusicBeatState
 						FlxTransitionableState.skipNextTransOut = true;
 						MusicBeatState.switchState(new StoryMenuState());
 					}});
+				});
+			}});
+
+			FlxTween.tween(characters, {alpha: 0}, 0.25);
+		});
+	}
+
+	function transitionToFreeplay()
+	{
+		new FlxTimer().start(0.4, function(tmr:FlxTimer)
+		{
+			FlxTween.tween(icons, {alpha: 0}, 0.35);
+
+			FlxTween.tween(menuItems.members[curSelected], {y: 500, alpha: 0, angle: -15}, 0.75, {ease: FlxEase.quartIn});
+
+			FlxTween.tween(characters, {y: 500, alpha: 0, angle: 15}, 0.75, {ease: FlxEase.quartIn, onComplete: function(twn:FlxTween)
+			{
+				new FlxTimer().start(0.15, function(tmr:FlxTimer)
+				{
+					FlxTransitionableState.skipNextTransIn = true;
+					FlxTransitionableState.skipNextTransOut = true;
+					MusicBeatState.switchState(new FreeplayState());
 				});
 			}});
 
