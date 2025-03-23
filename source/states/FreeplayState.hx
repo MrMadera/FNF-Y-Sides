@@ -203,7 +203,7 @@ class FreeplayState extends MusicBeatState
 
 		bf = new FlxSprite(0, 0);
 		bf.frames = Paths.getSparrowAtlas('freePlay/bf');
-		bf.animation.addByPrefix('idle', 'coso', 24, true);
+		bf.animation.addByPrefix('idle', 'coso', 24, false);
 		bf.animation.play('idle');
 		bf.screenCenter(X);
 		bf.antialiasing = ClientPrefs.data.antialiasing;
@@ -261,6 +261,9 @@ class FreeplayState extends MusicBeatState
 	var iconAngleReverse:Bool = false;
 	override function update(elapsed:Float)
 	{
+		if (FlxG.sound.music != null)
+			Conductor.songPosition = FlxG.sound.music.time;
+		
 		iconTimer += elapsed;
 		if(iconTimer > 1) {
 			iconTimer = 0;
@@ -270,6 +273,11 @@ class FreeplayState extends MusicBeatState
 
 		if(scoreThing != null && scoreText != null) scoreText.setPosition(scoreThing.x + 10, scoreThing.y + 20);
 		if(scoreThing != null && scoreText != null && diffText != null) diffText.setPosition(scoreText.x, scoreText.y + scoreText.height + 40);
+
+		if(currentIcon != null && cloud != null) {
+			currentIcon.x = cloud.x + cloud.width/2 - currentIcon.width/2 + 70;
+			currentIcon.y = cloud.y + cloud.height/2 - currentIcon.height/2;
+		}
 
 		if(WeekData.weeksList.length < 1)
 			return;
@@ -372,7 +380,37 @@ class FreeplayState extends MusicBeatState
 			{
 				persistentUpdate = false;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
-				MusicBeatState.switchState(new MainMenuState());
+				//MusicBeatState.switchState(new MainMenuState());
+
+				for(item in grpSongs.members)
+				{
+					FlxTween.cancelTweensOf(item);
+					FlxTween.tween(item, {alpha: 0}, 0.2, {onComplete: function(twn:FlxTween)
+					{
+						//item.kill();
+					}});
+				}
+
+				FlxTween.tween(icons, {alpha: 0}, 0.2);
+
+				FlxTween.color(bg, 0.4, bg.color, 0xFFFFFFFF);
+
+				bopTweenAnim(scoreThing, 820, 0);
+				bopTweenAnim(bf, 820, 0);
+				bopTweenAnim(cloud, 820, 0);
+
+				FlxTween.tween(scoreThing, {alpha: 0}, 0.2);
+				FlxTween.tween(bf, {alpha: 0}, 0.2);
+				FlxTween.tween(cloud, {alpha: 0}, 0.2);
+
+				StoryMenuState.backFromStoryMode = true; //loool
+
+				new FlxTimer().start(0.6, function(tmr:FlxTimer)
+				{
+					FlxTransitionableState.skipNextTransIn = true;
+					FlxTransitionableState.skipNextTransOut = true;
+					MusicBeatState.switchState(new MainMenuState());
+				});
 			}
 		}
 
@@ -626,6 +664,13 @@ class FreeplayState extends MusicBeatState
 
 		changeDiff();
 		_updateSongLastDifficulty();
+	}
+
+	override function beatHit()
+	{
+		super.beatHit();
+
+		bf.animation.play('idle');
 	}
 
 	inline private function _updateSongLastDifficulty()
