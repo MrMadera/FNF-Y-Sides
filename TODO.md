@@ -33,5 +33,5 @@
 
 ### SPECIFIC
 
-- [ ] App icons (task bar n app)
+- [x] App icons (task bar n app)
 - [x] Mouse tiny animation when you click
