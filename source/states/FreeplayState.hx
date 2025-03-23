@@ -12,6 +12,7 @@ import substates.ResetScoreSubState;
 
 import flixel.math.FlxMath;
 import flixel.util.FlxDestroyUtil;
+import flixel.addons.display.FlxBackdrop;
 
 import openfl.utils.Assets;
 
@@ -47,6 +48,7 @@ class FreeplayState extends MusicBeatState
 	var missingTextBG:FlxSprite;
 	var missingText:FlxText;
 
+	var icons:FlxBackdrop;
 	var bottomString:String;
 	var bf:FlxSprite;
 	var cloud:FlxSprite;
@@ -106,10 +108,16 @@ class FreeplayState extends MusicBeatState
 		}
 		Mods.loadTopMod();
 
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		bg = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, 0xFFFFFFFF);
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		add(bg);
 		bg.screenCenter();
+
+		icons = new FlxBackdrop(Paths.image('mainmenu/icons'), XY);
+		icons.velocity.set(40, 0);
+		icons.alpha = 0.35;
+		icons.antialiasing = ClientPrefs.data.antialiasing;
+		add(icons);
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
@@ -285,12 +293,12 @@ class FreeplayState extends MusicBeatState
 					changeSelection();
 					holdTime = 0;	
 				}
-				if (controls.UI_UP_P)
+				if (controls.UI_LEFT_P)
 				{
 					changeSelection(-shiftMult);
 					holdTime = 0;
 				}
-				if (controls.UI_DOWN_P)
+				if (controls.UI_RIGHT_P)
 				{
 					changeSelection(shiftMult);
 					holdTime = 0;
