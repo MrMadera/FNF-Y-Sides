@@ -1411,6 +1411,10 @@ class PlayState extends MusicBeatState
 					}
 				}
 
+				// for those who are wondering the reason of this, gbv was super kind of moving the fucking song a section forward then the chart was alredy done
+				// we didn't want the charter to redo it again so i just used the power of code
+				if(curSong == 'Bopeebo') spawnTime += 1950;
+
 				var swagNote:Note = new Note(spawnTime, noteColumn, oldNote);
 				var isAlt: Bool = section.altAnim && !gottaHitNote;
 				swagNote.gfNote = (section.gfSection && gottaHitNote == section.mustHitSection);
