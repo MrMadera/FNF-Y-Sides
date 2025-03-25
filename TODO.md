@@ -16,12 +16,13 @@
 
 ### MENUS
 
-- [ ] Title Menu
+- [x] Title Menu
 - [x] Main Menu
 - [x] Story Mode
-- [ ] Freeplay
+- [x] Freeplay
 - [ ] Options
 - [ ] Credits
+- [ ] Awards
 - [ ] Results Screen
 - [x] Gameover
 
