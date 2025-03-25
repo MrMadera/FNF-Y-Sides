@@ -4,7 +4,7 @@
 - [x] Tutorial
 - [ ] Bopeebo
 - [x] Fresh
-- [ ] Dadbattle
+- [x] Dadbattle
 
 ### HUD
 
