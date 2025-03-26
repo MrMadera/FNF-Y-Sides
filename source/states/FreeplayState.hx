@@ -108,16 +108,24 @@ class FreeplayState extends MusicBeatState
 		}
 		Mods.loadTopMod();
 
+		var colorBg:FlxSprite = new FlxSprite().makeGraphic(1280, 720, 0xFFEEE4FF);
+		add(colorBg);
+
 		bg = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, 0xFFEEE4FF);
 		bg.antialiasing = ClientPrefs.data.antialiasing;
+		bg.alpha = 0;
 		add(bg);
 		bg.screenCenter();
 
+		FlxTween.tween(bg, {alpha: 1}, 0.6, {ease: FlxEase.quartOut});
+
 		icons = new FlxBackdrop(Paths.image('mainmenu/icons'), XY);
 		icons.velocity.set(40, 0);
-		icons.alpha = 0.35;
+		icons.alpha = 0;
 		icons.antialiasing = ClientPrefs.data.antialiasing;
 		add(icons);
+
+		FlxTween.tween(icons, {alpha: 0.35}, 1);
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
