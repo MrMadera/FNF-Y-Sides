@@ -36,3 +36,4 @@
 
 - [x] App icons (task bar n app)
 - [x] Mouse tiny animation when you click
+- [ ] Discord RPC Art
