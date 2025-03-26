@@ -119,6 +119,8 @@ class TitleState extends MusicBeatState
 		#end
 	}
 
+	var backgroundGraphic:FlxSprite;
+	var backgroundSprite:FlxSprite;
 	var logoBl:FlxSprite;
 	var gfDance:FlxSprite;
 	var danceLeft:Bool = false;
@@ -258,12 +260,15 @@ class TitleState extends MusicBeatState
 					if(titleJSON.dance_left != null && titleJSON.dance_left.length > 0) danceLeftFrames = titleJSON.dance_left;
 					if(titleJSON.dance_right != null && titleJSON.dance_right.length > 0) danceRightFrames = titleJSON.dance_right;
 					useIdle = (titleJSON.idle == true);
+
+					backgroundGraphic = new FlxSprite().makeGraphic(1280, 720, 0xFFEEE4FF);
+					add(backgroundGraphic);
 	
 					if (titleJSON.backgroundSprite != null && titleJSON.backgroundSprite.trim().length > 0)
 					{
-						var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image(titleJSON.backgroundSprite));
-						bg.antialiasing = ClientPrefs.data.antialiasing;
-						add(bg);
+						backgroundSprite = new FlxSprite().loadGraphic(Paths.image(titleJSON.backgroundSprite));
+						backgroundSprite.antialiasing = ClientPrefs.data.antialiasing;
+						add(backgroundSprite);
 					}
 				}
 				catch(e:haxe.Exception)
@@ -400,10 +405,21 @@ class TitleState extends MusicBeatState
 				transitioning = true;
 				// FlxG.sound.music.stop();
 
-				new FlxTimer().start(1, function(tmr:FlxTimer)
+				new FlxTimer().start(0.6, function(tmr:FlxTimer)
 				{
-					MusicBeatState.switchState(new MainMenuState());
-					closedState = true;
+					FlxTween.tween(icons, {alpha: 0}, 0.6);
+					FlxTween.tween(backgroundSprite, {alpha: 0}, 0.6);
+					FlxTween.tween(logoBl, {alpha: 0, y: logoBl.y - 10}, 0.6, {ease: FlxEase.quartOut});
+					FlxTween.tween(titleText, {alpha: 0, y: titleText.y - 10}, 0.6, {ease: FlxEase.quartOut, startDelay: 0.15});
+					FlxTween.tween(gfDance, {alpha: 0, y: gfDance.y - 10}, 0.6, {ease: FlxEase.quartOut, startDelay: 0.3, 
+						onComplete: function(twn:FlxTween)
+						{
+							StoryMenuState.backFromStoryMode = true;
+							FlxTransitionableState.skipNextTransIn = true;
+							FlxTransitionableState.skipNextTransOut = true;
+							MusicBeatState.switchState(new MainMenuState());
+							closedState = true;
+						}});
 				});
 				// FlxG.sound.play(Paths.music('titleShoot'), 0.7);
 			}
