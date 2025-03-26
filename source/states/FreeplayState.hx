@@ -635,22 +635,28 @@ class FreeplayState extends MusicBeatState
 			}
 			if (item.targetY == curSelected)
 			{
-				currentIcon.frames = icon.frames;
-				currentIcon.animation = icon.animation;
-				currentIcon.animation.play(icon.animation.name);
+				var different:Bool = false;
+				if(currentIcon.frames != icon.frames) {
+					different = true;
+					currentIcon.frames = icon.frames;
+					currentIcon.animation = icon.animation;
+					currentIcon.animation.play(icon.animation.name);
+		
+					currentIcon.x = cloud.x + cloud.width/2 - currentIcon.width/2 + 70;
+					currentIcon.y = cloud.y + cloud.height/2 - currentIcon.height/2;
 	
-				currentIcon.x = cloud.x + cloud.width/2 - currentIcon.width/2 + 70;
-				currentIcon.y = cloud.y + cloud.height/2 - currentIcon.height/2;
-
-				currentIcon.y += 10;
+					currentIcon.y += 10;
+				}
 
 				if(updateAlpha) {
 					item.alpha = 1;
 					icon.alpha = 1;
 
-					currentIcon.alpha = 0;
-					FlxTween.cancelTweensOf(currentIcon);
-					FlxTween.tween(currentIcon, {y: currentIcon.y - 10, alpha: 1}, 0.2, {ease: FlxEase.quartOut});
+					if(different) {
+						currentIcon.alpha = 0;
+						FlxTween.cancelTweensOf(currentIcon);
+						FlxTween.tween(currentIcon, {y: currentIcon.y - 10, alpha: 1}, 0.2, {ease: FlxEase.quartOut});
+					}
 				}
 			}
 		}
