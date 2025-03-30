@@ -1731,6 +1731,12 @@ class PlayState extends MusicBeatState
 
 		super.update(elapsed);
 
+		// dumbbells achievement mechanic shit
+		if(FlxG.keys.justPressed.SPACE) { // just to test
+			var lifts = Achievements.addScore('dumbbells');
+			trace('Lift $lifts times...');
+		}
+
 		setOnScripts('curDecStep', curDecStep);
 		setOnScripts('curDecBeat', curDecBeat);
 
@@ -3610,31 +3616,9 @@ class PlayState extends MusicBeatState
 			if(!Achievements.exists(name)) continue;
 
 			var unlock:Bool = false;
-			if (name != WeekData.getWeekFileName() + '_nomiss') // common achievements
+			if (name != WeekData.getWeekFileName() + '_nomiss') // common achievements 
 			{
-				switch(name)
-				{
-					case 'ur_bad':
-						unlock = (ratingPercent < 0.2 && !practiceMode);
 
-					case 'ur_good':
-						unlock = (ratingPercent >= 1 && !usedPractice);
-
-					case 'oversinging':
-						unlock = (boyfriend.holdTimer >= 10 && !usedPractice);
-
-					case 'hype':
-						unlock = (!boyfriendIdled && !usedPractice);
-
-					case 'two_keys':
-						unlock = (!usedPractice && keysPressed.length <= 2);
-
-					case 'toastie':
-						unlock = (!ClientPrefs.data.cacheOnGPU && !ClientPrefs.data.shaders && ClientPrefs.data.lowQuality && !ClientPrefs.data.antialiasing);
-
-					case 'debugger':
-						unlock = (songName == 'test' && !usedPractice);
-				}
 			}
 			else // any FC achievements, name should be "weekFileName_nomiss", e.g: "week3_nomiss";
 			{
