@@ -6,7 +6,7 @@ import flixel.addons.display.FlxBackdrop;
 
 class CreditsState2 extends MusicBeatState
 {
-
+	public static var watchingCredits:Bool = false;
 	var bg:FlxSprite;
 
 	var owner:FlxSprite;
@@ -32,8 +32,8 @@ class CreditsState2 extends MusicBeatState
 	var topY:Float;
 	var bottomY:Float = 850;
 
-	override function create() {
-
+	override function create() 
+	{
 		camPos = new FlxObject(0, 385, 1, 1);
 		topY = camPos.y;
 		add(camPos);
@@ -172,14 +172,14 @@ class CreditsState2 extends MusicBeatState
 
 	var psychScale:Float = 1;
 	override function update(elapsed:Float) {
-		if (FlxG.keys.justPressed.ESCAPE) {
+		if (FlxG.keys.justPressed.ESCAPE && !watchingCredits) {
 			FlxG.switchState(new MainMenuState());
 		}
 
 		if (FlxG.sound.music != null)
 			Conductor.songPosition = FlxG.sound.music.time;
 
-		if(FlxG.mouse.wheel != 0) {
+		if(FlxG.mouse.wheel != 0 && !watchingCredits) {
 			if(FlxG.mouse.wheel > 0) {
 				camPos.y -= 100;
 				if(camPos.y < topY) 
@@ -199,21 +199,21 @@ class CreditsState2 extends MusicBeatState
 
 		camPosLerp.y = FlxMath.lerp(camPosLerp.y, camPos.y, elapsed * 8);
 
-		automateSprites(gbv);
-		automateSprites(madera);
-		automateSprites(foxy);
-		automateSprites(eli);
-		automateSprites(bunny);
-		automateSprites(ema);
-		automateSprites(flash);
-		automateSprites(hero);
-		automateSprites(tapi);
+		automateSprites(gbv, new InfoAboutPerson('gBv2209', 		['Artist', 'Composer'], 		['yt']));
+		automateSprites(madera, new InfoAboutPerson('Mr. Madera', 	['Coder'], 						['yt']));
+		automateSprites(foxy, new InfoAboutPerson('SFoxyDAC', 		['Animator'], 					['yt']));
+		automateSprites(eli, new InfoAboutPerson('EliAnima', 		['Musician'], 					['yt']));
+		automateSprites(bunny, new InfoAboutPerson('Bunny', 		['Charter'], 					['yt']));
+		automateSprites(ema, new InfoAboutPerson('Zhadnii', 		['Musician'], 					['yt']));
+		automateSprites(flash, new InfoAboutPerson('FlashDriveVGM', ['Musician', 'Concept Artist'], ['yt']));
+		automateSprites(hero, new InfoAboutPerson('Heromax', 		['Artist'], 					['yt']));
+		automateSprites(tapi, new InfoAboutPerson('Tapii', 			['Musician'], 					['yt']));
 		//automateSprites(psych, new CreditsState());
 
 		var mult = FlxMath.lerp(psych.scale.x, psychScale, elapsed * 7);
 		psych.scale.set(mult, mult);
 
-		if(FlxG.mouse.overlaps(psych))
+		if(FlxG.mouse.overlaps(psych) && !watchingCredits)
 		{
 			psychScale = 1.1;
 			if(FlxG.mouse.justPressed)
@@ -228,13 +228,50 @@ class CreditsState2 extends MusicBeatState
 		FlxG.mouse.visible = true;
 	}
 
-	function automateSprites(spr:FlxSprite) {
-		if(FlxG.mouse.overlaps(spr)) {
+	function automateSprites(spr:FlxSprite, xd:InfoAboutPerson) {
+		if(FlxG.mouse.overlaps(spr) && !watchingCredits) {
 			spr.animation.play('select');
 			if(FlxG.mouse.justPressed) {
-
+				watchingCredits = true;
+				persistentUpdate = true;
+				openSubState(xd);
 			}
 		}
 		else spr.animation.play('idle');
+	}
+}
+
+class InfoAboutPerson extends MusicBeatSubstate
+{
+	var squareBg:FlxSprite;
+	var personName:Alphabet;
+
+	public function new(name:String, rols:Array<String>, avaibleSocialMedias:Array<String>)
+	{
+		super();
+
+		squareBg = new FlxSprite();
+		//squareBg.makeGraphic(600, 550, 0xFF000000);
+		squareBg.loadGraphic(Paths.image('credits2/background'));
+		squareBg.alpha = 0.7;
+		squareBg.scrollFactor.set();
+		squareBg.screenCenter();
+		add(squareBg);
+
+		personName = new Alphabet(0, squareBg.y + 10, name, true);
+		personName.x = squareBg.x + squareBg.width / 2 - personName.width / 2;
+		personName.scrollFactor.set();
+		add(personName);
+	}
+
+	override function update(elapsed:Float)
+	{
+		super.update(elapsed);
+
+		if(controls.BACK)
+		{
+			CreditsState2.watchingCredits = false;
+			close();
+		}
 	}
 }
