@@ -10,6 +10,8 @@ class CreditsState2 extends MusicBeatState
 	var bg:FlxSprite;
 	var coOwner:FlxSprite;
 	var devs:FlxSprite;
+	var gbv:FlxSprite;
+	var madera:FlxSprite;
 	var psych:FlxSprite;
 	var icons:FlxBackdrop;
 
@@ -38,38 +40,31 @@ class CreditsState2 extends MusicBeatState
 		coOwner.updateHitbox();
 		add(coOwner);
 
-		devs = new FlxSprite(500, 310);
+		gbv = new FlxSprite(150, 150);
+		gbv.frames = Paths.getSparrowAtlas('credits2/people/gbv');
+		gbv.animation.addByPrefix('idle', 'gbv_neutral', 24, false);
+		gbv.animation.addByPrefix('select', 'gbv_selected', 24, false);
+		gbv.animation.play('idle');
+		add(gbv);
+
+		madera = new FlxSprite(300, 150);
+		madera.frames = Paths.getSparrowAtlas('credits2/people/madera');
+		madera.animation.addByPrefix('idle', 'madera_neutral', 24, false);
+		madera.animation.addByPrefix('select', 'madera_selected', 24, false);
+		madera.animation.play('idle');
+		add(madera);
+
+		devs = new FlxSprite(500, 1010);
 		devs.loadGraphic(Paths.image('credits2/devs'));
 		devs.screenCenter(X);
 		devs.updateHitbox();
 		add(devs);
 
-		psych = new FlxSprite(500, 510);
+		psych = new FlxSprite(500, 1510);
 		psych.loadGraphic(Paths.image('credits2/psychTeam'));
 		psych.screenCenter(X);
 		psych.updateHitbox();
 		add(psych);
-	}
-
-	override function beatHit() {
-
-		FlxTween.cancelTweensOf(owner);
-		FlxTween.cancelTweensOf(devs);
-		FlxTween.cancelTweensOf(coOwner);
-		FlxTween.cancelTweensOf(psych);
-
-		FlxTween.tween(owner, {y: 80}, 2, {ease: FlxEase.circOut});
-		owner.y = 90;
-
-		FlxTween.tween(coOwner, {y: 50}, 2, {ease: FlxEase.circOut});
-		coOwner.y = 60;
-
-		FlxTween.tween(devs, {y: 300}, 2, {ease: FlxEase.circOut});
-		devs.y = 310;
-
-		FlxTween.tween(psych, {y: 500}, 2, {ease: FlxEase.circOut});
-		psych.y = 510;
-
 	}
 
 	override function update(elapsed:Float) {
