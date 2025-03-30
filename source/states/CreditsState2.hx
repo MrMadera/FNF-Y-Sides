@@ -28,6 +28,7 @@ class CreditsState2 extends MusicBeatState
 	var icons:FlxBackdrop;
 
 	var camPos:FlxObject;
+	var camPosLerp:FlxObject;
 	var topY:Float;
 	var bottomY:Float = 850;
 
@@ -37,6 +38,9 @@ class CreditsState2 extends MusicBeatState
 		topY = camPos.y;
 		add(camPos);
 
+		camPosLerp = new FlxObject(0, 385, 1, 1);
+		add(camPosLerp);
+
 		bg = new FlxSprite(-80).makeGraphic(1280, 720, 0xFFEEE4FF);
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.setGraphicSize(Std.int(bg.width * 1.175));
@@ -45,7 +49,7 @@ class CreditsState2 extends MusicBeatState
 		bg.scrollFactor.set();
 		add(bg);
 
-		FlxG.camera.follow(camPos);
+		FlxG.camera.follow(camPosLerp);
 
 		icons = new FlxBackdrop(Paths.image('mainmenu/icons'), XY);
 		icons.velocity.set(10, 10);
@@ -178,14 +182,22 @@ class CreditsState2 extends MusicBeatState
 		if(FlxG.mouse.wheel != 0) {
 			if(FlxG.mouse.wheel > 0) {
 				camPos.y -= 100;
-				if(camPos.y < topY) camPos.y = topY;
+				if(camPos.y < topY) 
+				{
+					camPos.y = topY;
+				}
 			}
 
 			if(FlxG.mouse.wheel < 0) {
 				camPos.y += 100;
-				if(camPos.y > bottomY) camPos.y = bottomY;
+				if(camPos.y > bottomY)
+				{
+					camPos.y = bottomY;
+				} 
 			}
 		}
+
+		camPosLerp.y = FlxMath.lerp(camPosLerp.y, camPos.y, elapsed * 8);
 
 		automateSprites(gbv);
 		automateSprites(madera);
