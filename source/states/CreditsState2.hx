@@ -6,12 +6,17 @@ import flixel.addons.display.FlxBackdrop;
 class CreditsState2 extends MusicBeatState
 {
 
-	var owner:FlxSprite;
 	var bg:FlxSprite;
+
+	var owner:FlxSprite;
 	var coOwner:FlxSprite;
 	var devs:FlxSprite;
+
 	var gbv:FlxSprite;
 	var madera:FlxSprite;
+	var foxy:FlxSprite;
+	var eli:FlxSprite;
+
 	var psych:FlxSprite;
 	var icons:FlxBackdrop;
 
@@ -40,19 +45,33 @@ class CreditsState2 extends MusicBeatState
 		coOwner.updateHitbox();
 		add(coOwner);
 
-		gbv = new FlxSprite(150, 150);
+		gbv = new FlxSprite(150, 200);
 		gbv.frames = Paths.getSparrowAtlas('credits2/people/gbv');
 		gbv.animation.addByPrefix('idle', 'gbv_neutral', 24, false);
 		gbv.animation.addByPrefix('select', 'gbv_selected', 24, false);
 		gbv.animation.play('idle');
 		add(gbv);
 
-		madera = new FlxSprite(300, 150);
+		madera = new FlxSprite(300, 200);
 		madera.frames = Paths.getSparrowAtlas('credits2/people/madera');
 		madera.animation.addByPrefix('idle', 'madera_neutral', 24, false);
 		madera.animation.addByPrefix('select', 'madera_selected', 24, false);
 		madera.animation.play('idle');
 		add(madera);
+	
+		foxy = new FlxSprite(700, 200);
+		foxy.frames = Paths.getSparrowAtlas('credits2/people/foxy');
+		foxy.animation.addByPrefix('idle', 'foxy_neutral', 24, false);
+		foxy.animation.addByPrefix('select', 'foxy_selected', 24, false);
+		foxy.animation.play('idle');
+		add(foxy);
+
+		eli = new FlxSprite(880, 200);
+		eli.frames = Paths.getSparrowAtlas('credits2/people/eli');
+		eli.animation.addByPrefix('idle', 'eli_neutral', 24, false);
+		eli.animation.addByPrefix('select', 'eli_selected', 24, false);
+		eli.animation.play('idle');
+		add(eli);
 
 		devs = new FlxSprite(500, 1010);
 		devs.loadGraphic(Paths.image('credits2/devs'));
