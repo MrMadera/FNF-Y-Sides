@@ -37,3 +37,7 @@
 - [x] App icons (task bar n app)
 - [x] Mouse tiny animation when you click
 - [ ] Discord RPC Art
+- [ ] A very cool intro
+    - [ ] New haxeflixel logo anim
+    - [ ] Improved flash warning
+    - [ ] Improved low-end pcs warning
