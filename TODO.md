@@ -22,7 +22,7 @@
 - [x] Freeplay
 - [ ] Options
 - [ ] Credits
-- [ ] Awards
+- [x] Awards
 - [ ] Results Screen
 - [x] Gameover
 
