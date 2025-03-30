@@ -2,6 +2,7 @@ package states;
 
 import flixel.FlxObject;
 import flixel.util.FlxSort;
+import flixel.addons.display.FlxBackdrop;
 import objects.Bar;
 
 #if ACHIEVEMENTS_ALLOWED
@@ -15,6 +16,10 @@ class AchievementsMenuState extends MusicBeatState
 	public var descText:FlxText;
 	public var progressTxt:FlxText;
 	public var progressBar:Bar;
+
+	var icons:FlxBackdrop;
+	var optionsBox:FlxSprite;
+	var underBox:FlxSprite;
 
 	var camFollow:FlxObject;
 
@@ -40,13 +45,20 @@ class AchievementsMenuState extends MusicBeatState
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
 
-		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuBGBlue'));
+		var menuBG:FlxSprite = new FlxSprite().makeGraphic(1280, 720, 0xFFEEE4FF);
 		menuBG.antialiasing = ClientPrefs.data.antialiasing;
-		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
-		menuBG.updateHitbox();
 		menuBG.screenCenter();
 		menuBG.scrollFactor.set();
 		add(menuBG);
+
+		icons = new FlxBackdrop(Paths.image('mainmenu/icons'), XY);
+		icons.velocity.set(10, 10);
+		icons.alpha = 0.45;
+		icons.scrollFactor.set();
+		icons.antialiasing = ClientPrefs.data.antialiasing;
+		add(icons);
+
+		icons.setPosition(MainMenuState.iconsPos[0], MainMenuState.iconsPos[1]);
 
 		grpOptions = new FlxSpriteGroup();
 		grpOptions.scrollFactor.x = 0;
@@ -81,39 +93,55 @@ class AchievementsMenuState extends MusicBeatState
 		}
 		#if MODS_ALLOWED Mods.loadTopMod(); #end
 
-		var box:FlxSprite = new FlxSprite(0, -30).makeGraphic(1, 1, FlxColor.BLACK);
-		box.scale.set(grpOptions.width + 60, grpOptions.height + 60);
-		box.updateHitbox();
-		box.alpha = 0.6;
-		box.scrollFactor.x = 0;
-		box.screenCenter(X);
-		add(box);
+		optionsBox = new FlxSprite(0, -30).makeGraphic(1, 1, FlxColor.BLACK);
+		optionsBox.scale.set(grpOptions.width + 60, grpOptions.height + 60);
+		optionsBox.updateHitbox();
+		optionsBox.alpha = 0;
+		optionsBox.scrollFactor.x = 0;
+		optionsBox.screenCenter(X);
+		add(optionsBox);
 		add(grpOptions);
 
-		var box:FlxSprite = new FlxSprite(0, 570).makeGraphic(1, 1, FlxColor.BLACK);
-		box.scale.set(FlxG.width, FlxG.height - box.y);
-		box.updateHitbox();
-		box.alpha = 0.6;
-		box.scrollFactor.set();
-		add(box);
+		FlxTween.tween(optionsBox, {alpha: 0.6}, 0.4);
+
+		underBox = new FlxSprite(0, 570).makeGraphic(1, 1, FlxColor.BLACK);
+		underBox.scale.set(FlxG.width, FlxG.height - underBox.y);
+		underBox.updateHitbox();
+		underBox.alpha = 0;
+		underBox.scrollFactor.set();
+		add(underBox);
+
+		FlxTween.tween(underBox, {alpha: 0.6}, 0.4);
 		
-		nameText = new FlxText(50, box.y + 10, FlxG.width - 100, "", 32);
+		nameText = new FlxText(50, underBox.y + 10, FlxG.width - 100, "", 32);
 		nameText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER);
 		nameText.scrollFactor.set();
+		nameText.alpha = 0;
+
+		FlxTween.tween(nameText, {alpha: 1}, 0.4);
 
 		descText = new FlxText(50, nameText.y + 38, FlxG.width - 100, "", 24);
 		descText.setFormat(Paths.font("vcr.ttf"), 24, FlxColor.WHITE, CENTER);
 		descText.scrollFactor.set();
+		descText.alpha = 0;
+
+		FlxTween.tween(descText, {alpha: 1}, 0.4);
 
 		progressBar = new Bar(0, descText.y + 52);
 		progressBar.screenCenter(X);
 		progressBar.scrollFactor.set();
 		progressBar.enabled = false;
+		progressBar.alpha = 0;
+
+		FlxTween.tween(progressBar, {alpha: 1}, 0.4);
 		
 		progressTxt = new FlxText(50, progressBar.y - 6, FlxG.width - 100, "", 32);
 		progressTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		progressTxt.scrollFactor.set();
 		progressTxt.borderSize = 2;
+		progressTxt.alpha = 0;
+
+		FlxTween.tween(progressTxt, {alpha: 1}, 0.4);
 
 		add(progressBar);
 		add(progressTxt);
@@ -205,8 +233,38 @@ class AchievementsMenuState extends MusicBeatState
 
 		if (controls.BACK) {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
-			MusicBeatState.switchState(new MainMenuState());
-			goingBack = true;
+			
+
+			FlxTween.cancelTweensOf(optionsBox);
+			FlxTween.cancelTweensOf(underBox);
+			FlxTween.cancelTweensOf(nameText);
+			FlxTween.cancelTweensOf(descText);
+			FlxTween.cancelTweensOf(progressTxt);
+			FlxTween.cancelTweensOf(progressBar);
+
+			FlxTween.tween(optionsBox, {alpha: 0}, 0.18, {ease: FlxEase.quartOut});
+			FlxTween.tween(underBox, {alpha: 0}, 0.18, {ease: FlxEase.quartOut});
+			FlxTween.tween(nameText, {alpha: 0}, 0.18, {ease: FlxEase.quartOut});
+			FlxTween.tween(descText, {alpha: 0}, 0.18, {ease: FlxEase.quartOut});
+			FlxTween.tween(progressTxt, {alpha: 0}, 0.18, {ease: FlxEase.quartOut});
+			FlxTween.tween(progressBar, {alpha: 0}, 0.18, {ease: FlxEase.quartOut});
+
+			grpOptions.forEach(function(spr:FlxSprite)
+			{
+				FlxTween.cancelTweensOf(spr);
+				FlxTween.tween(spr, {alpha: 0}, 0.18, {ease: FlxEase.quartOut, startDelay: 0.1 * spr.ID});
+			});
+
+			new FlxTimer().start(0.6, function(tmr:FlxTimer)
+			{
+				MainMenuState.iconsPos.insert(0, icons.x);
+				MainMenuState.iconsPos.insert(1, icons.y);
+				
+				FlxTransitionableState.skipNextTransIn = true;
+				FlxTransitionableState.skipNextTransOut = true;
+				MusicBeatState.switchState(new MainMenuState());
+				goingBack = true;
+			});
 		}
 		super.update(elapsed);
 	}

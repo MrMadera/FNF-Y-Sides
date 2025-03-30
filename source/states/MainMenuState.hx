@@ -25,6 +25,8 @@ class MainMenuState extends MusicBeatState
 	var leftItem:FlxSprite;
 	var rightItem:FlxSprite;
 
+	public static var iconsPos:Array<Float> = [0, 0];
+
 	//Centered/Text options
 	var optionShit:Array<String> = [
 		'story_mode',
@@ -84,6 +86,8 @@ class MainMenuState extends MusicBeatState
 		icons.alpha = 0.45;
 		icons.antialiasing = ClientPrefs.data.antialiasing;
 		add(icons);
+		
+		icons.setPosition(MainMenuState.iconsPos[0], MainMenuState.iconsPos[1]);
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
@@ -341,6 +345,10 @@ class MainMenuState extends MusicBeatState
 					transitionToFreeplay();
 				}
 
+				if(option == 'awards') {
+					transitionToAwards();
+				}
+
 				FlxFlicker.flicker(item, 1, 0.06, false, false, function(flick:FlxFlicker)
 				{
 					switch (option)
@@ -353,11 +361,6 @@ class MainMenuState extends MusicBeatState
 						#if MODS_ALLOWED
 						case 'mods':
 							MusicBeatState.switchState(new ModsMenuState());
-						#end
-
-						#if ACHIEVEMENTS_ALLOWED
-						case 'awards':
-							MusicBeatState.switchState(new AchievementsMenuState());
 						#end
 
 						case 'credits':
@@ -474,6 +477,27 @@ class MainMenuState extends MusicBeatState
 			}});
 
 			FlxTween.tween(characters, {alpha: 0}, 0.25);
+		});
+	}
+
+	function transitionToAwards()
+	{
+		new FlxTimer().start(0.4, function(tmr:FlxTimer)
+		{
+			FlxTween.tween(characters, {alpha: 0}, 0.35, {ease: FlxEase.quartIn, onComplete: function(twn:FlxTween)
+			{
+				new FlxTimer().start(0.15, function(tmr:FlxTimer)
+				{
+					#if ACHIEVEMENTS_ALLOWED
+						FlxTransitionableState.skipNextTransIn = true;
+						FlxTransitionableState.skipNextTransOut = true;
+						MusicBeatState.switchState(new AchievementsMenuState());
+
+						iconsPos.insert(0, icons.x);
+						iconsPos.insert(1, icons.y);
+					#end
+				});
+			}});
 		});
 	}
 
