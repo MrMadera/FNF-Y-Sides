@@ -300,7 +300,7 @@ class InfoAboutPerson extends MusicBeatSubstate
 
 		for(i in 0...avaibleSocialMedias.length)
 		{
-			if(socialMediasGrp.members[i-1] != null) socialMediasGrp.members[i-1].x -= 40;
+			if(socialMediasGrp.members[i-1] != null) socialMediasGrp.members[i-1].x -= socialMediasGrp.members[i-1].width;
 
 			var socialMediaIcon = new FlxSprite();
 			trace('Loading the following social media: ${avaibleSocialMedias[i][0]}');
