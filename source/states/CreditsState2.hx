@@ -245,6 +245,8 @@ class InfoAboutPerson extends MusicBeatSubstate
 {
 	var squareBg:FlxSprite;
 	var personName:Alphabet;
+	var rolsGrp:FlxTypedGroup<Alphabet>;
+	var socialMediasGrp:FlxTypedGroup<FlxSprite>;
 
 	public function new(name:String, rols:Array<String>, avaibleSocialMedias:Array<String>)
 	{
@@ -262,6 +264,42 @@ class InfoAboutPerson extends MusicBeatSubstate
 		personName.x = squareBg.x + squareBg.width / 2 - personName.width / 2;
 		personName.scrollFactor.set();
 		add(personName);
+
+		rolsGrp = new FlxTypedGroup<Alphabet>();
+		add(rolsGrp);
+
+		socialMediasGrp = new FlxTypedGroup<FlxSprite>();
+		add(socialMediasGrp);
+
+		for(i in 0...rols.length)
+		{
+			var rolTxt = new Alphabet(0, 0, rols[i], true);
+			rolTxt.setScale(0.7);
+			rolTxt.y = personName.y + personName.height + 30 + ((rolTxt.height + 10) * i);
+			rolTxt.scrollFactor.set();
+			rolTxt.screenCenter(X);
+			rolsGrp.add(rolTxt);
+		}
+
+		for(i in 0...avaibleSocialMedias.length)
+		{
+			if(socialMediasGrp.members[i-1] != null) socialMediasGrp.members[i-1].x -= 40;
+
+			var socialMediaIcon = new FlxSprite();
+			switch(avaibleSocialMedias[i])
+			{
+				case 'yt':
+					socialMediaIcon.loadGraphic(Paths.image('credits2/icons/yt'));
+				case 'disc':
+					socialMediaIcon.loadGraphic(Paths.image('credits2/icons/disc'));
+				case 'x':
+					socialMediaIcon.loadGraphic(Paths.image('credits2/icons/X'));
+			}
+			socialMediaIcon.scrollFactor.set();
+			socialMediaIcon.y = squareBg.y + squareBg.height - socialMediaIcon.height - 10;
+			socialMediaIcon.x = squareBg.x + squareBg.width - socialMediaIcon.width - 10;
+			socialMediasGrp.add(socialMediaIcon);
+		}
 	}
 
 	override function update(elapsed:Float)
