@@ -399,6 +399,13 @@ class FreeplayState extends MusicBeatState
 					}});
 				}
 
+				FlxTween.cancelTweensOf(icons);
+				FlxTween.cancelTweensOf(bg);
+				FlxTween.cancelTweensOf(scoreThing);
+				FlxTween.cancelTweensOf(bf);
+				FlxTween.cancelTweensOf(cloud);
+				FlxTween.cancelTweensOf(currentIcon);
+
 				FlxTween.tween(icons, {alpha: 0}, 0.2);
 
 				FlxTween.color(bg, 0.4, bg.color, 0xFFFFFFFF);
@@ -410,6 +417,7 @@ class FreeplayState extends MusicBeatState
 				FlxTween.tween(scoreThing, {alpha: 0}, 0.2);
 				FlxTween.tween(bf, {alpha: 0}, 0.2);
 				FlxTween.tween(cloud, {alpha: 0}, 0.2);
+				FlxTween.tween(currentIcon, {alpha: 0}, 0.2);
 
 				StoryMenuState.backFromStoryMode = true; //loool
 

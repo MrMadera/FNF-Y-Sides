@@ -267,6 +267,15 @@ class StoryMenuState extends MusicBeatState
 		{
 			if (controls.BACK && !movedBack && !selectedWeek)
 			{
+				FlxTween.cancelTweensOf(weekBackground);
+				FlxTween.cancelTweensOf(tv);
+				FlxTween.cancelTweensOf(escapeButton);
+				FlxTween.cancelTweensOf(leftArrow);
+				FlxTween.cancelTweensOf(sprDifficulty);
+				FlxTween.cancelTweensOf(rightArrow);
+				FlxTween.cancelTweensOf(tracksSpriteBack);
+				FlxTween.cancelTweensOf(songSpriteBack);
+
 				FlxTween.tween(weekBackground, {alpha: 0}, 1, {ease: FlxEase.quartOut});
 				FlxTween.tween(tv, {y: FlxG.height}, 1, {ease: FlxEase.quartOut});
 				FlxTween.tween(escapeButton, {y: -escapeButton.height}, 1, {ease: FlxEase.quartOut});
@@ -373,6 +382,18 @@ class StoryMenuState extends MusicBeatState
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			movedBack = true;
+
+			FlxTween.cancelTweensOf(weekBackground);
+			FlxTween.cancelTweensOf(tv);
+			FlxTween.cancelTweensOf(escapeButton);
+			FlxTween.cancelTweensOf(leftArrow);
+			FlxTween.cancelTweensOf(sprDifficulty);
+			FlxTween.cancelTweensOf(rightArrow);
+			FlxTween.cancelTweensOf(tracksSpriteBack);
+			FlxTween.cancelTweensOf(weekArrowUp);
+			FlxTween.cancelTweensOf(weekArrowDown);
+			FlxTween.cancelTweensOf(songSpriteBack);
+
 			FlxTween.tween(weekBackground, {alpha: 0}, 0.6, {ease: FlxEase.quartOut});
 			FlxTween.tween(tv, {y: FlxG.height}, 0.6, {ease: FlxEase.quartOut});
 			FlxTween.tween(escapeButton, {y: -escapeButton.height}, 0.6, {ease: FlxEase.quartOut});
