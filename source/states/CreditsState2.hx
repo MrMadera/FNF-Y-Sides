@@ -199,6 +199,7 @@ class CreditsState2 extends MusicBeatState
 
 		camPosLerp.y = FlxMath.lerp(camPosLerp.y, camPos.y, elapsed * 8);
 
+		/*
 		automateSprites(gbv, new InfoAboutPerson('gBv2209', 		['Artist', 'Composer'], 		['yt']));
 		automateSprites(madera, new InfoAboutPerson('Mr. Madera', 	['Coder'], 						['yt']));
 		automateSprites(foxy, new InfoAboutPerson('SFoxyDAC', 		['Animator'], 					['yt']));
@@ -208,7 +209,19 @@ class CreditsState2 extends MusicBeatState
 		automateSprites(flash, new InfoAboutPerson('FlashDriveVGM', ['Musician', 'Concept Artist'], ['yt']));
 		automateSprites(hero, new InfoAboutPerson('Heromax', 		['Artist'], 					['yt']));
 		automateSprites(tapi, new InfoAboutPerson('Tapii', 			['Musician'], 					['yt']));
+		*/
+
 		//automateSprites(psych, new CreditsState());
+
+		automateSprites(gbv, 		['gbv2209', 		['Artist', 'Composer'], 		[['yt', 'https://youtube.com'], ['x', 'https://x.com']]]);
+		automateSprites(madera, 	['Mr. Madera', 		['Coder'], 						[['yt', 'https://youtube.com']]]);
+		automateSprites(foxy, 		['SFoxyDAC', 		['Animator'], 					[['yt', 'https://youtube.com']]]);
+		automateSprites(eli, 		['EliAnima', 		['Musician'], 					[['yt', 'https://youtube.com']]]);
+		automateSprites(bunny, 		['Bunny', 			['Charter'], 					[['yt', 'https://youtube.com']]]);
+		automateSprites(ema, 		['Zhadnii', 		['Musician'], 					[['yt', 'https://youtube.com']]]);
+		automateSprites(flash, 		['FlashDriveVGM', 	['Musician', 'Concept Artist'], [['yt', 'https://youtube.com']]]);
+		automateSprites(hero, 		['Heromax', 		['Artist'], 					[['yt', 'https://youtube.com']]]);
+		automateSprites(tapi, 		['Tapii', 			['Musician'], 					[['yt', 'https://youtube.com']]]);
 
 		var mult = FlxMath.lerp(psych.scale.x, psychScale, elapsed * 7);
 		psych.scale.set(mult, mult);
@@ -228,10 +241,11 @@ class CreditsState2 extends MusicBeatState
 		FlxG.mouse.visible = true;
 	}
 
-	function automateSprites(spr:FlxSprite, xd:InfoAboutPerson) {
+	function automateSprites(spr:FlxSprite, info:Dynamic) {
 		if(FlxG.mouse.overlaps(spr) && !watchingCredits) {
 			spr.animation.play('select');
 			if(FlxG.mouse.justPressed) {
+				var xd = new InfoAboutPerson(info[0], info[1], info[2]);
 				watchingCredits = true;
 				persistentUpdate = true;
 				openSubState(xd);
@@ -247,10 +261,13 @@ class InfoAboutPerson extends MusicBeatSubstate
 	var personName:Alphabet;
 	var rolsGrp:FlxTypedGroup<Alphabet>;
 	var socialMediasGrp:FlxTypedGroup<FlxSprite>;
+	var socialMedias:Array<Dynamic> = [];
 
-	public function new(name:String, rols:Array<String>, avaibleSocialMedias:Array<String>)
+	public function new(name:String, rols:Array<String>, avaibleSocialMedias:Array<Dynamic>)
 	{
 		super();
+
+		socialMedias = avaibleSocialMedias;
 
 		squareBg = new FlxSprite();
 		//squareBg.makeGraphic(600, 550, 0xFF000000);
@@ -286,7 +303,8 @@ class InfoAboutPerson extends MusicBeatSubstate
 			if(socialMediasGrp.members[i-1] != null) socialMediasGrp.members[i-1].x -= 40;
 
 			var socialMediaIcon = new FlxSprite();
-			switch(avaibleSocialMedias[i])
+			trace('Loading the following social media: ${avaibleSocialMedias[i][0]}');
+			switch(avaibleSocialMedias[i][0])
 			{
 				case 'yt':
 					socialMediaIcon.loadGraphic(Paths.image('credits2/icons/yt'));
@@ -298,6 +316,7 @@ class InfoAboutPerson extends MusicBeatSubstate
 			socialMediaIcon.scrollFactor.set();
 			socialMediaIcon.y = squareBg.y + squareBg.height - socialMediaIcon.height - 10;
 			socialMediaIcon.x = squareBg.x + squareBg.width - socialMediaIcon.width - 10;
+			socialMediaIcon.ID = i;
 			socialMediasGrp.add(socialMediaIcon);
 		}
 	}
@@ -311,5 +330,18 @@ class InfoAboutPerson extends MusicBeatSubstate
 			CreditsState2.watchingCredits = false;
 			close();
 		}
+
+		socialMediasGrp.forEach(function(spr:FlxSprite)
+		{
+			if(FlxG.mouse.overlaps(spr))
+			{
+				spr.alpha = 1;
+				if(FlxG.mouse.justPressed)
+				{
+					CoolUtil.browserLoad(socialMedias[spr.ID][1]);
+				}
+			}
+			else spr.alpha = 0.7;
+		});
 	}
 }
