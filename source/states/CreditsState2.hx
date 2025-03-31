@@ -116,7 +116,7 @@ class CreditsState2 extends MusicBeatState
 		devs.antialiasing = ClientPrefs.data.antialiasing;
 		add(devs);
 
-		bunny = new FlxSprite(20, 600);
+		bunny = new FlxSprite(20, 620);
 		bunny.frames = Paths.getSparrowAtlas('credits2/people/bunny');
 		bunny.animation.addByPrefix('idle', 'bunny_neutral', 24, true);
 		bunny.animation.addByPrefix('select', 'bunny_selected', 24, true);
@@ -125,7 +125,7 @@ class CreditsState2 extends MusicBeatState
 		bunny.antialiasing = ClientPrefs.data.antialiasing;
 		add(bunny);
 
-		ema = new FlxSprite(bunny.x + 250, 600);
+		ema = new FlxSprite(bunny.x + 250, 620);
 		ema.frames = Paths.getSparrowAtlas('credits2/people/ema');
 		ema.animation.addByPrefix('idle', 'ema_neutral', 24, true);
 		ema.animation.addByPrefix('select', 'ema_selected', 24, true);
@@ -134,7 +134,7 @@ class CreditsState2 extends MusicBeatState
 		ema.antialiasing = ClientPrefs.data.antialiasing;
 		add(ema);
 
-		flash = new FlxSprite(ema.x + 250, 600);
+		flash = new FlxSprite(ema.x + 250, 620);
 		flash.frames = Paths.getSparrowAtlas('credits2/people/flash');
 		flash.animation.addByPrefix('idle', 'flash_neutral', 24, true);
 		flash.animation.addByPrefix('select', 'flash_selected', 24, true);
@@ -143,7 +143,7 @@ class CreditsState2 extends MusicBeatState
 		flash.antialiasing = ClientPrefs.data.antialiasing;
 		add(flash);
 
-		hero = new FlxSprite(flash.x + 250, 600);
+		hero = new FlxSprite(flash.x + 250, 620);
 		hero.frames = Paths.getSparrowAtlas('credits2/people/hero');
 		hero.animation.addByPrefix('idle', 'heromax_neutral', 24, true);
 		hero.animation.addByPrefix('select', 'heromax_selected', 24, true);
@@ -152,7 +152,7 @@ class CreditsState2 extends MusicBeatState
 		hero.antialiasing = ClientPrefs.data.antialiasing;
 		add(hero);
 
-		tapi = new FlxSprite(hero.x + 250, 600);
+		tapi = new FlxSprite(hero.x + 250, 620);
 		tapi.frames = Paths.getSparrowAtlas('credits2/people/tapi');
 		tapi.animation.addByPrefix('idle', 'tapi_neutral', 24, true);
 		tapi.animation.addByPrefix('select', 'tapi_selected', 24, true);
@@ -278,6 +278,7 @@ class InfoAboutPerson extends MusicBeatSubstate
 		add(squareBg);
 
 		personName = new Alphabet(0, squareBg.y + 10, name, true);
+		personName.setScale(0.85);
 		personName.x = squareBg.x + squareBg.width / 2 - personName.width / 2;
 		personName.scrollFactor.set();
 		add(personName);
