@@ -16,13 +16,13 @@ class CreditsState2 extends MusicBeatState
 	var gbv:FlxSprite;
 	var madera:FlxSprite;
 	var foxy:FlxSprite;
-	var eli:FlxSprite;
 
 	var bunny:FlxSprite;
 	var ema:FlxSprite;
 	var flash:FlxSprite;
 	var hero:FlxSprite;
 	var tapi:FlxSprite;
+	var e1000:FlxSprite;
 
 	var psych:FlxSprite;
 	var icons:FlxBackdrop;
@@ -99,14 +99,18 @@ class CreditsState2 extends MusicBeatState
 		foxy.antialiasing = ClientPrefs.data.antialiasing;
 		add(foxy);
 
-		eli = new FlxSprite(880, 200);
-		eli.frames = Paths.getSparrowAtlas('credits2/people/eli');
-		eli.animation.addByPrefix('idle', 'eli_neutral', 24, true);
-		eli.animation.addByPrefix('select', 'eli_selected', 24, true);
-		eli.animation.play('idle');
-		eli.scrollFactor.set(0, 1);
-		eli.antialiasing = ClientPrefs.data.antialiasing;
-		add(eli);
+		hero = new FlxSprite(880, 200);
+		hero.frames = Paths.getSparrowAtlas('credits2/people/hero');
+		hero.animation.addByPrefix('idle', 'heromax_neutral', 24, true);
+		hero.animation.addByPrefix('select', 'heromax_selected', 24, true);
+		hero.animation.play('idle');
+
+		hero.scale.set(0.8, 0.8);
+		hero.updateHitbox();
+
+		hero.scrollFactor.set(0, 1);
+		hero.antialiasing = ClientPrefs.data.antialiasing;
+		add(hero);
 
 		devs = new FlxSprite(500, 510);
 		devs.loadGraphic(Paths.image('credits2/devs'));
@@ -143,16 +147,10 @@ class CreditsState2 extends MusicBeatState
 		flash.antialiasing = ClientPrefs.data.antialiasing;
 		add(flash);
 
-		hero = new FlxSprite(flash.x + 250, 620);
-		hero.frames = Paths.getSparrowAtlas('credits2/people/hero');
-		hero.animation.addByPrefix('idle', 'heromax_neutral', 24, true);
-		hero.animation.addByPrefix('select', 'heromax_selected', 24, true);
-		hero.animation.play('idle');
-		hero.scrollFactor.set(0, 1);
-		hero.antialiasing = ClientPrefs.data.antialiasing;
-		add(hero);
+		e1000 = new FlxSprite(flash.x + 250, 620);
+		add(e1000);
 
-		tapi = new FlxSprite(hero.x + 250, 620);
+		tapi = new FlxSprite(e1000.x + 250, 620);
 		tapi.frames = Paths.getSparrowAtlas('credits2/people/tapi');
 		tapi.animation.addByPrefix('idle', 'tapi_neutral', 24, true);
 		tapi.animation.addByPrefix('select', 'tapi_selected', 24, true);
@@ -216,12 +214,12 @@ class CreditsState2 extends MusicBeatState
 		automateSprites(gbv, 		['gbv2209', 		['Artist', 'Composer'], 		[['yt', 'https://youtube.com'], ['x', 'https://x.com']]]);
 		automateSprites(madera, 	['Mr. Madera', 		['Coder'], 						[['yt', 'https://youtube.com']]]);
 		automateSprites(foxy, 		['SFoxyDAC', 		['Animator'], 					[['yt', 'https://youtube.com']]]);
-		automateSprites(eli, 		['EliAnima', 		['Musician'], 					[['yt', 'https://youtube.com']]]);
 		automateSprites(bunny, 		['Bunny', 			['Charter'], 					[['yt', 'https://youtube.com']]]);
 		automateSprites(ema, 		['Zhadnii', 		['Musician'], 					[['yt', 'https://youtube.com']]]);
 		automateSprites(flash, 		['FlashDriveVGM', 	['Musician', 'Concept Artist'], [['yt', 'https://youtube.com']]]);
-		automateSprites(hero, 		['Heromax', 		['Artist'], 					[['yt', 'https://youtube.com']]]);
+		automateSprites(hero, 		['Heromax', 		['Artist', 'Charter'], 			[['yt', 'https://youtube.com']]]);
 		automateSprites(tapi, 		['Tapii', 			['Musician'], 					[['yt', 'https://youtube.com']]]);
+		automateSprites(e1000, 		['e1000', 			['Charter'], 					[['yt', 'https://youtube.com']]]);
 
 		var mult = FlxMath.lerp(psych.scale.x, psychScale, elapsed * 7);
 		psych.scale.set(mult, mult);
