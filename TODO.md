@@ -2,7 +2,7 @@
 
 - [x] Test
 - [x] Tutorial
-- [ ] Bopeebo
+- [x] Bopeebo
 - [x] Fresh
 - [x] Dadbattle
 
