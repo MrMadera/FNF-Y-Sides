@@ -143,6 +143,12 @@ class MainMenuState extends MusicBeatState
 			characters.alpha = 0;
 			FlxTween.tween(characters, {alpha: 1}, 0.7, {ease: FlxEase.quartOut});
 		}
+		else if(CreditsState2.backFromCredits) {
+			CreditsState2.backFromCredits = false;
+			
+			characters.alpha = 0;
+			FlxTween.tween(characters, {alpha: 1}, 0.7, {ease: FlxEase.quartOut});
+		}
 
 		for(num => option in optionShit2)
 		{
@@ -349,6 +355,10 @@ class MainMenuState extends MusicBeatState
 					transitionToAwards();
 				}
 
+				if(option == 'credits') {
+					transitionToCredits();
+				}
+
 				FlxFlicker.flicker(item, 1, 0.06, false, false, function(flick:FlxFlicker)
 				{
 					switch (option)
@@ -364,7 +374,7 @@ class MainMenuState extends MusicBeatState
 						#end
 
 						case 'credits':
-							MusicBeatState.switchState(new CreditsState2());
+							//MusicBeatState.switchState(new CreditsState2());
 						case 'options':
 							MusicBeatState.switchState(new OptionsState());
 							OptionsState.onPlayState = false;
@@ -492,6 +502,27 @@ class MainMenuState extends MusicBeatState
 						FlxTransitionableState.skipNextTransIn = true;
 						FlxTransitionableState.skipNextTransOut = true;
 						MusicBeatState.switchState(new AchievementsMenuState());
+
+						iconsPos.insert(0, icons.x);
+						iconsPos.insert(1, icons.y);
+					#end
+				});
+			}});
+		});
+	}
+
+	function transitionToCredits()
+	{
+		new FlxTimer().start(0.4, function(tmr:FlxTimer)
+		{
+			FlxTween.tween(characters, {alpha: 0, y: characters.y + 10}, 0.35, {ease: FlxEase.quartIn, onComplete: function(twn:FlxTween)
+			{
+				new FlxTimer().start(0.15, function(tmr:FlxTimer)
+				{
+					#if ACHIEVEMENTS_ALLOWED
+						FlxTransitionableState.skipNextTransIn = true;
+						FlxTransitionableState.skipNextTransOut = true;
+						MusicBeatState.switchState(new CreditsState2());
 
 						iconsPos.insert(0, icons.x);
 						iconsPos.insert(1, icons.y);

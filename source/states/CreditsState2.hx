@@ -7,6 +7,8 @@ import flixel.addons.display.FlxBackdrop;
 class CreditsState2 extends MusicBeatState
 {
 	public static var watchingCredits:Bool = false;
+	public static var backFromCredits:Bool = false;
+
 	var bg:FlxSprite;
 
 	var owner:FlxSprite;
@@ -31,6 +33,8 @@ class CreditsState2 extends MusicBeatState
 	var camPosLerp:FlxObject;
 	var topY:Float;
 	var bottomY:Float = 850;
+
+	var tweenDuration:Float = 0.1;
 
 	override function create() 
 	{
@@ -58,6 +62,8 @@ class CreditsState2 extends MusicBeatState
 		icons.scrollFactor.set();
 		add(icons);
 
+		icons.setPosition(MainMenuState.iconsPos[0], MainMenuState.iconsPos[1]);
+
 		owner = new FlxSprite(150, 90);
 		owner.loadGraphic(Paths.image('credits2/owners'));
 		owner.updateHitbox();
@@ -65,12 +71,18 @@ class CreditsState2 extends MusicBeatState
 		owner.antialiasing = ClientPrefs.data.antialiasing;
 		add(owner);
 
+		owner.alpha = 0;
+		FlxTween.tween(owner, {alpha: 1}, tweenDuration);
+
 		coOwner = new FlxSprite(650, 60);
 		coOwner.loadGraphic(Paths.image('credits2/coOwners'));
 		coOwner.updateHitbox();
 		coOwner.scrollFactor.set(0, 1);
 		coOwner.antialiasing = ClientPrefs.data.antialiasing;
 		add(coOwner);
+
+		coOwner.alpha = 0;
+		FlxTween.tween(coOwner, {alpha: 1}, tweenDuration, {startDelay: 0.05});
 
 		gbv = new FlxSprite(120, 200);
 		gbv.frames = Paths.getSparrowAtlas('credits2/people/gbv');
@@ -81,6 +93,9 @@ class CreditsState2 extends MusicBeatState
 		gbv.antialiasing = ClientPrefs.data.antialiasing;
 		add(gbv);
 
+		gbv.alpha = 0;
+		FlxTween.tween(gbv, {alpha: 1}, tweenDuration, {startDelay: 0.1});
+
 		madera = new FlxSprite(330, 230);
 		madera.frames = Paths.getSparrowAtlas('credits2/people/madera');
 		madera.animation.addByPrefix('idle', 'madera_neutral', 24, true);
@@ -89,6 +104,9 @@ class CreditsState2 extends MusicBeatState
 		madera.scrollFactor.set(0, 1);
 		madera.antialiasing = ClientPrefs.data.antialiasing;
 		add(madera);
+
+		madera.alpha = 0;
+		FlxTween.tween(madera, {alpha: 1}, tweenDuration, {startDelay: 0.15});
 	
 		foxy = new FlxSprite(700, 200);
 		foxy.frames = Paths.getSparrowAtlas('credits2/people/foxy');
@@ -98,6 +116,9 @@ class CreditsState2 extends MusicBeatState
 		foxy.scrollFactor.set(0, 1);
 		foxy.antialiasing = ClientPrefs.data.antialiasing;
 		add(foxy);
+
+		foxy.alpha = 0;
+		FlxTween.tween(foxy, {alpha: 1}, tweenDuration, {startDelay: 0.2});
 
 		hero = new FlxSprite(880, 200);
 		hero.frames = Paths.getSparrowAtlas('credits2/people/hero');
@@ -111,6 +132,9 @@ class CreditsState2 extends MusicBeatState
 		hero.scrollFactor.set(0, 1);
 		hero.antialiasing = ClientPrefs.data.antialiasing;
 		add(hero);
+		
+		hero.alpha = 0;
+		FlxTween.tween(hero, {alpha: 1}, tweenDuration, {startDelay: 0.25});
 
 		devs = new FlxSprite(500, 510);
 		devs.loadGraphic(Paths.image('credits2/devs'));
@@ -119,6 +143,9 @@ class CreditsState2 extends MusicBeatState
 		devs.scrollFactor.set(0, 1);
 		devs.antialiasing = ClientPrefs.data.antialiasing;
 		add(devs);
+
+		devs.alpha = 0;
+		FlxTween.tween(devs, {alpha: 1}, tweenDuration, {startDelay: 0.3});
 
 		bunny = new FlxSprite(20, 620);
 		bunny.frames = Paths.getSparrowAtlas('credits2/people/bunny');
@@ -129,6 +156,9 @@ class CreditsState2 extends MusicBeatState
 		bunny.antialiasing = ClientPrefs.data.antialiasing;
 		add(bunny);
 
+		bunny.alpha = 0;
+		FlxTween.tween(bunny, {alpha: 1}, tweenDuration, {startDelay: 0.35});
+
 		ema = new FlxSprite(bunny.x + 250, 620);
 		ema.frames = Paths.getSparrowAtlas('credits2/people/ema');
 		ema.animation.addByPrefix('idle', 'ema_neutral', 24, true);
@@ -137,6 +167,9 @@ class CreditsState2 extends MusicBeatState
 		ema.scrollFactor.set(0, 1);
 		ema.antialiasing = ClientPrefs.data.antialiasing;
 		add(ema);
+
+		ema.alpha = 0;
+		FlxTween.tween(ema, {alpha: 1}, tweenDuration, {startDelay: 0.4});
 
 		flash = new FlxSprite(ema.x + 250, 620);
 		flash.frames = Paths.getSparrowAtlas('credits2/people/flash');
@@ -147,8 +180,20 @@ class CreditsState2 extends MusicBeatState
 		flash.antialiasing = ClientPrefs.data.antialiasing;
 		add(flash);
 
+		flash.alpha = 0;
+		FlxTween.tween(flash, {alpha: 1}, tweenDuration, {startDelay: 0.45});
+
 		e1000 = new FlxSprite(flash.x + 250, 620);
+		e1000.frames = Paths.getSparrowAtlas('credits2/people/emil');
+		e1000.animation.addByPrefix('idle', 'emil_neutral', 24, true);
+		e1000.animation.addByPrefix('select', 'emil_selected', 24, true);
+		e1000.animation.play('idle');
+		e1000.scrollFactor.set(0, 1);
+		e1000.antialiasing = ClientPrefs.data.antialiasing;
 		add(e1000);
+
+		e1000.alpha = 0;
+		FlxTween.tween(e1000, {alpha: 1}, tweenDuration, {startDelay: 0.5});
 
 		tapi = new FlxSprite(e1000.x + 250, 620);
 		tapi.frames = Paths.getSparrowAtlas('credits2/people/tapi');
@@ -159,6 +204,9 @@ class CreditsState2 extends MusicBeatState
 		tapi.antialiasing = ClientPrefs.data.antialiasing;
 		add(tapi);
 
+		tapi.alpha = 0;
+		FlxTween.tween(tapi, {alpha: 1}, tweenDuration, {startDelay: 0.55});
+
 		psych = new FlxSprite(500, 1010);
 		psych.loadGraphic(Paths.image('credits2/psychTeam'));
 		psych.screenCenter(X);
@@ -166,12 +214,40 @@ class CreditsState2 extends MusicBeatState
 		psych.scrollFactor.set(0, 1);
 		psych.antialiasing = ClientPrefs.data.antialiasing;
 		add(psych);
+
+		psych.alpha = 0;
+		FlxTween.tween(psych, {alpha: 1}, tweenDuration, {startDelay: 0.6});
 	}
 
 	var psychScale:Float = 1;
 	override function update(elapsed:Float) {
-		if (FlxG.keys.justPressed.ESCAPE && !watchingCredits) {
-			FlxG.switchState(new MainMenuState());
+		if (controls.BACK && !watchingCredits) {
+			
+			FlxTween.tween(owner, {alpha: 0}, tweenDuration);
+			FlxTween.tween(coOwner, {alpha: 0}, tweenDuration, {startDelay: 0.025});
+			FlxTween.tween(gbv, {alpha: 0}, tweenDuration, {startDelay: 0.05});
+			FlxTween.tween(madera, {alpha: 0}, tweenDuration, {startDelay: 0.075});
+			FlxTween.tween(foxy, {alpha: 0}, tweenDuration, {startDelay: 0.1});
+			FlxTween.tween(hero, {alpha: 0}, tweenDuration, {startDelay: 0.125});
+			FlxTween.tween(devs, {alpha: 0}, tweenDuration, {startDelay: 0.15});
+			FlxTween.tween(bunny, {alpha: 0}, tweenDuration, {startDelay: 0.175});
+			FlxTween.tween(ema, {alpha: 0}, tweenDuration, {startDelay: 0.2});
+			FlxTween.tween(flash, {alpha: 0}, tweenDuration, {startDelay: 0.225});
+			FlxTween.tween(e1000, {alpha: 0}, tweenDuration, {startDelay: 0.25});
+			FlxTween.tween(tapi, {alpha: 0}, tweenDuration, {startDelay: 0.275});
+			FlxTween.tween(psych, {alpha: 0}, tweenDuration, {startDelay: 0.3});
+
+			new FlxTimer().start(0.45, function(tmr:FlxTimer)
+			{
+				backFromCredits = true;
+
+				MainMenuState.iconsPos.insert(0, icons.x);
+				MainMenuState.iconsPos.insert(1, icons.y);
+	
+				FlxTransitionableState.skipNextTransIn = true;
+				FlxTransitionableState.skipNextTransOut = true;
+				MusicBeatState.switchState(new MainMenuState());
+			});
 		}
 
 		if (FlxG.sound.music != null)
