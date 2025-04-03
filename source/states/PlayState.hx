@@ -483,6 +483,18 @@ class PlayState extends MusicBeatState
 		timeBar.visible = showTime;
 		uiGroup.add(timeBar);
 
+		if(ClientPrefs.data.middleScroll)
+		{
+			if(ClientPrefs.data.downScroll)
+			{
+				timeBar.y = FlxG.height * 0.025 + 140;
+			}
+			else
+			{
+				timeBar.y = FlxG.height * 0.805 - 90;
+			}
+		}
+
 		var fontLetters:String = "0123456789:";
 		timeTxt = new FlxBitmapText(FlxBitmapFont.fromMonospace(Paths.image("hud/font_gym"), fontLetters, FlxPoint.get(40, 56)));
 		timeTxt.text = "";
@@ -496,8 +508,8 @@ class PlayState extends MusicBeatState
 		timeTxt.visible = updateTime = showTime;
 		if(ClientPrefs.data.downScroll) 
 		{
-			timeBar.y = FlxG.height - timeBar.height - 25;
-			timeTxt.y = timeBar.y + timeBar.height / 4;
+			if(!ClientPrefs.data.middleScroll) timeBar.y = FlxG.height - timeBar.height - 25;
+			timeTxt.y = timeBar.y + timeBar.height / 4 - 4;
 		}
 		uiGroup.add(timeTxt);
 
@@ -554,7 +566,7 @@ class PlayState extends MusicBeatState
 		fcSprite.antialiasing = ClientPrefs.data.antialiasing;
 		fcSprite.visible = !ClientPrefs.data.hideHud;
 		fcSprite.alpha = ClientPrefs.data.healthBarAlpha;
-		if(ClientPrefs.data.downScroll) fcSprite.y = -500;
+		if(ClientPrefs.data.downScroll) fcSprite.y = -550;
 		uiGroup.add(fcSprite);
 
 		iconP1 = new HealthIcon(boyfriend.healthIcon, true);
