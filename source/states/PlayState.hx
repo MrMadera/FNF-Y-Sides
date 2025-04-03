@@ -185,6 +185,8 @@ class PlayState extends MusicBeatState
 	public var timeBar:FlxSprite;
 	var songPercent:Float = 0;
 
+	public var spaceMechanicButton:FlxSprite;
+
 	public var ratingsData:Array<Rating> = Rating.loadDefault();
 
 	private var generatedMusic:Bool = false;
@@ -587,6 +589,21 @@ class PlayState extends MusicBeatState
 		scoreTxt.borderSize = 1.25;
 		scoreTxt.visible = !ClientPrefs.data.hideHud;
 		uiGroup.add(scoreTxt);
+
+		spaceMechanicButton = new FlxSprite(boyfriend.x - 210, boyfriend.y - 100);
+		spaceMechanicButton.frames = Paths.getSparrowAtlas('hud/mechanic/space_button');
+		spaceMechanicButton.animation.addByPrefix('confirm', 'space_confirm', false);
+		spaceMechanicButton.animation.addByPrefix('1', 'space1', false);
+		spaceMechanicButton.animation.addByPrefix('2', 'space2', false);
+		spaceMechanicButton.animation.addByPrefix('3', 'space3', false);
+		spaceMechanicButton.animation.addByPrefix('4', 'space4', false);
+		spaceMechanicButton.animation.addByPrefix('5', 'space5', false);
+		spaceMechanicButton.animation.addByPrefix('6', 'space6', false);
+		spaceMechanicButton.animation.addByPrefix('7', 'space7', false);
+		spaceMechanicButton.animation.addByPrefix('8', 'space8', false);
+		spaceMechanicButton.animation.addByPrefix('9', 'space9', false);
+		spaceMechanicButton.animation.play('1');
+		add(spaceMechanicButton);
 
 		botplayTxt = new FlxText(400, healthBar.y - 90, FlxG.width - 800, Language.getPhrase("Botplay").toUpperCase(), 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -1338,6 +1355,7 @@ class PlayState extends MusicBeatState
 		Conductor.bpm = songData.bpm;
 
 		curSong = songData.song;
+		trace('Playing $curSong');
 
 		vocals = new FlxSound();
 		opponentVocals = new FlxSound();
@@ -1724,6 +1742,13 @@ class PlayState extends MusicBeatState
 	var freezeCamera:Bool = false;
 	var allowDebugKeys:Bool = true;
 
+	var isLiftMechanicEnabled:Bool = true;
+	var liftAmount:Int = 0;
+	var isPressingSpace:Bool = false; var pressConditionDelay:Float = 0.8; var pressConditionTime:Float = 0; var pressConditionSample:Float = 0;
+	var alredyLiftAnim:Bool = false;
+	var startedLift:Bool = false;
+	var liftingTime:Float = 0;
+
 	override public function update(elapsed:Float)
 	{
 		if(!inCutscene && !paused && !freezeCamera) {
@@ -1743,13 +1768,91 @@ class PlayState extends MusicBeatState
 
 		super.update(elapsed);
 
-		// dumbbells achievement mechanic shit
-		#if debug
-			if(FlxG.keys.justPressed.SPACE) { // just to test
-				var lifts = Achievements.addScore('dumbbells');
-				trace('Lift $lifts times...');
+		if(isLiftMechanicEnabled)
+		{
+			if(curSong == 'Dad Battle')
+			{
+				pressConditionTime += elapsed;
+
+				if(pressConditionTime > pressConditionSample + pressConditionDelay) 
+				{
+					isPressingSpace = false;
+				}
+
+				if(startedLift)
+				{
+					liftingTime += elapsed;
+
+					if(liftingTime > 1.5)
+					{
+						liftAmount = 0;
+						startedLift = false;
+						liftingTime = 0;
+
+						boyfriend.playAnim('singDOWNmiss', true);
+						alredyLiftAnim = true;
+						trace('FAILED!');
+
+						FlxTween.cancelTweensOf(spaceMechanicButton);
+						FlxTween.shake(spaceMechanicButton, 0.05, 0.4, X);
+						FlxTween.tween(spaceMechanicButton, {"scale.x": 0, "scale.y": 0}, 0.1, {ease: FlxEase.expoOut});
+
+						health -= 0.25;
+
+						new FlxTimer().start(0.3, function(tmr:FlxTimer)
+						{
+							trace('now you can lift em again');
+							alredyLiftAnim = false;
+						});
+					}
+				}
+
+				if(SONG.notes[curSection].sectionNotes.length < 1)
+				{
+					if(FlxG.keys.justPressed.SPACE && !alredyLiftAnim) {
+
+						startedLift = true;
+						isPressingSpace = true;
+						pressConditionSample = pressConditionTime;
+
+						liftAmount++;
+
+						boyfriend.playAnim('lift', true);
+						spaceMechanicButton.scale.set(1, 1);
+						spaceMechanicButton.visible = true;
+						spaceMechanicButton.animation.finishCallback = null;
+						spaceMechanicButton.animation.play('${10-liftAmount}');
+
+						if(liftAmount >= 10)
+						{
+							liftAmount = 0;
+							startedLift = false;
+							liftingTime = 0;
+
+							health += 0.25;
+
+							boyfriend.playAnim('liftUp', true);
+							spaceMechanicButton.animation.play('confirm');
+							spaceMechanicButton.animation.finishCallback = function(name:String)
+							{
+								trace(name);
+								if(name == 'confirm') spaceMechanicButton.visible = false;
+							}
+							alredyLiftAnim = true;
+
+							new FlxTimer().start(0.35, function(tmr:FlxTimer)
+							{
+								trace('now you can lift em again');
+								alredyLiftAnim = false;
+							});
+
+							var lifts = Achievements.addScore('dumbbells');
+							trace('Lift $lifts times...');
+						}
+					}
+				}
 			}
-		#end
+		}
 
 		setOnScripts('curDecStep', curDecStep);
 		setOnScripts('curDecBeat', curDecBeat);
@@ -3339,7 +3442,13 @@ class PlayState extends MusicBeatState
 		if (gf != null && beat % Math.round(gfSpeed * gf.danceEveryNumBeats) == 0 && !gf.getAnimationName().startsWith('sing') && !gf.stunned)
 			gf.dance();
 		if (boyfriend != null && beat % boyfriend.danceEveryNumBeats == 0 && !boyfriend.getAnimationName().startsWith('sing') && !boyfriend.stunned)
-			boyfriend.dance();
+		{
+			if(isLiftMechanicEnabled) {
+				if(!startedLift) boyfriend.dance();
+			}
+			else 
+				boyfriend.dance();
+		}
 		if (dad != null && beat % dad.danceEveryNumBeats == 0 && !dad.getAnimationName().startsWith('sing') && !dad.stunned)
 			dad.dance();
 	}

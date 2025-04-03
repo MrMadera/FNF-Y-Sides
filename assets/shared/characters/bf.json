@@ -1,84 +1,100 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [-5, 0],
+			"loop": false,
+			"fps": 24,
 			"anim": "idle",
-			"fps": 24,
-			"name": "idle",
-			"indices": []
+			"indices": [],
+			"name": "idle"
 		},
 		{
-			"loop": false,
 			"offsets": [55, -9],
+			"loop": false,
+			"fps": 24,
 			"anim": "singLEFT",
-			"fps": 24,
-			"name": "left",
-			"indices": []
+			"indices": [],
+			"name": "left"
 		},
 		{
-			"loop": false,
 			"offsets": [1, -31],
+			"loop": false,
+			"fps": 24,
 			"anim": "singDOWN",
-			"fps": 24,
-			"name": "down",
-			"indices": []
+			"indices": [],
+			"name": "down"
 		},
 		{
-			"loop": false,
 			"offsets": [9, 32],
+			"loop": false,
+			"fps": 24,
 			"anim": "singUP",
-			"fps": 24,
-			"name": "up",
-			"indices": []
+			"indices": [],
+			"name": "up"
 		},
 		{
-			"loop": false,
 			"offsets": [-59, -4],
+			"loop": false,
+			"fps": 24,
 			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "right",
-			"indices": []
+			"indices": [],
+			"name": "right"
 		},
 		{
-			"loop": false,
 			"offsets": [63, -15],
+			"loop": false,
+			"fps": 24,
 			"anim": "singLEFTmiss",
-			"fps": 24,
-			"name": "mleft",
-			"indices": []
+			"indices": [],
+			"name": "mleft"
 		},
 		{
-			"loop": false,
 			"offsets": [29, -98],
+			"loop": false,
+			"fps": 24,
 			"anim": "singDOWNmiss",
-			"fps": 24,
-			"name": "mdown",
-			"indices": []
+			"indices": [],
+			"name": "mdown"
 		},
 		{
-			"loop": false,
 			"offsets": [8, 37],
+			"loop": false,
+			"fps": 24,
 			"anim": "singUPmiss",
-			"fps": 24,
-			"name": "mup",
-			"indices": []
+			"indices": [],
+			"name": "mup"
 		},
 		{
-			"loop": false,
 			"offsets": [-66, -5],
-			"anim": "singRIGHTmiss",
+			"loop": false,
 			"fps": 24,
-			"name": "mright",
-			"indices": []
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "mright"
 		},
 		{
-			"loop": false,
 			"offsets": [-14, 25],
-			"anim": "hey",
+			"loop": false,
 			"fps": 24,
-			"name": "hey",
-			"indices": []
+			"anim": "hey",
+			"indices": [],
+			"name": "hey"
+		},
+		{
+			"offsets": [7, -4],
+			"indices": [],
+			"fps": 24,
+			"anim": "lift",
+			"loop": true,
+			"name": "pesa instancia"
+		},
+		{
+			"offsets": [-4, 15],
+			"indices": [],
+			"fps": 24,
+			"anim": "liftUp",
+			"loop": false,
+			"name": "pesaF instancia"
 		}
 	],
 	"vocals_file": "",
