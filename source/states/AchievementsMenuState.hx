@@ -234,7 +234,6 @@ class AchievementsMenuState extends MusicBeatState
 		if (controls.BACK) {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			
-
 			FlxTween.cancelTweensOf(optionsBox);
 			FlxTween.cancelTweensOf(underBox);
 			FlxTween.cancelTweensOf(nameText);
@@ -258,7 +257,7 @@ class AchievementsMenuState extends MusicBeatState
 			new FlxTimer().start(0.6, function(tmr:FlxTimer)
 			{
 				CreditsState2.backFromCredits = true;
-				
+
 				MainMenuState.iconsPos.insert(0, icons.x);
 				MainMenuState.iconsPos.insert(1, icons.y);
 				

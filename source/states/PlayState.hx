@@ -1732,10 +1732,12 @@ class PlayState extends MusicBeatState
 		super.update(elapsed);
 
 		// dumbbells achievement mechanic shit
-		if(FlxG.keys.justPressed.SPACE) { // just to test
-			var lifts = Achievements.addScore('dumbbells');
-			trace('Lift $lifts times...');
-		}
+		#if debug
+			if(FlxG.keys.justPressed.SPACE) { // just to test
+				var lifts = Achievements.addScore('dumbbells');
+				trace('Lift $lifts times...');
+			}
+		#end
 
 		setOnScripts('curDecStep', curDecStep);
 		setOnScripts('curDecBeat', curDecBeat);
