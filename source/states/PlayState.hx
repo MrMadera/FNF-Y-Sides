@@ -1789,7 +1789,7 @@ class PlayState extends MusicBeatState
 						startedLift = false;
 						liftingTime = 0;
 
-						boyfriend.playAnim('singDOWNmiss', true);
+						boyfriend.playAnim('liftFail', true);
 						alredyLiftAnim = true;
 						trace('FAILED!');
 
@@ -1831,6 +1831,7 @@ class PlayState extends MusicBeatState
 
 							health += 0.25;
 
+							gf.playAnim('hey', true);
 							boyfriend.playAnim('liftUp', true);
 							spaceMechanicButton.animation.play('confirm');
 							spaceMechanicButton.animation.finishCallback = function(name:String)
