@@ -3634,6 +3634,11 @@ class PlayState extends MusicBeatState
 			{
 
 			}
+			else if(name == WeekData.getWeekFileName() + '_nomissfreeplay')
+			{
+				if(songMisses < 1 && Difficulty.getString().toUpperCase() == 'HARD' && !changedDifficulty && !usedPractice)
+					unlock = true;
+			}
 			else // any FC achievements, name should be "weekFileName_nomiss", e.g: "week3_nomiss";
 			{
 				if(isStoryMode && campaignMisses + songMisses < 1 && Difficulty.getString().toUpperCase() == 'HARD'
