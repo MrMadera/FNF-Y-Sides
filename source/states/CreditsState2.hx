@@ -288,12 +288,12 @@ class CreditsState2 extends MusicBeatState
 		//automateSprites(psych, new CreditsState());
 
 		automateSprites(gbv, 		['gbv2209', 		['Artist', 'Composer'], 		[['yt', 'https://www.youtube.com/@gBv2209'], ['x', 'https://x.com/gbv2209']]]);
-		automateSprites(madera, 	['Mr. Madera', 		['Coder'], 						[['yt', 'https://www.youtube.com/@mrmadera1235']]]);
+		automateSprites(madera, 	['Mr. Madera', 		['Coder'], 						[['yt', 'https://www.youtube.com/@mrmadera1235'], ['x', 'https://x.com/MrMadera625']]]);
 		automateSprites(foxy, 		['SFoxyDAC', 		['Animator'], 					[['yt', 'https://www.youtube.com/@SFoxyDAC']]]);
-		automateSprites(bunny, 		['Bunny', 			['Charter'], 					[['yt', 'https://youtube.com']]]);
+		automateSprites(bunny, 		['Bunny', 			['Charter'], 					[['yt', 'https://www.youtube.com/channel/UC0wf30aZmevO4RxMDwZqVNw'], ['x', ['https://x.com/ArchDolphin_']]]]);
 		automateSprites(ema, 		['Zhadnii', 		['Musician'], 					[['yt', 'https://www.youtube.com/@strike-idk']]]);
 		automateSprites(flash, 		['FlashDriveVGM', 	['Musician', 'Concept Artist'], [['yt', 'https://www.youtube.com/@FlashMan07']]]);
-		automateSprites(hero, 		['Heromax', 		['Artist', 'Charter'], 			[['yt', 'https://youtube.com']]]);
+		automateSprites(hero, 		['Heromax', 		['Artist', 'Charter'], 			[['yt', 'https://youtube.com'], ['x', 'https://x.com/heromax_2498']]]);
 		automateSprites(tapi, 		['Tapii', 			['Musician'], 					[['yt', 'https://youtube.com']]]);
 		automateSprites(e1000, 		['e1000', 			['Charter'], 					[['yt', 'https://youtube.com']]]);
 
