@@ -141,12 +141,14 @@ class MainMenuState extends MusicBeatState
 			FlxTween.tween(icons, {alpha: 0.45}, 0.7, {ease: FlxEase.quartOut});
 
 			characters.alpha = 0;
+			FlxTween.cancelTweensOf(characters);
 			FlxTween.tween(characters, {alpha: 1}, 0.7, {ease: FlxEase.quartOut});
 		}
 		else if(CreditsState2.backFromCredits) {
 			CreditsState2.backFromCredits = false;
-			
+
 			characters.alpha = 0;
+			FlxTween.cancelTweensOf(characters);
 			FlxTween.tween(characters, {alpha: 1}, 0.7, {ease: FlxEase.quartOut});
 		}
 
@@ -464,6 +466,7 @@ class MainMenuState extends MusicBeatState
 				});
 			}});
 
+			FlxTween.cancelTweensOf(characters);
 			FlxTween.tween(characters, {alpha: 0}, 0.25);
 		});
 	}
@@ -476,6 +479,7 @@ class MainMenuState extends MusicBeatState
 
 			FlxTween.tween(menuItems.members[curSelected], {y: 500, alpha: 0, angle: -15}, 0.75, {ease: FlxEase.quartIn});
 
+			FlxTween.cancelTweensOf(characters);
 			FlxTween.tween(characters, {y: 500, alpha: 0, angle: 15}, 0.75, {ease: FlxEase.quartIn, onComplete: function(twn:FlxTween)
 			{
 				new FlxTimer().start(0.15, function(tmr:FlxTimer)
@@ -494,6 +498,7 @@ class MainMenuState extends MusicBeatState
 	{
 		new FlxTimer().start(0.4, function(tmr:FlxTimer)
 		{
+			FlxTween.cancelTweensOf(characters);
 			FlxTween.tween(characters, {alpha: 0}, 0.35, {ease: FlxEase.quartIn, onComplete: function(twn:FlxTween)
 			{
 				new FlxTimer().start(0.15, function(tmr:FlxTimer)
@@ -515,6 +520,7 @@ class MainMenuState extends MusicBeatState
 	{
 		new FlxTimer().start(0.4, function(tmr:FlxTimer)
 		{
+			FlxTween.cancelTweensOf(characters);
 			FlxTween.tween(characters, {alpha: 0, y: characters.y + 10}, 0.35, {ease: FlxEase.quartIn, onComplete: function(twn:FlxTween)
 			{
 				new FlxTimer().start(0.15, function(tmr:FlxTimer)
