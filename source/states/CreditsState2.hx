@@ -289,7 +289,7 @@ class CreditsState2 extends MusicBeatState
 
 		automateSprites(gbv, 		['gbv2209', 		['Artist', 'Composer'], 		[['yt', 'https://www.youtube.com/@gBv2209'], ['x', 'https://x.com/gbv2209']]]);
 		automateSprites(madera, 	['Mr. Madera', 		['Coder'], 						[['yt', 'https://www.youtube.com/@mrmadera1235'], ['x', 'https://x.com/MrMadera625']]]);
-		automateSprites(foxy, 		['SFoxyDAC', 		['Animator'], 					[['yt', 'https://www.youtube.com/@SFoxyDAC']]]);
+		automateSprites(foxy, 		['SFoxyDAC', 		['Animator'], 					[['yt', 'https://www.youtube.com/@SFoxyDAC'], ['x', 'https://x.com/SFoxyDAC']]]);
 		automateSprites(bunny, 		['Bunny', 			['Charter'], 					[['yt', 'https://www.youtube.com/channel/UC0wf30aZmevO4RxMDwZqVNw'], ['x', ['https://x.com/ArchDolphin_']]]]);
 		automateSprites(ema, 		['Zhadnii', 		['Musician'], 					[['yt', 'https://www.youtube.com/@strike-idk']]]);
 		automateSprites(flash, 		['FlashDriveVGM', 	['Musician', 'Concept Artist'], [['yt', 'https://www.youtube.com/@FlashMan07']]]);
