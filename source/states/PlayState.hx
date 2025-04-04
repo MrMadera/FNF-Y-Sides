@@ -23,6 +23,9 @@ import openfl.events.KeyboardEvent;
 import haxe.Json;
 
 import cutscenes.DialogueBoxPsych;
+import cutscenes.NewDialogueBox;
+
+import objects.Character;
 
 import states.StoryMenuState;
 import states.FreeplayState;
@@ -662,7 +665,15 @@ class PlayState extends MusicBeatState
 			eventNotes.sort(sortByTime);
 		}
 
-		startCallback();
+		if(FileSystem.exists(Paths.json('$curSong/dialogue')))
+		{
+			trace(Paths.json('$curSong/dialogue'));
+			var file = Paths.json('$curSong/dialogue');
+			startYSidesDialogue(NewDialogueBox.returnJsonData(file));
+			startCallback = null;
+		}
+
+		if(startCallback != null) startCallback();
 		RecalculateRating(false, false);
 
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
@@ -978,6 +989,25 @@ class PlayState extends MusicBeatState
 			FlxG.log.warn('Your dialogue file is badly formatted!');
 			startAndEnd();
 		}
+	}
+
+	public var ysidesDialogue:NewDialogueBox;
+
+	public function startYSidesDialogue(dialogueFile:DialogueData)
+	{
+		inCutscene = true;
+
+		ysidesDialogue = new NewDialogueBox(dialogueFile);
+		ysidesDialogue.cameras = [camHUD];
+		ysidesDialogue.finishThing = function()
+		{
+			new FlxTimer().start(0.25, function(tmr:FlxTimer)
+			{
+				if(endingSong) endSong();
+				else startCountdown();
+			});
+		}
+		add(ysidesDialogue);
 	}
 
 	var startTimer:FlxTimer;

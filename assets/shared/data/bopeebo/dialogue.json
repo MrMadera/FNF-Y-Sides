@@ -1,0 +1,24 @@
+{
+    "speechBackground": "",
+    "speechBackgroundPos": ["", ""],
+    "speechBackgroundAnim": ["", ""],
+    "speechTextFont": "",
+    "speechContinueThingSprite": "",
+    "speechContinueThingOffsets": [0, 0],
+    "speechBackgroundSize": [1, 1],
+    "dialogues": 
+    [
+        {
+            "dialogue": "Welcome to this template",
+            "textSpeed": 0.04,
+            "speechTextOffsets": [0, 0],
+            "speechTextWidth": 0
+        },
+        {
+            "dialogue": "Let's have sex",
+            "textSpeed": 0.04,
+            "speechTextOffsets": [0, 0],
+            "speechTextWidth": 0
+        }
+    ]
+}
