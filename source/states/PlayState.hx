@@ -1748,6 +1748,7 @@ class PlayState extends MusicBeatState
 	var alredyLiftAnim:Bool = false;
 	var startedLift:Bool = false;
 	var liftingTime:Float = 0;
+	var forcedLiftingSection:Bool = false;
 
 	override public function update(elapsed:Float)
 	{
@@ -1802,6 +1803,19 @@ class PlayState extends MusicBeatState
 						new FlxTimer().start(0.3, function(tmr:FlxTimer)
 						{
 							trace('now you can lift em again');
+
+							// repeating again the mechanic
+							if(forcedLiftingSection)
+							{
+								startedLift = true;
+
+								boyfriend.playAnim('lift', true);
+								spaceMechanicButton.scale.set(1, 1);
+								spaceMechanicButton.visible = true;
+								spaceMechanicButton.animation.finishCallback = null;
+								spaceMechanicButton.animation.play('${10-liftAmount}');
+							}
+
 							alredyLiftAnim = false;
 						});
 					}
@@ -1844,6 +1858,18 @@ class PlayState extends MusicBeatState
 							new FlxTimer().start(0.35, function(tmr:FlxTimer)
 							{
 								trace('now you can lift em again');
+								
+								if(forcedLiftingSection)
+								{
+									startedLift = true;
+									
+									boyfriend.playAnim('lift', true);
+									spaceMechanicButton.scale.set(1, 1);
+									spaceMechanicButton.visible = true;
+									spaceMechanicButton.animation.finishCallback = null;
+									spaceMechanicButton.animation.play('${10-liftAmount}');
+								}
+
 								alredyLiftAnim = false;
 							});
 
@@ -3404,6 +3430,18 @@ class PlayState extends MusicBeatState
 
 		if(curStep == lastStepHit) {
 			return;
+		}
+
+		switch(curSong)
+		{
+			case 'Dad Battle':
+				switch(curStep)
+				{
+					case 528:
+						forcedLiftingSection = true;
+					case 656:
+						forcedLiftingSection = false;
+				}
 		}
 
 		lastStepHit = curStep;
