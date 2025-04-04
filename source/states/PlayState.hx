@@ -3531,7 +3531,7 @@ class PlayState extends MusicBeatState
 		if (boyfriend != null && beat % boyfriend.danceEveryNumBeats == 0 && !boyfriend.getAnimationName().startsWith('sing') && !boyfriend.stunned)
 		{
 			if(isLiftMechanicEnabled) {
-				if(!startedLift) boyfriend.dance();
+				if(!startedLift && !forcedLiftingSection) boyfriend.dance();
 			}
 			else 
 				boyfriend.dance();
