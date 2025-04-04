@@ -287,15 +287,15 @@ class CreditsState2 extends MusicBeatState
 
 		//automateSprites(psych, new CreditsState());
 
-		automateSprites(gbv, 		['gbv2209', 		['Artist', 'Composer'], 		[['yt', 'https://www.youtube.com/@gBv2209'], ['x', 'https://x.com/gbv2209']]]);
-		automateSprites(madera, 	['Mr. Madera', 		['Coder'], 						[['yt', 'https://www.youtube.com/@mrmadera1235'], ['x', 'https://x.com/MrMadera625']]]);
-		automateSprites(foxy, 		['SFoxyDAC', 		['Animator'], 					[['yt', 'https://www.youtube.com/@SFoxyDAC'], ['x', 'https://x.com/SFoxyDAC']]]);
-		automateSprites(bunny, 		['Bunny', 			['Charter'], 					[['yt', 'https://www.youtube.com/channel/UC0wf30aZmevO4RxMDwZqVNw'], ['x', ['https://x.com/ArchDolphin_']]]]);
+		automateSprites(gbv, 		['gbv2209', 		['Concept Artist', 'Artist', 'Animator', 'Composer', 'charter', 'Coder Jr.'], 		[['yt', 'https://www.youtube.com/@gBv2209'], ['x', 'https://x.com/gbv2209']]]);
+		automateSprites(madera, 	['Mr. Madera', 		['Main Coder', 'charter'], 						[['yt', 'https://www.youtube.com/@mrmadera1235'], ['x', 'https://x.com/MrMadera625']]]);
+		automateSprites(foxy, 		['SFoxyDAC', 		['Artist', 'Animator'], 					[['yt', 'https://www.youtube.com/@SFoxyDAC'], ['x', 'https://x.com/SFoxyDAC']]]);
+		automateSprites(bunny, 		['b.unnyb', 		['Charter'], 					[['x', ['https://x.com/ArchDolphin_?t=Bb8k6aEWHPu55f5ezZbkAg&s=09']]]]);
 		automateSprites(ema, 		['Zhadnii', 		['Musician'], 					[['yt', 'https://youtube.com/@zhadnii_']]]);
-		automateSprites(flash, 		['FlashDriveVGM', 	['Musician', 'Concept Artist'], [['yt', 'https://www.youtube.com/@FlashMan07']]]);
-		automateSprites(hero, 		['Heromax', 		['Artist', 'Charter'], 			[['yt', 'https://youtube.com'], ['x', 'https://x.com/heromax_2498']]]);
-		automateSprites(tapi, 		['Tapii', 			['Musician'], 					[['yt', 'https://youtube.com']]]);
-		automateSprites(e1000, 		['e1000', 			['Charter'], 					[['yt', 'https://youtube.com']]]);
+		automateSprites(flash, 		['FlashDriveVGM', 	['Musician', 'Concept Artist', 'Artist'], [['yt', 'https://www.youtube.com/@FlashMan07']]]);
+		automateSprites(hero, 		['Heromax', 		['Concept Artist', 'Artist', 'Charter'], 			[['x', 'https://x.com/heromax_2498']]]);
+		automateSprites(tapi, 		['Tapii', 			['Musician'], 					[['yt', 'https://www.youtube.com/@ItsTapiiii']]]);
+		automateSprites(e1000, 		['e1000', 			['Artist', 'Charter'], 					[['yt', 'https://www.youtube.com/@E1000YT/videos'], ['x', 'https://x.com/E1000TWOF ']]]);
 
 		var mult = FlxMath.lerp(psych.scale.x, psychScale, elapsed * 7);
 		psych.scale.set(mult, mult);

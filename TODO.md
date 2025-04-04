@@ -21,7 +21,7 @@
 - [x] Story Mode
 - [x] Freeplay
 - [ ] Options
-- [ ] Credits
+- [x] Credits
 - [x] Awards
 - [x] Gameover
 
