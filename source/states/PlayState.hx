@@ -1854,60 +1854,63 @@ class PlayState extends MusicBeatState
 					}
 				}
 
-				if(SONG.notes[curSection].sectionNotes.length < 1)
+				if(SONG.notes[curSection].sectionNotes != null)
 				{
-					if(FlxG.keys.justPressed.SPACE && !alredyLiftAnim) {
-
-						startedLift = true;
-						isPressingSpace = true;
-						pressConditionSample = pressConditionTime;
-
-						liftAmount++;
-
-						boyfriend.playAnim('lift', true);
-						spaceMechanicButton.scale.set(1, 1);
-						spaceMechanicButton.visible = true;
-						spaceMechanicButton.animation.finishCallback = null;
-						spaceMechanicButton.animation.play('${10-liftAmount}');
-
-						if(liftAmount >= 10)
-						{
-							liftAmount = 0;
-							startedLift = false;
-							liftingTime = 0;
-
-							health += 0.25;
-
-							gf.playAnim('hey', true);
-							boyfriend.playAnim('liftUp', true);
-							spaceMechanicButton.animation.play('confirm');
-							spaceMechanicButton.animation.finishCallback = function(name:String)
+					if(SONG.notes[curSection].sectionNotes.length < 1)
+					{
+						if(FlxG.keys.justPressed.SPACE && !alredyLiftAnim) {
+	
+							startedLift = true;
+							isPressingSpace = true;
+							pressConditionSample = pressConditionTime;
+	
+							liftAmount++;
+	
+							boyfriend.playAnim('lift', true);
+							spaceMechanicButton.scale.set(1, 1);
+							spaceMechanicButton.visible = true;
+							spaceMechanicButton.animation.finishCallback = null;
+							spaceMechanicButton.animation.play('${10-liftAmount}');
+	
+							if(liftAmount >= 10)
 							{
-								trace(name);
-								if(name == 'confirm') spaceMechanicButton.visible = false;
-							}
-							alredyLiftAnim = true;
-
-							new FlxTimer().start(0.35, function(tmr:FlxTimer)
-							{
-								trace('now you can lift em again');
-								
-								if(forcedLiftingSection)
+								liftAmount = 0;
+								startedLift = false;
+								liftingTime = 0;
+	
+								health += 0.25;
+	
+								gf.playAnim('hey', true);
+								boyfriend.playAnim('liftUp', true);
+								spaceMechanicButton.animation.play('confirm');
+								spaceMechanicButton.animation.finishCallback = function(name:String)
 								{
-									startedLift = true;
-									
-									boyfriend.playAnim('lift', true);
-									spaceMechanicButton.scale.set(1, 1);
-									spaceMechanicButton.visible = true;
-									spaceMechanicButton.animation.finishCallback = null;
-									spaceMechanicButton.animation.play('${10-liftAmount}');
+									trace(name);
+									if(name == 'confirm') spaceMechanicButton.visible = false;
 								}
-
-								alredyLiftAnim = false;
-							});
-
-							var lifts = Achievements.addScore('dumbbells');
-							trace('Lift $lifts times...');
+								alredyLiftAnim = true;
+	
+								new FlxTimer().start(0.35, function(tmr:FlxTimer)
+								{
+									trace('now you can lift em again');
+									
+									if(forcedLiftingSection)
+									{
+										startedLift = true;
+										
+										boyfriend.playAnim('lift', true);
+										spaceMechanicButton.scale.set(1, 1);
+										spaceMechanicButton.visible = true;
+										spaceMechanicButton.animation.finishCallback = null;
+										spaceMechanicButton.animation.play('${10-liftAmount}');
+									}
+	
+									alredyLiftAnim = false;
+								});
+	
+								var lifts = Achievements.addScore('dumbbells');
+								trace('Lift $lifts times...');
+							}
 						}
 					}
 				}
