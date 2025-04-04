@@ -287,8 +287,8 @@ class CreditsState2 extends MusicBeatState
 
 		//automateSprites(psych, new CreditsState());
 
-		automateSprites(gbv, 		['gbv2209', 		['Concept Artist', 'Artist', 'Animator', 'Composer', 'charter', 'Coder Jr.'], 		[['yt', 'https://www.youtube.com/@gBv2209'], ['x', 'https://x.com/gbv2209']]]);
-		automateSprites(madera, 	['Mr. Madera', 		['Main Coder', 'charter'], 						[['yt', 'https://www.youtube.com/@mrmadera1235'], ['x', 'https://x.com/MrMadera625']]]);
+		automateSprites(gbv, 		['gbv2209', 		['Concept Artist', 'Artist', 'Animator', 'Composer', 'Charter', 'Coder'], 		[['yt', 'https://www.youtube.com/@gBv2209'], ['x', 'https://x.com/gbv2209']]]);
+		automateSprites(madera, 	['Mr. Madera', 		['Main Coder', 'Charter'], 						[['yt', 'https://www.youtube.com/@mrmadera1235'], ['x', 'https://x.com/MrMadera625']]]);
 		automateSprites(foxy, 		['SFoxyDAC', 		['Artist', 'Animator'], 					[['yt', 'https://www.youtube.com/@SFoxyDAC'], ['x', 'https://x.com/SFoxyDAC']]]);
 		automateSprites(bunny, 		['b.unnyb', 		['Charter'], 					[['x', ['https://x.com/ArchDolphin_?t=Bb8k6aEWHPu55f5ezZbkAg&s=09']]]]);
 		automateSprites(ema, 		['Zhadnii', 		['Musician'], 					[['yt', 'https://youtube.com/@zhadnii_']]]);
