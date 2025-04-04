@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="space_button.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="space00000" x="5" y="5" width="263" height="169"/>
+	<SubTexture name="space10000" x="284" y="5" width="263" height="169"/>
+	<SubTexture name="spaceten0000" x="563" y="5" width="263" height="169"/>
+	<SubTexture name="space20000" x="842" y="5" width="263" height="169"/>
+	<SubTexture name="space30000" x="1121" y="5" width="263" height="169"/>
+	<SubTexture name="space40000" x="1400" y="5" width="263" height="169"/>
+	<SubTexture name="space50000" x="1679" y="5" width="263" height="169"/>
+	<SubTexture name="space60000" x="5" y="190" width="263" height="169"/>
+	<SubTexture name="space70000" x="284" y="190" width="263" height="169"/>
+	<SubTexture name="space80000" x="563" y="190" width="263" height="169"/>
+	<SubTexture name="space90000" x="842" y="190" width="263" height="169"/>
+	<SubTexture name="space_confirm0000" x="1121" y="190" width="256" height="192" frameX="-9" frameY="0" frameWidth="271" frameHeight="192"/>
+	<SubTexture name="space_confirm0001" x="1121" y="190" width="256" height="192" frameX="-9" frameY="0" frameWidth="271" frameHeight="192"/>
+	<SubTexture name="space_confirm0002" x="1393" y="190" width="271" height="161" frameX="0" frameY="-21" frameWidth="271" frameHeight="192"/>
+	<SubTexture name="space_confirm0003" x="1393" y="190" width="271" height="161" frameX="0" frameY="-21" frameWidth="271" frameHeight="192"/>
+	<SubTexture name="space_confirm0004" x="1680" y="190" width="263" height="169" frameX="-4" frameY="-14" frameWidth="271" frameHeight="192"/>
+	<SubTexture name="space_confirm0005" x="1680" y="190" width="263" height="169" frameX="-4" frameY="-14" frameWidth="271" frameHeight="192"/>
+	<SubTexture name="space_confirm0006" x="5" y="398" width="261" height="169" frameX="-5" frameY="-13" frameWidth="271" frameHeight="192"/>
+	<SubTexture name="space_confirm0007" x="5" y="398" width="261" height="169" frameX="-5" frameY="-13" frameWidth="271" frameHeight="192"/>
+	<SubTexture name="space_confirm0008" x="282" y="398" width="225" height="145" frameX="-23" frameY="-25" frameWidth="271" frameHeight="192"/>
+	<SubTexture name="space_confirm0009" x="282" y="398" width="225" height="145" frameX="-23" frameY="-25" frameWidth="271" frameHeight="192"/>
+	<SubTexture name="space_confirm0010" x="523" y="398" width="41" height="27" frameX="-115" frameY="-84" frameWidth="271" frameHeight="192"/>
+	<SubTexture name="space_confirm0011" x="523" y="398" width="41" height="27" frameX="-115" frameY="-84" frameWidth="271" frameHeight="192"/>
+	<SubTexture name="space_confirm0012" x="580" y="398" width="5" height="3" frameX="-133" frameY="-96" frameWidth="271" frameHeight="192"/>
+	<SubTexture name="space_confirm0013" x="580" y="398" width="5" height="3" frameX="-133" frameY="-96" frameWidth="271" frameHeight="192"/>
+	<SubTexture name="space_confirm0014" x="601" y="398" width="0" height="0" frameX="-135" frameY="-97" frameWidth="271" frameHeight="192"/>
+	<SubTexture name="space_confirm0015" x="601" y="398" width="0" height="0" frameX="-135" frameY="-97" frameWidth="271" frameHeight="192"/>
+</TextureAtlas>

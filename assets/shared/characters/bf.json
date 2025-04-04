@@ -79,6 +79,30 @@
 			"fps": 24,
 			"name": "hey",
 			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [7, -4],
+			"anim": "lift",
+			"fps": 24,
+			"name": "pesa instancia",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-4, 15],
+			"anim": "liftUp",
+			"fps": 24,
+			"name": "pesaF instancia",
+			"indices": []
+		},
+		{
+			"offsets": [11, -18],
+			"indices": [],
+			"fps": 24,
+			"anim": "liftFail",
+			"loop": false,
+			"name": "pesaM instancia"
 		}
 	],
 	"vocals_file": "",

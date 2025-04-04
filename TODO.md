@@ -28,7 +28,7 @@
 ### OTHER
 
 - [ ] Dialogues
-- [ ] Mechanics
+- [x] Mechanics
 - [x] Main menu music
 
 ### SPECIFIC
