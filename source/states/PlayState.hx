@@ -665,7 +665,7 @@ class PlayState extends MusicBeatState
 			eventNotes.sort(sortByTime);
 		}
 
-		if(FileSystem.exists(Paths.json('$curSong/dialogue')))
+		if(FileSystem.exists(Paths.json('$curSong/dialogue')) && isStoryMode)
 		{
 			trace(Paths.json('$curSong/dialogue'));
 			var file = Paths.json('$curSong/dialogue');
