@@ -602,7 +602,10 @@ class PlayState extends MusicBeatState
 		spaceMechanicButton.animation.addByPrefix('7', 'space7', false);
 		spaceMechanicButton.animation.addByPrefix('8', 'space8', false);
 		spaceMechanicButton.animation.addByPrefix('9', 'space9', false);
-		spaceMechanicButton.animation.play('1');
+		spaceMechanicButton.animation.addByPrefix('10', 'spaceten', false);
+		spaceMechanicButton.animation.play('10');
+		spaceMechanicButton.alpha = 0;
+		spaceMechanicButton.antialiasing = ClientPrefs.data.antialiasing;
 		add(spaceMechanicButton);
 
 		botplayTxt = new FlxText(400, healthBar.y - 90, FlxG.width - 800, Language.getPhrase("Botplay").toUpperCase(), 32);
@@ -3439,7 +3442,19 @@ class PlayState extends MusicBeatState
 				{
 					case 528:
 						forcedLiftingSection = true;
+
+						startedLift = true;
+						isPressingSpace = true;
+						pressConditionSample = pressConditionTime;
+
+						boyfriend.playAnim('lift', true);
+						FlxTween.tween(spaceMechanicButton, {alpha: 1}, 0.3);
+						spaceMechanicButton.scale.set(1, 1);
+						spaceMechanicButton.visible = true;
+						spaceMechanicButton.animation.finishCallback = null;
+						spaceMechanicButton.animation.play('${10-liftAmount}');
 					case 656:
+						FlxTween.tween(spaceMechanicButton, {alpha: 0}, 0.3);
 						forcedLiftingSection = false;
 				}
 		}

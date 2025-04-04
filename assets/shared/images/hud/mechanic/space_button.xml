@@ -4,6 +4,7 @@
 	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="space00000" x="5" y="5" width="263" height="169"/>
 	<SubTexture name="space10000" x="284" y="5" width="263" height="169"/>
+	<SubTexture name="spaceten0000" x="563" y="5" width="263" height="169"/>
 	<SubTexture name="space20000" x="842" y="5" width="263" height="169"/>
 	<SubTexture name="space30000" x="1121" y="5" width="263" height="169"/>
 	<SubTexture name="space40000" x="1400" y="5" width="263" height="169"/>
