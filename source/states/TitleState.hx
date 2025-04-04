@@ -46,7 +46,7 @@ class TitleState extends MusicBeatState
 	public static var initialized:Bool = false;
 
 	var credGroup:FlxGroup = new FlxGroup();
-	var textGroup:FlxGroup = new FlxGroup();
+	var textGroup:FlxTypedGroup<FlxSprite> = new FlxTypedGroup<FlxSprite>();
 	var blackScreen:FlxSprite;
 	var credTextShit:Alphabet;
 	var ngSpr:FlxSprite;
@@ -134,6 +134,8 @@ class TitleState extends MusicBeatState
 		if (!initialized && FlxG.sound.music == null)
 			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 
+		add(textGroup);
+
 		loadJsonData();
 		#if TITLE_SCREEN_EASTER_EGG easterEggData(); #end
 		Conductor.bpm = musicBPM;
@@ -174,7 +176,6 @@ class TitleState extends MusicBeatState
 			gfDance.animation.play('idle');
 		}
 
-
 		var animFrames:Array<FlxFrame> = [];
 		titleText = new FlxSprite(enterPosition.x, enterPosition.y);
 		titleText.frames = Paths.getSparrowAtlas('titleEnter');
@@ -201,6 +202,13 @@ class TitleState extends MusicBeatState
 		blackScreen.scale.set(FlxG.width, FlxG.height);
 		blackScreen.updateHitbox();
 		credGroup.add(blackScreen);
+
+		var gradient:FlxSprite = new FlxSprite().loadGraphic(Paths.image('gradient'));
+		gradient.alpha = 0;
+		gradient.antialiasing = ClientPrefs.data.antialiasing;
+		//credGroup.add(gradient);
+		
+		FlxTween.tween(gradient, {alpha: 1}, 0.5);
 
 		credTextShit = new Alphabet(0, 0, "", true);
 		credTextShit.screenCenter();
@@ -498,6 +506,9 @@ class TitleState extends MusicBeatState
 			var money:Alphabet = new Alphabet(0, 0, textArray[i], true);
 			money.screenCenter(X);
 			money.y += (i * 60) + 200 + offset;
+			money.y += 10;
+			money.alpha = 0;
+			FlxTween.tween(money, {alpha: 1, y: money.y - 10}, 0.2, {ease: FlxEase.quartOut});
 			if(credGroup != null && textGroup != null)
 			{
 				credGroup.add(money);
@@ -512,6 +523,9 @@ class TitleState extends MusicBeatState
 			var coolText:Alphabet = new Alphabet(0, 0, text, true);
 			coolText.screenCenter(X);
 			coolText.y += (textGroup.length * 60) + 200 + offset;
+			coolText.y += 10;
+			coolText.alpha = 0;
+			FlxTween.tween(coolText, {alpha: 1, y: coolText.y - 10}, 0.2, {ease: FlxEase.quartOut});
 			credGroup.add(coolText);
 			textGroup.add(coolText);
 		}
@@ -519,10 +533,13 @@ class TitleState extends MusicBeatState
 
 	function deleteCoolText()
 	{
-		while (textGroup.members.length > 0)
+		for(obj in textGroup)
 		{
-			credGroup.remove(textGroup.members[0], true);
-			textGroup.remove(textGroup.members[0], true);
+			FlxTween.tween(obj, {alpha: 0, y: obj.y - 10}, 0.2, {ease: FlxEase.quartOut, onComplete: function(twn:FlxTween)
+			{
+				credGroup.remove(obj, true);
+				textGroup.remove(obj, true);
+			}});
 		}
 	}
 
@@ -557,35 +574,42 @@ class TitleState extends MusicBeatState
 					//FlxG.sound.music.stop();
 					FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
-				case 2:
 					createCoolText(['Psych Engine by'], 40);
-				case 4:
+				case 2:
 					addMoreText('Shadow Mario', 40);
 					addMoreText('Riveren', 40);
-				case 5:
+				case 3:
 					deleteCoolText();
-				case 6:
+				case 4:
 					createCoolText(['Not associated', 'with'], -40);
-				case 8:
+				case 5:
 					addMoreText('newgrounds', -40);
 					ngSpr.visible = true;
-				case 9:
+				case 6:
 					deleteCoolText();
 					ngSpr.visible = false;
-				case 10:
+				case 7:
 					createCoolText([curWacky[0]]);
-				case 12:
+				case 8:
 					addMoreText(curWacky[1]);
-				case 13:
+				case 9:
 					deleteCoolText();
-				case 14:
+				case 10:
+					createCoolText(['Writting this at 4 am']);
+				case 11:
+					addMoreText('I\' tired af lol');
+				case 12:
+					deleteCoolText();
+				case 13:
 					addMoreText('Friday');
-				case 15:
+				case 14:
 					addMoreText('Night');
+				case 15:
+					addMoreText('Funkin');
 				case 16:
-					addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
-
+					addMoreText('Y Sides'); // credTextShit.text += '\nFunkin';
 				case 17:
+					deleteCoolText();
 					skipIntro();
 			}
 		}
