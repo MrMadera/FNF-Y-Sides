@@ -36,7 +36,7 @@
 
 - [x] App icons (task bar n app)
 - [x] Mouse tiny animation when you click
-- [ ] Discord RPC Art
+- [x] Discord RPC Art
 - [ ] A very cool intro
     - [ ] Improved flash warning
     - [ ] Improved low-end pcs warning
