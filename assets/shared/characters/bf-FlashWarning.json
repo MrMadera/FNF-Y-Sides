@@ -1,0 +1,47 @@
+{
+	"animations": [
+		{
+			"offsets": [0, 0],
+			"indices": [],
+			"fps": 24,
+			"anim": "warningFlash",
+			"loop": false,
+			"name": "flashWarming0"
+		},
+		{
+			"offsets": [-4, -4],
+			"indices": [],
+			"fps": 24,
+			"anim": "warningFlashLoop",
+			"loop": true,
+			"name": "flashWarmingLoop"
+		},
+		{
+			"offsets": [-4, -4],
+			"indices": [],
+			"fps": 24,
+			"anim": "warningFlashEnd",
+			"loop": false,
+			"name": "flashWarmingEnd0"
+		},
+		{
+			"offsets": [-15, -160],
+			"indices": [],
+			"fps": 24,
+			"anim": "warningFlashEndLoop",
+			"loop": true,
+			"name": "flashWarmingEndLoop"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "flashWarn/bfFW",
+	"position": [0, 0],
+	"healthicon": "face",
+	"flip_x": false,
+	"healthbar_colors": [161, 161, 161],
+	"camera_position": [0, 0],
+	"sing_duration": 4,
+	"scale": 1,
+	"_editor_isPlayer": false
+}
