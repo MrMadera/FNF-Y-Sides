@@ -41,4 +41,4 @@
 - [ ] A very cool intro
     - [x] Improved flash warning
     - [x] Improved low-end pcs warning
-    - [ ] Improved Title State texts section
+    - [x] Improved Title State texts section
