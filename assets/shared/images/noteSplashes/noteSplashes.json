@@ -1,119 +1,64 @@
 {
 	"animations": {
-		"blue2": {
-			"prefix": "note splash blue",
-			"fps": [
-				24,
-				24
-			],
-			"offsets": [
-				-80,
-				-80
-			],
-			"indices": [],
-			"name": "blue",
-			"noteData": 5
-		},
 		"purple": {
-			"prefix": "note splash purple",
-			"fps": [
-				24,
-				24
-			],
+			"prefix": "note splash purple0",
 			"offsets": [
-				-85,
-				-75
+				-73,
+				-73
 			],
 			"indices": [],
+			"fps": [
+				22,
+				26
+			],
 			"name": "purple",
 			"noteData": 0
 		},
-		"red": {
-			"prefix": "note splash red",
-			"fps": [
-				24,
-				24
-			],
-			"offsets": [
-				-80,
-				-80
-			],
-			"indices": [],
-			"name": "red",
-			"noteData": 3
-		},
-		"red2": {
-			"prefix": "note splash red",
-			"fps": [
-				24,
-				24
-			],
-			"offsets": [
-				-80,
-				-80
-			],
-			"indices": [],
-			"name": "red",
-			"noteData": 7
-		},
 		"blue": {
-			"prefix": "note splash blue",
-			"fps": [
-				24,
-				24
-			],
+			"prefix": "note splash blue0",
 			"offsets": [
-				-80,
-				-80
+				-73,
+				-73
 			],
 			"indices": [],
+			"fps": [
+				22,
+				26
+			],
 			"name": "blue",
 			"noteData": 1
 		},
-		"purple2": {
-			"prefix": "note splash purple",
-			"fps": [
-				24,
-				24
-			],
-			"offsets": [
-				-80,
-				-80
-			],
-			"indices": [],
-			"name": "purple",
-			"noteData": 4
-		},
 		"green": {
-			"prefix": "note splash green",
-			"fps": [
-				24,
-				24
-			],
+			"prefix": "note splash green0",
 			"offsets": [
-				-80,
-				-80
+				-73,
+				-73
 			],
 			"indices": [],
+			"fps": [
+				22,
+				26
+			],
 			"name": "green",
 			"noteData": 2
 		},
-		"green2": {
-			"prefix": "note splash green",
-			"fps": [
-				24,
-				24
-			],
+		"red": {
+			"prefix": "note splash red0",
 			"offsets": [
-				-80,
-				-80
+				-73,
+				-73
 			],
 			"indices": [],
-			"name": "green",
-			"noteData": 6
+			"fps": [
+				22,
+				26
+			],
+			"name": "red",
+			"noteData": 3
 		}
 	},
 	"allowRGB": true,
 	"allowPixel": true,
+	"rgb": null,
 	"scale": 1
 }
