@@ -34,6 +34,7 @@ import states.editors.CharacterEditorState;
 
 import substates.PauseSubState;
 import substates.GameOverSubstate;
+import substates.WinScreen;
 
 #if !flash
 import openfl.filters.ShaderFilter;
@@ -2683,12 +2684,14 @@ class PlayState extends MusicBeatState
 
 				if (storyPlaylist.length <= 0)
 				{
+					/*
 					Mods.loadTopMod();
 					FlxG.sound.playMusic(Paths.music('freakyMenu'));
 					#if DISCORD_ALLOWED DiscordClient.resetClientID(); #end
 
 					canResync = false;
 					MusicBeatState.switchState(new StoryMenuState());
+					*/
 
 					// if ()
 					if(!ClientPrefs.getGameplaySetting('practice') && !ClientPrefs.getGameplaySetting('botplay')) {
@@ -2702,6 +2705,8 @@ class PlayState extends MusicBeatState
 				}
 				else
 				{
+					winScreen();
+
 					var difficulty:String = Difficulty.getFilePath();
 
 					trace('LOADING NEXT SONG');
@@ -2721,18 +2726,35 @@ class PlayState extends MusicBeatState
 			}
 			else
 			{
+				winScreen();
+
 				trace('WENT BACK TO FREEPLAY??');
 				Mods.loadTopMod();
 				#if DISCORD_ALLOWED DiscordClient.resetClientID(); #end
 
 				canResync = false;
+				/*
 				MusicBeatState.switchState(new FreeplayState());
 				FlxG.sound.playMusic(Paths.music('freakyMenu'));
 				changedDifficulty = false;
+				*/
 			}
 			transitioning = true;
 		}
 		return true;
+	}
+
+	public function winScreen():Void
+	{
+		persistentUpdate = false;
+		persistentDraw = true;
+			
+		var winScreen = new WinScreen();
+		winScreen.cameras = [camOther];
+		openSubState(winScreen);
+
+		camHUD.alpha = 0;
+		trace('you win omfg');
 	}
 
 	public function KillNotes() {

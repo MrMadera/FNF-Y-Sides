@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="rank-coso.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="A0000" x="5" y="5" width="71" height="95"/>
+	<SubTexture name="B0000" x="92" y="5" width="71" height="95"/>
+	<SubTexture name="C0000" x="179" y="5" width="71" height="95"/>
+	<SubTexture name="D0000" x="5" y="116" width="71" height="94"/>
+	<SubTexture name="E0000" x="92" y="116" width="71" height="95"/>
+	<SubTexture name="S0000" x="179" y="116" width="71" height="95"/>
+</TextureAtlas>

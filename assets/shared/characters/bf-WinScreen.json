@@ -1,0 +1,95 @@
+{
+	"animations": [
+		{
+			"offsets": [-15, -161],
+			"indices": [],
+			"fps": 24,
+			"anim": "90%loop",
+			"loop": true,
+			"name": "bf_win_FCLoop"
+		},
+		{
+			"offsets": [4, -154],
+			"indices": [],
+			"fps": 24,
+			"anim": "75%loop",
+			"loop": true,
+			"name": "bf_win_GFCLoop"
+		},
+		{
+			"offsets": [0, 0],
+			"indices": [],
+			"fps": 24,
+			"anim": "75%",
+			"loop": false,
+			"name": "bf_win_GFC0"
+		},
+		{
+			"offsets": [44, -4],
+			"indices": [],
+			"fps": 24,
+			"anim": "65%",
+			"loop": false,
+			"name": "bf_win_SFC0"
+		},
+		{
+			"offsets": [0, -210],
+			"indices": [],
+			"fps": 24,
+			"anim": "65%loop",
+			"loop": true,
+			"name": "bf_win_SFCLoop"
+		},
+		{
+			"offsets": [0, 0],
+			"indices": [],
+			"fps": 24,
+			"anim": "90%",
+			"loop": false,
+			"name": "bf_win_FC0"
+		},
+		{
+			"offsets": [47, -376],
+			"indices": [],
+			"fps": 24,
+			"anim": "55%loop",
+			"loop": true,
+			"name": "bf_win_shitLoop"
+		},
+		{
+			"offsets": [50, 10],
+			"indices": [],
+			"fps": 24,
+			"anim": "55%",
+			"loop": false,
+			"name": "bf_win_shit0"
+		},
+		{
+			"offsets": [30, 0],
+			"indices": [],
+			"fps": 24,
+			"anim": "0%",
+			"loop": false,
+			"name": "bf_win_under20miss0"
+		},
+		{
+			"offsets": [6, -246],
+			"indices": [],
+			"fps": 24,
+			"anim": "0%loop",
+			"loop": true,
+			"name": "bf_win_under20missLoop"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "resultsScreen/bf_winScreen",
+	"position": [0, 0],
+	"healthicon": "face",
+	"flip_x": false,
+	"healthbar_colors": [161, 161, 161],
+	"camera_position": [0, 0],
+	"sing_duration": 4,
+	"scale": 1,
+	"_editor_isPlayer": true
+}
