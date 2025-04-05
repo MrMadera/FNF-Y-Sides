@@ -1858,7 +1858,15 @@ class PlayState extends MusicBeatState
 
 				if(SONG.notes[curSection].sectionNotes != null)
 				{
-					if(SONG.notes[curSection].sectionNotes.length < 1)
+					var areNotesInBfSec:Bool = false;
+					for(note in SONG.notes[curSection].sectionNotes)
+					{
+						if(note[1] < 4 && note[1] >= 0) {
+							areNotesInBfSec = true;
+							break;
+						}
+					}
+					if(!areNotesInBfSec)
 					{
 						if(FlxG.keys.justPressed.SPACE && !alredyLiftAnim) {
 	
