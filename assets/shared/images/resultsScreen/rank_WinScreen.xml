@@ -2,7 +2,8 @@
 <TextureAtlas imagePath="rank_WinScreen.png">
 	<!-- Created with Adobe Animate version 22.0.2.168 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="fc0000" x="5" y="5" width="342" height="97"/>
-	<SubTexture name="gfc0000" x="5" y="118" width="341" height="95"/>
-	<SubTexture name="sfc0000" x="5" y="229" width="335" height="95"/>
+	<SubTexture name="Nofc0000" x="5" y="5" width="333" height="87"/>
+	<SubTexture name="fc0000" x="5" y="108" width="341" height="97"/>
+	<SubTexture name="gfc0000" x="5" y="221" width="333" height="97"/>
+	<SubTexture name="sfc0000" x="5" y="334" width="340" height="96"/>
 </TextureAtlas>

@@ -1,84 +1,84 @@
 {
 	"animations": [
 		{
-			"offsets": [-15, -161],
-			"indices": [],
-			"fps": 24,
+			"loop": true,
+			"offsets": [-24, -248],
 			"anim": "65%loop",
-			"loop": true,
-			"name": "bf_win_FCLoop"
+			"fps": 24,
+			"name": "bf_win_FCLoop instancia 1",
+			"indices": []
 		},
 		{
-			"offsets": [4, -154],
-			"indices": [],
-			"fps": 24,
+			"loop": true,
+			"offsets": [1, -231],
 			"anim": "75%loop",
-			"loop": true,
-			"name": "bf_win_GFCLoop"
+			"fps": 24,
+			"name": "bf_win_GFCLoop instancia 1",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [0, 0],
-			"indices": [],
-			"fps": 24,
 			"anim": "75%",
-			"loop": false,
-			"name": "bf_win_GFC0"
+			"fps": 24,
+			"name": "bf_win_GFC instancia 1",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [44, -4],
-			"indices": [],
-			"fps": 24,
 			"anim": "90%",
-			"loop": false,
-			"name": "bf_win_SFC0"
+			"fps": 24,
+			"name": "bf_win_SFC instancia 1",
+			"indices": []
 		},
 		{
-			"offsets": [0, -210],
-			"indices": [],
-			"fps": 24,
+			"loop": true,
+			"offsets": [-24, -321],
 			"anim": "90%loop",
-			"loop": true,
-			"name": "bf_win_SFCLoop"
+			"fps": 24,
+			"name": "bf_win_SFCLoop instancia 1",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [0, 0],
-			"indices": [],
-			"fps": 24,
 			"anim": "65%",
-			"loop": false,
-			"name": "bf_win_FC0"
+			"fps": 24,
+			"name": "bf_win_FC instancia 1",
+			"indices": []
 		},
 		{
-			"offsets": [47, -376],
-			"indices": [],
-			"fps": 24,
+			"loop": true,
+			"offsets": [44, -587],
 			"anim": "0%loop",
-			"loop": true,
-			"name": "bf_win_shitLoop"
+			"fps": 24,
+			"name": "bf_win_shitLoop instancia 1",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [50, 10],
-			"indices": [],
-			"fps": 24,
 			"anim": "0%",
-			"loop": false,
-			"name": "bf_win_shit0"
+			"fps": 24,
+			"name": "bf_win_shit instancia 1",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [30, 0],
-			"indices": [],
-			"fps": 24,
 			"anim": "55%",
-			"loop": false,
-			"name": "bf_win_under20miss0"
+			"fps": 24,
+			"name": "bf_win_under20miss instancia 1",
+			"indices": []
 		},
 		{
-			"offsets": [6, -246],
-			"indices": [],
-			"fps": 24,
-			"anim": "55%loop",
 			"loop": true,
-			"name": "bf_win_under20missLoop"
+			"offsets": [-5, -381],
+			"anim": "55%loop",
+			"fps": 24,
+			"name": "bf_win_under20missLoop instancia 1",
+			"indices": []
 		}
 	],
 	"vocals_file": "",
@@ -91,5 +91,5 @@
 	"camera_position": [0, 0],
 	"sing_duration": 4,
 	"scale": 1,
-	"_editor_isPlayer": true
+	"_editor_isPlayer": false
 }

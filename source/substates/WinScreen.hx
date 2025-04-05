@@ -1,5 +1,6 @@
 package substates;
 
+import flixel.addons.display.FlxBackdrop;
 import states.FreeplayState;
 import states.StoryMenuState;
 
@@ -8,13 +9,18 @@ import objects.Character;
 class WinScreen extends MusicBeatSubstate
 {
     public var purpleBg:FlxSprite;
+    public var icons:FlxBackdrop;
     public var boyfriend:Character;
-    public var songNameSprite:FlxSprite;
     public var scoreChart:FlxSprite;
+    public var scoreChartTriangle:FlxBackdrop;
 
+    public var songName:FlxText;
     public var scoreText:FlxText;
     public var missesText:FlxText;
     public var ratingText:FlxText;
+
+    public var ranks:FlxSprite;
+    public var otherRanks:FlxSprite;
 
     override function create() 
     {
@@ -26,31 +32,19 @@ class WinScreen extends MusicBeatSubstate
 
         FlxTween.tween(purpleBg, {alpha: 1}, 0.4);
 
-        boyfriend = new Character(950, 150, 'bf-WinScreen');
+		icons = new FlxBackdrop(Paths.image('mainmenu/icons'), XY);
+		icons.velocity.set(40, 0);
+		icons.alpha = 0;
+		icons.antialiasing = ClientPrefs.data.antialiasing;
+		add(icons);
+
+        FlxTween.tween(icons, {alpha: 0.4}, 0.6);
+
+        boyfriend = new Character(0, 150, 'bf-WinScreen');
+        boyfriend.screenCenter(Y);
+        boyfriend.y += -60;
         boyfriend.antialiasing = ClientPrefs.data.antialiasing;
         boyfriend.isPlayer = true;
-
-        var rating = PlayState.instance.ratingPercent * 100;
-        if(rating >= 90)
-        {
-            boyfriend.playAnim('90%');
-        }
-        else if(rating >= 75 && rating < 90)
-        {
-            boyfriend.playAnim('75%');
-        }
-        else if(rating >= 65 && rating < 75)
-        {
-            boyfriend.playAnim('65%');
-        }
-        else if(rating >= 55 && rating < 65)
-        {
-            boyfriend.playAnim('55%');
-        }
-        else
-        {
-            boyfriend.playAnim('0%');
-        }
 
         boyfriend.animation.finishCallback = function(name:String)
         {
@@ -58,15 +52,17 @@ class WinScreen extends MusicBeatSubstate
         }
         add(boyfriend);
 
-        var songName = PlayState.instance.curSong;
-        songNameSprite = new FlxSprite(20, 15).loadGraphic(Paths.image('songCards/$songName'));
-        songNameSprite.antialiasing = ClientPrefs.data.antialiasing;
-        add(songNameSprite);
-
-        scoreChart = new FlxSprite(0, 210).makeGraphic(400, 450, 0xFF000000);
-        scoreChart.x = songNameSprite.x + songNameSprite.width / 2 - scoreChart.width / 2;
-        scoreChart.alpha = 0.5;
+        scoreChart = new FlxSprite(0, 0).makeGraphic(470, FlxG.height, 0xFF130024);
+        scoreChart.alpha = 1;
         add(scoreChart);
+
+		scoreChartTriangle = new FlxBackdrop(Paths.image('resultsScreen/lettabox'), Y);
+        scoreChartTriangle.x = scoreChart.width;
+		scoreChartTriangle.velocity.set(0, -25);
+		scoreChartTriangle.antialiasing = ClientPrefs.data.antialiasing;
+		add(scoreChartTriangle);
+
+        boyfriend.x = scoreChart.width + 275;
 
         var score:Int = 0;
         var misses:Int = 0;
@@ -84,16 +80,20 @@ class WinScreen extends MusicBeatSubstate
             misses = PlayState.instance.songMisses;
             rating = Std.int(PlayState.instance.ratingPercent * 100);
         }
+
+        songName = new FlxText(0, scoreChart.y + 40, scoreChart.width, PlayState.instance.curSong.toUpperCase());
+		songName.setFormat(Paths.font("FredokaOne-Regular.ttf"), 55, CENTER);
+        add(songName);
         
-        scoreText = new FlxText(scoreChart.x + 4, scoreChart.y + 4, 398, 'Score: 0');
+        scoreText = new FlxText(scoreChart.x + 30, songName.y + songName.height + 40, 398, 'Score: 0');
 		scoreText.setFormat(Paths.font("FredokaOne-Regular.ttf"), 35);
         add(scoreText);
         
-        missesText = new FlxText(scoreChart.x + 4, scoreText.y + scoreText.height + 10, 398, 'Misses: 0');
+        missesText = new FlxText(scoreChart.x + 30, scoreText.y + scoreText.height + 15, 398, 'Misses: 0');
 		missesText.setFormat(Paths.font("FredokaOne-Regular.ttf"), 35);
         add(missesText);
 
-        ratingText = new FlxText(scoreChart.x + 4, missesText.y + missesText.height + 10, 398, 'Rating: 0');
+        ratingText = new FlxText(scoreChart.x + 30, missesText.y + missesText.height + 15, 398, 'Rating: 0');
 		ratingText.setFormat(Paths.font("FredokaOne-Regular.ttf"), 35);
         add(ratingText);
 
@@ -112,6 +112,69 @@ class WinScreen extends MusicBeatSubstate
                 ratingText.text = 'Rating: ${Std.int(v)}%';
             });
         });
+
+        ranks = new FlxSprite(30, ratingText.y + ratingText.height + 150);
+        ranks.frames = Paths.getSparrowAtlas('resultsScreen/rank-coso');
+        ranks.animation.addByPrefix('S', 'S', 24);
+        ranks.animation.addByPrefix('A', 'A', 24);
+        ranks.animation.addByPrefix('B', 'B', 24);
+        ranks.animation.addByPrefix('C', 'C', 24);
+        ranks.animation.addByPrefix('D', 'D', 24);
+        ranks.animation.addByPrefix('E', 'E', 24);
+        ranks.scale.set(1.1, 1.1);
+        ranks.x = scoreChart.width / 2 - ranks.width / 2;
+        add(ranks);
+
+        otherRanks = new FlxSprite(0, 10);
+        otherRanks.frames = Paths.getSparrowAtlas('resultsScreen/rank_WinScreen');
+        otherRanks.animation.addByPrefix('nofc', 'nofc');
+        otherRanks.animation.addByPrefix('fc', 'fc');
+        otherRanks.animation.addByPrefix('gfc', 'gfc');
+        otherRanks.animation.addByPrefix('sfc', 'sfc');
+        otherRanks.animation.play('sfc');
+        otherRanks.x = FlxG.width - otherRanks.width - 30;
+        otherRanks.y = songName.y + songName.height / 2 - otherRanks.height / 2;
+        add(otherRanks);
+
+        var rating = PlayState.instance.ratingPercent * 100;
+        if(rating >= 90)
+        {
+            boyfriend.playAnim('90%');
+            ranks.animation.play('S');
+        }
+        else if(rating >= 75 && rating < 90)
+        {
+            boyfriend.playAnim('75%');
+            ranks.animation.play('A');
+        }
+        else if(rating >= 65 && rating < 75)
+        {
+            boyfriend.playAnim('65%');
+            ranks.animation.play('B');
+        }
+        else if(rating >= 55 && rating < 65)
+        {
+            boyfriend.playAnim('55%');
+            ranks.animation.play('C');
+        }
+        else if(rating >= 40 && rating < 55)
+        {
+            boyfriend.playAnim('0%');
+            ranks.animation.play('D');
+        }
+        else
+        {
+            boyfriend.playAnim('0%');
+            ranks.animation.play('E');
+        }
+
+        switch(PlayState.instance.ratingFC)
+        {
+            case 'SFC': otherRanks.animation.play('sfc');
+            case 'GFC': otherRanks.animation.play('gfc');
+            case 'FC': otherRanks.animation.play('fc');
+            case 'SDCB': otherRanks.animation.play('nofc');
+        }
     }
 
     override function update(elapsed:Float)

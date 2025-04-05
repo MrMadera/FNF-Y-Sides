@@ -2,177 +2,177 @@
 <TextureAtlas imagePath="bf_winScreen.png">
 	<!-- Created with Adobe Animate version 22.0.2.168 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="bf_win_FC0000" x="5" y="5" width="189" height="181" frameX="-123" frameY="0" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FC0001" x="5" y="5" width="189" height="181" frameX="-123" frameY="0" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FC0002" x="210" y="5" width="180" height="275" frameX="-88" frameY="-63" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FC0003" x="406" y="5" width="199" height="251" frameX="-24" frameY="-212" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FC0004" x="621" y="5" width="220" height="178" frameX="-4" frameY="-287" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FC0005" x="621" y="5" width="220" height="178" frameX="-4" frameY="-287" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FC0006" x="857" y="5" width="217" height="187" frameX="0" frameY="-279" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FC0007" x="857" y="5" width="217" height="187" frameX="0" frameY="-279" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FC0008" x="857" y="5" width="217" height="187" frameX="0" frameY="-279" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FC0009" x="857" y="5" width="217" height="187" frameX="0" frameY="-279" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FC0010" x="1090" y="5" width="215" height="179" frameX="-8" frameY="-286" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FC0011" x="1090" y="5" width="215" height="179" frameX="-8" frameY="-286" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FC0012" x="1321" y="5" width="211" height="229" frameX="-2" frameY="-233" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FC0013" x="1321" y="5" width="211" height="229" frameX="-2" frameY="-233" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FC0014" x="1548" y="5" width="187" height="305" frameX="-17" frameY="-160" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FC0015" x="1548" y="5" width="187" height="305" frameX="-17" frameY="-160" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FC0016" x="1751" y="5" width="195" height="308" frameX="-16" frameY="-158" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FC0017" x="1751" y="5" width="195" height="308" frameX="-16" frameY="-158" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FC0018" x="1751" y="5" width="195" height="308" frameX="-16" frameY="-158" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FC0019" x="1751" y="5" width="195" height="308" frameX="-16" frameY="-158" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FC0020" x="5" y="329" width="193" height="303" frameX="-15" frameY="-161" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FC0021" x="5" y="329" width="193" height="303" frameX="-15" frameY="-161" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FC0022" x="5" y="329" width="193" height="303" frameX="-15" frameY="-161" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FC0023" x="5" y="329" width="193" height="303" frameX="-15" frameY="-161" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_FCLoop0000" x="214" y="329" width="192" height="301" frameX="-1" frameY="-1" frameWidth="193" frameHeight="303"/>
-	<SubTexture name="bf_win_FCLoop0001" x="214" y="329" width="192" height="301" frameX="-1" frameY="-1" frameWidth="193" frameHeight="303"/>
-	<SubTexture name="bf_win_FCLoop0002" x="214" y="329" width="192" height="301" frameX="-1" frameY="-1" frameWidth="193" frameHeight="303"/>
-	<SubTexture name="bf_win_FCLoop0003" x="214" y="329" width="192" height="301" frameX="-1" frameY="-1" frameWidth="193" frameHeight="303"/>
-	<SubTexture name="bf_win_FCLoop0004" x="422" y="329" width="193" height="303"/>
-	<SubTexture name="bf_win_FCLoop0005" x="422" y="329" width="193" height="303"/>
-	<SubTexture name="bf_win_FCLoop0006" x="422" y="329" width="193" height="303"/>
-	<SubTexture name="bf_win_FCLoop0007" x="422" y="329" width="193" height="303"/>
-	<SubTexture name="bf_win_GFC0000" x="5" y="5" width="189" height="181" frameX="-123" frameY="0" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFC0001" x="5" y="5" width="189" height="181" frameX="-123" frameY="0" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFC0002" x="210" y="5" width="180" height="275" frameX="-88" frameY="-63" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFC0003" x="406" y="5" width="199" height="251" frameX="-24" frameY="-212" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFC0004" x="621" y="5" width="220" height="178" frameX="-4" frameY="-287" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFC0005" x="621" y="5" width="220" height="178" frameX="-4" frameY="-287" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFC0006" x="857" y="5" width="217" height="187" frameX="0" frameY="-279" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFC0007" x="857" y="5" width="217" height="187" frameX="0" frameY="-279" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFC0008" x="857" y="5" width="217" height="187" frameX="0" frameY="-279" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFC0009" x="857" y="5" width="217" height="187" frameX="0" frameY="-279" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFC0010" x="1090" y="5" width="215" height="179" frameX="-8" frameY="-286" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFC0011" x="1090" y="5" width="215" height="179" frameX="-8" frameY="-286" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFC0012" x="631" y="329" width="211" height="229" frameX="-2" frameY="-233" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFC0013" x="631" y="329" width="211" height="229" frameX="-2" frameY="-233" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFC0014" x="858" y="329" width="220" height="266" frameX="-6" frameY="-156" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFC0015" x="858" y="329" width="220" height="266" frameX="-6" frameY="-156" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFC0016" x="1094" y="329" width="200" height="270" frameX="-19" frameY="-147" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFC0017" x="1094" y="329" width="200" height="270" frameX="-19" frameY="-147" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFC0018" x="1094" y="329" width="200" height="270" frameX="-19" frameY="-147" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFC0019" x="1094" y="329" width="200" height="270" frameX="-19" frameY="-147" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFC0020" x="1310" y="329" width="196" height="278" frameX="-15" frameY="-149" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFC0021" x="1310" y="329" width="196" height="278" frameX="-15" frameY="-149" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFC0022" x="1522" y="329" width="181" height="291" frameX="-4" frameY="-159" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFC0023" x="1522" y="329" width="181" height="291" frameX="-4" frameY="-159" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFCLoop0000" x="1090" y="5" width="215" height="179" frameX="-6" frameY="-139" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFCLoop0001" x="1090" y="5" width="215" height="179" frameX="-6" frameY="-139" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFCLoop0002" x="631" y="329" width="211" height="229" frameX="0" frameY="-86" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFCLoop0003" x="631" y="329" width="211" height="229" frameX="0" frameY="-86" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFCLoop0004" x="858" y="329" width="220" height="266" frameX="-4" frameY="-9" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFCLoop0005" x="858" y="329" width="220" height="266" frameX="-4" frameY="-9" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFCLoop0006" x="1094" y="329" width="200" height="270" frameX="-17" frameY="0" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFCLoop0007" x="1094" y="329" width="200" height="270" frameX="-17" frameY="0" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFCLoop0008" x="1094" y="329" width="200" height="270" frameX="-17" frameY="0" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFCLoop0009" x="1094" y="329" width="200" height="270" frameX="-17" frameY="0" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFCLoop0010" x="1310" y="329" width="196" height="278" frameX="-13" frameY="-2" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFCLoop0011" x="1310" y="329" width="196" height="278" frameX="-13" frameY="-2" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFCLoop0012" x="1522" y="329" width="181" height="291" frameX="-2" frameY="-12" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_GFCLoop0013" x="1522" y="329" width="181" height="291" frameX="-2" frameY="-12" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_SFC0000" x="5" y="5" width="189" height="181" frameX="-123" frameY="0" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_SFC0001" x="5" y="5" width="189" height="181" frameX="-123" frameY="0" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_SFC0002" x="210" y="5" width="180" height="275" frameX="-88" frameY="-63" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_SFC0003" x="406" y="5" width="199" height="251" frameX="-24" frameY="-212" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_SFC0004" x="621" y="5" width="220" height="178" frameX="-4" frameY="-287" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_SFC0005" x="621" y="5" width="220" height="178" frameX="-4" frameY="-287" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_SFC0006" x="857" y="5" width="217" height="187" frameX="0" frameY="-279" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_SFC0007" x="857" y="5" width="217" height="187" frameX="0" frameY="-279" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_SFC0008" x="857" y="5" width="217" height="187" frameX="0" frameY="-279" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_SFC0009" x="857" y="5" width="217" height="187" frameX="0" frameY="-279" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_SFC0010" x="1719" y="329" width="191" height="185" frameX="-1" frameY="-283" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFC0011" x="1719" y="329" width="191" height="185" frameX="-1" frameY="-283" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFC0012" x="5" y="648" width="168" height="206" frameX="-27" frameY="-260" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFC0013" x="5" y="648" width="168" height="206" frameX="-27" frameY="-260" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFC0014" x="189" y="648" width="192" height="211" frameX="-40" frameY="-254" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFC0015" x="397" y="648" width="196" height="215" frameX="-47" frameY="-250" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFC0016" x="609" y="648" width="194" height="204" frameX="-45" frameY="-258" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFC0017" x="189" y="648" width="192" height="211" frameX="-40" frameY="-254" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFC0018" x="397" y="648" width="196" height="215" frameX="-47" frameY="-250" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFC0019" x="609" y="648" width="194" height="204" frameX="-45" frameY="-258" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFC0020" x="189" y="648" width="192" height="211" frameX="-40" frameY="-254" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFC0021" x="397" y="648" width="196" height="215" frameX="-47" frameY="-250" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFC0022" x="819" y="648" width="184" height="236" frameX="-52" frameY="-225" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFC0023" x="1019" y="648" width="240" height="189" frameX="-19" frameY="-276" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFC0024" x="1275" y="648" width="276" height="172" frameX="-7" frameY="-291" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFC0025" x="609" y="648" width="194" height="204" frameX="-45" frameY="-258" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFC0026" x="1567" y="648" width="174" height="262" frameX="-40" frameY="-198" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFC0027" x="1567" y="648" width="174" height="262" frameX="-40" frameY="-198" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFC0028" x="1757" y="648" width="175" height="245" frameX="-46" frameY="-214" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFC0029" x="1757" y="648" width="175" height="245" frameX="-46" frameY="-214" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFC0030" x="5" y="926" width="177" height="254" frameX="-44" frameY="-206" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFC0031" x="5" y="926" width="177" height="254" frameX="-44" frameY="-206" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFC0032" x="5" y="926" width="177" height="254" frameX="-44" frameY="-206" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFC0033" x="5" y="926" width="177" height="254" frameX="-44" frameY="-206" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFCLoop0000" x="198" y="926" width="177" height="254"/>
-	<SubTexture name="bf_win_SFCLoop0001" x="198" y="926" width="177" height="254"/>
-	<SubTexture name="bf_win_SFCLoop0002" x="198" y="926" width="177" height="254"/>
-	<SubTexture name="bf_win_SFCLoop0003" x="198" y="926" width="177" height="254"/>
-	<SubTexture name="bf_win_SFCLoop0004" x="5" y="926" width="177" height="254" frameX="0" frameY="0" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFCLoop0005" x="5" y="926" width="177" height="254" frameX="0" frameY="0" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFCLoop0006" x="5" y="926" width="177" height="254" frameX="0" frameY="0" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_SFCLoop0007" x="5" y="926" width="177" height="254" frameX="0" frameY="0" frameWidth="312" frameHeight="468"/>
-	<SubTexture name="bf_win_shit0000" x="5" y="5" width="189" height="181" frameX="-209" frameY="0" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_shit0001" x="5" y="5" width="189" height="181" frameX="-209" frameY="0" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_shit0002" x="210" y="5" width="180" height="275" frameX="-174" frameY="-63" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_shit0003" x="391" y="926" width="200" height="252" frameX="-99" frameY="-219" frameWidth="398" frameHeight="478"/>
-	<SubTexture name="bf_win_shit0004" x="607" y="926" width="266" height="130" frameX="-18" frameY="-336" frameWidth="398" frameHeight="478"/>
-	<SubTexture name="bf_win_shit0005" x="889" y="926" width="300" height="96" frameX="0" frameY="-382" frameWidth="398" frameHeight="478"/>
-	<SubTexture name="bf_win_shit0006" x="889" y="926" width="300" height="96" frameX="0" frameY="-382" frameWidth="398" frameHeight="478"/>
-	<SubTexture name="bf_win_shit0007" x="1205" y="926" width="297" height="93" frameX="-3" frameY="-383" frameWidth="398" frameHeight="478"/>
-	<SubTexture name="bf_win_shit0008" x="1205" y="926" width="297" height="93" frameX="-3" frameY="-383" frameWidth="398" frameHeight="478"/>
-	<SubTexture name="bf_win_shit0009" x="1205" y="926" width="297" height="93" frameX="-3" frameY="-383" frameWidth="398" frameHeight="478"/>
-	<SubTexture name="bf_win_shit0010" x="1205" y="926" width="297" height="93" frameX="-3" frameY="-383" frameWidth="398" frameHeight="478"/>
-	<SubTexture name="bf_win_shit0011" x="1518" y="926" width="299" height="88" frameX="-4" frameY="-388" frameWidth="398" frameHeight="478"/>
-	<SubTexture name="bf_win_shit0012" x="1518" y="926" width="299" height="88" frameX="-4" frameY="-388" frameWidth="398" frameHeight="478"/>
-	<SubTexture name="bf_win_shit0013" x="1518" y="926" width="299" height="88" frameX="-4" frameY="-388" frameWidth="398" frameHeight="478"/>
-	<SubTexture name="bf_win_shit0014" x="1518" y="926" width="299" height="88" frameX="-4" frameY="-388" frameWidth="398" frameHeight="478"/>
-	<SubTexture name="bf_win_shitLoop0000" x="5" y="1196" width="298" height="90" frameX="-1" frameY="0" frameWidth="299" frameHeight="90"/>
-	<SubTexture name="bf_win_shitLoop0001" x="5" y="1196" width="298" height="90" frameX="-1" frameY="0" frameWidth="299" frameHeight="90"/>
-	<SubTexture name="bf_win_shitLoop0002" x="5" y="1196" width="298" height="90" frameX="-1" frameY="0" frameWidth="299" frameHeight="90"/>
-	<SubTexture name="bf_win_shitLoop0003" x="5" y="1196" width="298" height="90" frameX="-1" frameY="0" frameWidth="299" frameHeight="90"/>
-	<SubTexture name="bf_win_shitLoop0004" x="319" y="1196" width="299" height="88" frameX="0" frameY="-2" frameWidth="299" frameHeight="90"/>
-	<SubTexture name="bf_win_shitLoop0005" x="319" y="1196" width="299" height="88" frameX="0" frameY="-2" frameWidth="299" frameHeight="90"/>
-	<SubTexture name="bf_win_shitLoop0006" x="319" y="1196" width="299" height="88" frameX="0" frameY="-2" frameWidth="299" frameHeight="90"/>
-	<SubTexture name="bf_win_shitLoop0007" x="319" y="1196" width="299" height="88" frameX="0" frameY="-2" frameWidth="299" frameHeight="90"/>
-	<SubTexture name="bf_win_under20miss0000" x="5" y="5" width="189" height="181" frameX="-123" frameY="0" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0001" x="5" y="5" width="189" height="181" frameX="-123" frameY="0" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0002" x="210" y="5" width="180" height="275" frameX="-88" frameY="-63" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0003" x="406" y="5" width="199" height="251" frameX="-24" frameY="-212" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0004" x="621" y="5" width="220" height="178" frameX="-4" frameY="-287" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0005" x="621" y="5" width="220" height="178" frameX="-4" frameY="-287" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0006" x="857" y="5" width="217" height="187" frameX="0" frameY="-279" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0007" x="857" y="5" width="217" height="187" frameX="0" frameY="-279" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0008" x="857" y="5" width="217" height="187" frameX="0" frameY="-279" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0009" x="857" y="5" width="217" height="187" frameX="0" frameY="-279" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0010" x="1090" y="5" width="215" height="179" frameX="-8" frameY="-286" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0011" x="1090" y="5" width="215" height="179" frameX="-8" frameY="-286" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0012" x="634" y="1196" width="192" height="222" frameX="-5" frameY="-240" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0013" x="634" y="1196" width="192" height="222" frameX="-5" frameY="-240" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0014" x="842" y="1196" width="184" height="233" frameX="-13" frameY="-227" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0015" x="842" y="1196" width="184" height="233" frameX="-13" frameY="-227" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0016" x="842" y="1196" width="184" height="233" frameX="-13" frameY="-227" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0017" x="842" y="1196" width="184" height="233" frameX="-13" frameY="-227" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0018" x="1042" y="1196" width="184" height="225" frameX="-12" frameY="-234" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0019" x="1042" y="1196" width="184" height="225" frameX="-12" frameY="-234" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0020" x="1042" y="1196" width="184" height="225" frameX="-12" frameY="-234" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0021" x="1042" y="1196" width="184" height="225" frameX="-12" frameY="-234" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0022" x="1242" y="1196" width="186" height="224" frameX="-18" frameY="-237" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0023" x="1242" y="1196" width="186" height="224" frameX="-18" frameY="-237" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0024" x="1444" y="1196" width="201" height="213" frameX="-21" frameY="-247" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0025" x="1444" y="1196" width="201" height="213" frameX="-21" frameY="-247" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0026" x="1661" y="1196" width="201" height="215" frameX="-24" frameY="-246" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0027" x="1661" y="1196" width="201" height="215" frameX="-24" frameY="-246" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0028" x="1661" y="1196" width="201" height="215" frameX="-24" frameY="-246" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20miss0029" x="1661" y="1196" width="201" height="215" frameX="-24" frameY="-246" frameWidth="312" frameHeight="466"/>
-	<SubTexture name="bf_win_under20missLoop0000" x="5" y="1445" width="201" height="214" frameX="0" frameY="-1" frameWidth="201" frameHeight="215"/>
-	<SubTexture name="bf_win_under20missLoop0001" x="5" y="1445" width="201" height="214" frameX="0" frameY="-1" frameWidth="201" frameHeight="215"/>
-	<SubTexture name="bf_win_under20missLoop0002" x="5" y="1445" width="201" height="214" frameX="0" frameY="-1" frameWidth="201" frameHeight="215"/>
-	<SubTexture name="bf_win_under20missLoop0003" x="5" y="1445" width="201" height="214" frameX="0" frameY="-1" frameWidth="201" frameHeight="215"/>
-	<SubTexture name="bf_win_under20missLoop0004" x="222" y="1445" width="201" height="215"/>
-	<SubTexture name="bf_win_under20missLoop0005" x="222" y="1445" width="201" height="215"/>
-	<SubTexture name="bf_win_under20missLoop0006" x="222" y="1445" width="201" height="215"/>
-	<SubTexture name="bf_win_under20missLoop0007" x="222" y="1445" width="201" height="215"/>
+	<SubTexture name="bf_win_FC instancia 10000" x="3155" y="922" width="292" height="280" frameX="-190" frameY="0" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FC instancia 10001" x="3155" y="922" width="292" height="280" frameX="-190" frameY="0" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FC instancia 10002" x="3463" y="922" width="278" height="425" frameX="-135" frameY="-97" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FC instancia 10003" x="3757" y="922" width="307" height="390" frameX="-36" frameY="-326" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FC instancia 10004" x="5" y="1363" width="339" height="277" frameX="-6" frameY="-442" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FC instancia 10005" x="5" y="1363" width="339" height="277" frameX="-6" frameY="-442" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FC instancia 10006" x="360" y="1363" width="335" height="290" frameX="0" frameY="-430" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FC instancia 10007" x="360" y="1363" width="335" height="290" frameX="0" frameY="-430" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FC instancia 10008" x="360" y="1363" width="335" height="290" frameX="0" frameY="-430" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FC instancia 10009" x="360" y="1363" width="335" height="290" frameX="0" frameY="-430" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FC instancia 10010" x="711" y="1363" width="332" height="278" frameX="-12" frameY="-441" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FC instancia 10011" x="711" y="1363" width="332" height="278" frameX="-12" frameY="-441" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FC instancia 10012" x="5" y="5" width="325" height="356" frameX="-3" frameY="-359" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FC instancia 10013" x="5" y="5" width="325" height="356" frameX="-3" frameY="-359" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FC instancia 10014" x="346" y="5" width="290" height="473" frameX="-25" frameY="-246" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FC instancia 10015" x="346" y="5" width="290" height="473" frameX="-25" frameY="-246" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FC instancia 10016" x="652" y="5" width="300" height="478" frameX="-25" frameY="-242" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FC instancia 10017" x="652" y="5" width="300" height="478" frameX="-25" frameY="-242" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FC instancia 10018" x="652" y="5" width="300" height="478" frameX="-25" frameY="-242" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FC instancia 10019" x="652" y="5" width="300" height="478" frameX="-25" frameY="-242" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FC instancia 10020" x="968" y="5" width="298" height="470" frameX="-23" frameY="-247" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FC instancia 10021" x="968" y="5" width="298" height="470" frameX="-23" frameY="-247" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FC instancia 10022" x="968" y="5" width="298" height="470" frameX="-23" frameY="-247" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FC instancia 10023" x="968" y="5" width="298" height="470" frameX="-23" frameY="-247" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_FCLoop instancia 10000" x="1282" y="5" width="297" height="468" frameX="-1" frameY="-1" frameWidth="298" frameHeight="470"/>
+	<SubTexture name="bf_win_FCLoop instancia 10001" x="1282" y="5" width="297" height="468" frameX="-1" frameY="-1" frameWidth="298" frameHeight="470"/>
+	<SubTexture name="bf_win_FCLoop instancia 10002" x="1282" y="5" width="297" height="468" frameX="-1" frameY="-1" frameWidth="298" frameHeight="470"/>
+	<SubTexture name="bf_win_FCLoop instancia 10003" x="1282" y="5" width="297" height="468" frameX="-1" frameY="-1" frameWidth="298" frameHeight="470"/>
+	<SubTexture name="bf_win_FCLoop instancia 10004" x="1595" y="5" width="298" height="470"/>
+	<SubTexture name="bf_win_FCLoop instancia 10005" x="1595" y="5" width="298" height="470"/>
+	<SubTexture name="bf_win_FCLoop instancia 10006" x="1595" y="5" width="298" height="470"/>
+	<SubTexture name="bf_win_FCLoop instancia 10007" x="1595" y="5" width="298" height="470"/>
+	<SubTexture name="bf_win_GFC instancia 10000" x="3155" y="922" width="292" height="280" frameX="-190" frameY="0" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_GFC instancia 10001" x="3155" y="922" width="292" height="280" frameX="-190" frameY="0" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_GFC instancia 10002" x="3463" y="922" width="278" height="425" frameX="-135" frameY="-97" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_GFC instancia 10003" x="3757" y="922" width="307" height="390" frameX="-36" frameY="-326" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_GFC instancia 10004" x="5" y="1363" width="339" height="277" frameX="-6" frameY="-442" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_GFC instancia 10005" x="5" y="1363" width="339" height="277" frameX="-6" frameY="-442" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_GFC instancia 10006" x="360" y="1363" width="335" height="290" frameX="0" frameY="-430" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_GFC instancia 10007" x="360" y="1363" width="335" height="290" frameX="0" frameY="-430" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_GFC instancia 10008" x="360" y="1363" width="335" height="290" frameX="0" frameY="-430" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_GFC instancia 10009" x="360" y="1363" width="335" height="290" frameX="0" frameY="-430" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_GFC instancia 10010" x="711" y="1363" width="332" height="278" frameX="-12" frameY="-441" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_GFC instancia 10011" x="711" y="1363" width="332" height="278" frameX="-12" frameY="-441" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_GFC instancia 10012" x="1909" y="5" width="325" height="356" frameX="-3" frameY="-359" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_GFC instancia 10013" x="1909" y="5" width="325" height="356" frameX="-3" frameY="-359" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_GFC instancia 10014" x="2591" y="5" width="340" height="411" frameX="-9" frameY="-241" frameWidth="346" frameHeight="494"/>
+	<SubTexture name="bf_win_GFC instancia 10015" x="2591" y="5" width="340" height="411" frameX="-9" frameY="-241" frameWidth="346" frameHeight="494"/>
+	<SubTexture name="bf_win_GFC instancia 10016" x="2947" y="5" width="308" height="419" frameX="-29" frameY="-225" frameWidth="346" frameHeight="494"/>
+	<SubTexture name="bf_win_GFC instancia 10017" x="2947" y="5" width="308" height="419" frameX="-29" frameY="-225" frameWidth="346" frameHeight="494"/>
+	<SubTexture name="bf_win_GFC instancia 10018" x="2947" y="5" width="308" height="419" frameX="-29" frameY="-225" frameWidth="346" frameHeight="494"/>
+	<SubTexture name="bf_win_GFC instancia 10019" x="2947" y="5" width="308" height="419" frameX="-29" frameY="-225" frameWidth="346" frameHeight="494"/>
+	<SubTexture name="bf_win_GFC instancia 10020" x="3271" y="5" width="303" height="431" frameX="-23" frameY="-229" frameWidth="346" frameHeight="494"/>
+	<SubTexture name="bf_win_GFC instancia 10021" x="3271" y="5" width="303" height="431" frameX="-23" frameY="-229" frameWidth="346" frameHeight="494"/>
+	<SubTexture name="bf_win_GFC instancia 10022" x="3590" y="5" width="279" height="452" frameX="-6" frameY="-244" frameWidth="346" frameHeight="494"/>
+	<SubTexture name="bf_win_GFC instancia 10023" x="3590" y="5" width="279" height="452" frameX="-6" frameY="-244" frameWidth="346" frameHeight="494"/>
+	<SubTexture name="bf_win_GFCLoop instancia 10000" x="711" y="1363" width="332" height="278" frameX="-9" frameY="-216" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_GFCLoop instancia 10001" x="711" y="1363" width="332" height="278" frameX="-9" frameY="-216" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_GFCLoop instancia 10002" x="2250" y="5" width="325" height="356" frameX="0" frameY="-134" frameWidth="346" frameHeight="494"/>
+	<SubTexture name="bf_win_GFCLoop instancia 10003" x="2250" y="5" width="325" height="356" frameX="0" frameY="-134" frameWidth="346" frameHeight="494"/>
+	<SubTexture name="bf_win_GFCLoop instancia 10004" x="2591" y="5" width="340" height="411" frameX="-6" frameY="-16" frameWidth="346" frameHeight="494"/>
+	<SubTexture name="bf_win_GFCLoop instancia 10005" x="2591" y="5" width="340" height="411" frameX="-6" frameY="-16" frameWidth="346" frameHeight="494"/>
+	<SubTexture name="bf_win_GFCLoop instancia 10006" x="2947" y="5" width="308" height="419" frameX="-26" frameY="0" frameWidth="346" frameHeight="494"/>
+	<SubTexture name="bf_win_GFCLoop instancia 10007" x="2947" y="5" width="308" height="419" frameX="-26" frameY="0" frameWidth="346" frameHeight="494"/>
+	<SubTexture name="bf_win_GFCLoop instancia 10008" x="2947" y="5" width="308" height="419" frameX="-26" frameY="0" frameWidth="346" frameHeight="494"/>
+	<SubTexture name="bf_win_GFCLoop instancia 10009" x="2947" y="5" width="308" height="419" frameX="-26" frameY="0" frameWidth="346" frameHeight="494"/>
+	<SubTexture name="bf_win_GFCLoop instancia 10010" x="3271" y="5" width="303" height="431" frameX="-20" frameY="-4" frameWidth="346" frameHeight="494"/>
+	<SubTexture name="bf_win_GFCLoop instancia 10011" x="3271" y="5" width="303" height="431" frameX="-20" frameY="-4" frameWidth="346" frameHeight="494"/>
+	<SubTexture name="bf_win_GFCLoop instancia 10012" x="3590" y="5" width="279" height="452" frameX="-3" frameY="-19" frameWidth="346" frameHeight="494"/>
+	<SubTexture name="bf_win_GFCLoop instancia 10013" x="3590" y="5" width="279" height="452" frameX="-3" frameY="-19" frameWidth="346" frameHeight="494"/>
+	<SubTexture name="bf_win_SFC instancia 10000" x="3155" y="922" width="292" height="280" frameX="-190" frameY="0" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_SFC instancia 10001" x="3155" y="922" width="292" height="280" frameX="-190" frameY="0" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_SFC instancia 10002" x="3463" y="922" width="278" height="425" frameX="-135" frameY="-97" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_SFC instancia 10003" x="3757" y="922" width="307" height="390" frameX="-36" frameY="-326" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_SFC instancia 10004" x="5" y="1363" width="339" height="277" frameX="-6" frameY="-442" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_SFC instancia 10005" x="5" y="1363" width="339" height="277" frameX="-6" frameY="-442" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_SFC instancia 10006" x="360" y="1363" width="335" height="290" frameX="0" frameY="-430" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_SFC instancia 10007" x="360" y="1363" width="335" height="290" frameX="0" frameY="-430" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_SFC instancia 10008" x="360" y="1363" width="335" height="290" frameX="0" frameY="-430" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_SFC instancia 10009" x="360" y="1363" width="335" height="290" frameX="0" frameY="-430" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_SFC instancia 10010" x="5" y="499" width="295" height="288" frameX="-1" frameY="-436" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFC instancia 10011" x="5" y="499" width="295" height="288" frameX="-1" frameY="-436" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFC instancia 10012" x="316" y="499" width="260" height="319" frameX="-41" frameY="-401" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFC instancia 10013" x="316" y="499" width="260" height="319" frameX="-41" frameY="-401" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFC instancia 10014" x="592" y="499" width="297" height="326" frameX="-61" frameY="-392" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFC instancia 10015" x="905" y="499" width="301" height="332" frameX="-73" frameY="-386" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFC instancia 10016" x="1222" y="499" width="299" height="316" frameX="-69" frameY="-398" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFC instancia 10017" x="592" y="499" width="297" height="326" frameX="-61" frameY="-392" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFC instancia 10018" x="905" y="499" width="301" height="332" frameX="-73" frameY="-386" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFC instancia 10019" x="1222" y="499" width="299" height="316" frameX="-69" frameY="-398" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFC instancia 10020" x="592" y="499" width="297" height="326" frameX="-61" frameY="-392" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFC instancia 10021" x="905" y="499" width="301" height="332" frameX="-73" frameY="-386" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFC instancia 10022" x="1537" y="499" width="285" height="366" frameX="-79" frameY="-347" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFC instancia 10023" x="1838" y="499" width="371" height="293" frameX="-29" frameY="-425" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFC instancia 10024" x="2225" y="499" width="427" height="267" frameX="-10" frameY="-448" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFC instancia 10025" x="1222" y="499" width="299" height="316" frameX="-69" frameY="-398" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFC instancia 10026" x="2668" y="499" width="269" height="407" frameX="-61" frameY="-304" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFC instancia 10027" x="2668" y="499" width="269" height="407" frameX="-61" frameY="-304" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFC instancia 10028" x="2953" y="499" width="270" height="380" frameX="-71" frameY="-330" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFC instancia 10029" x="2953" y="499" width="270" height="380" frameX="-71" frameY="-330" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFC instancia 10030" x="3239" y="499" width="273" height="393" frameX="-68" frameY="-317" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFC instancia 10031" x="3239" y="499" width="273" height="393" frameX="-68" frameY="-317" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFC instancia 10032" x="3239" y="499" width="273" height="393" frameX="-68" frameY="-317" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFC instancia 10033" x="3239" y="499" width="273" height="393" frameX="-68" frameY="-317" frameWidth="482" frameHeight="724"/>
+	<SubTexture name="bf_win_SFCLoop instancia 10000" x="3528" y="499" width="272" height="393" frameX="0" frameY="0" frameWidth="273" frameHeight="393"/>
+	<SubTexture name="bf_win_SFCLoop instancia 10001" x="3528" y="499" width="272" height="393" frameX="0" frameY="0" frameWidth="273" frameHeight="393"/>
+	<SubTexture name="bf_win_SFCLoop instancia 10002" x="3528" y="499" width="272" height="393" frameX="0" frameY="0" frameWidth="273" frameHeight="393"/>
+	<SubTexture name="bf_win_SFCLoop instancia 10003" x="3528" y="499" width="272" height="393" frameX="0" frameY="0" frameWidth="273" frameHeight="393"/>
+	<SubTexture name="bf_win_SFCLoop instancia 10004" x="3816" y="499" width="273" height="393"/>
+	<SubTexture name="bf_win_SFCLoop instancia 10005" x="3816" y="499" width="273" height="393"/>
+	<SubTexture name="bf_win_SFCLoop instancia 10006" x="3816" y="499" width="273" height="393"/>
+	<SubTexture name="bf_win_SFCLoop instancia 10007" x="3816" y="499" width="273" height="393"/>
+	<SubTexture name="bf_win_shit instancia 10000" x="3155" y="922" width="292" height="280" frameX="-326" frameY="0" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_shit instancia 10001" x="3155" y="922" width="292" height="280" frameX="-326" frameY="0" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_shit instancia 10002" x="3463" y="922" width="278" height="425" frameX="-271" frameY="-97" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_shit instancia 10003" x="5" y="922" width="309" height="392" frameX="-156" frameY="-337" frameWidth="618" frameHeight="739"/>
+	<SubTexture name="bf_win_shit instancia 10004" x="330" y="922" width="413" height="202" frameX="-29" frameY="-518" frameWidth="618" frameHeight="739"/>
+	<SubTexture name="bf_win_shit instancia 10005" x="759" y="922" width="467" height="148" frameX="0" frameY="-591" frameWidth="618" frameHeight="739"/>
+	<SubTexture name="bf_win_shit instancia 10006" x="759" y="922" width="467" height="148" frameX="0" frameY="-591" frameWidth="618" frameHeight="739"/>
+	<SubTexture name="bf_win_shit instancia 10007" x="1242" y="922" width="461" height="143" frameX="-6" frameY="-593" frameWidth="618" frameHeight="739"/>
+	<SubTexture name="bf_win_shit instancia 10008" x="1242" y="922" width="461" height="143" frameX="-6" frameY="-593" frameWidth="618" frameHeight="739"/>
+	<SubTexture name="bf_win_shit instancia 10009" x="1242" y="922" width="461" height="143" frameX="-6" frameY="-593" frameWidth="618" frameHeight="739"/>
+	<SubTexture name="bf_win_shit instancia 10010" x="1242" y="922" width="461" height="143" frameX="-6" frameY="-593" frameWidth="618" frameHeight="739"/>
+	<SubTexture name="bf_win_shit instancia 10011" x="1719" y="922" width="463" height="136" frameX="-7" frameY="-600" frameWidth="618" frameHeight="739"/>
+	<SubTexture name="bf_win_shit instancia 10012" x="1719" y="922" width="463" height="136" frameX="-7" frameY="-600" frameWidth="618" frameHeight="739"/>
+	<SubTexture name="bf_win_shit instancia 10013" x="1719" y="922" width="463" height="136" frameX="-7" frameY="-600" frameWidth="618" frameHeight="739"/>
+	<SubTexture name="bf_win_shit instancia 10014" x="1719" y="922" width="463" height="136" frameX="-7" frameY="-600" frameWidth="618" frameHeight="739"/>
+	<SubTexture name="bf_win_shitLoop instancia 10000" x="2198" y="922" width="462" height="138" frameX="-1" frameY="0" frameWidth="463" frameHeight="139"/>
+	<SubTexture name="bf_win_shitLoop instancia 10001" x="2198" y="922" width="462" height="138" frameX="-1" frameY="0" frameWidth="463" frameHeight="139"/>
+	<SubTexture name="bf_win_shitLoop instancia 10002" x="2198" y="922" width="462" height="138" frameX="-1" frameY="0" frameWidth="463" frameHeight="139"/>
+	<SubTexture name="bf_win_shitLoop instancia 10003" x="2198" y="922" width="462" height="138" frameX="-1" frameY="0" frameWidth="463" frameHeight="139"/>
+	<SubTexture name="bf_win_shitLoop instancia 10004" x="2676" y="922" width="463" height="136" frameX="0" frameY="-3" frameWidth="463" frameHeight="139"/>
+	<SubTexture name="bf_win_shitLoop instancia 10005" x="2676" y="922" width="463" height="136" frameX="0" frameY="-3" frameWidth="463" frameHeight="139"/>
+	<SubTexture name="bf_win_shitLoop instancia 10006" x="2676" y="922" width="463" height="136" frameX="0" frameY="-3" frameWidth="463" frameHeight="139"/>
+	<SubTexture name="bf_win_shitLoop instancia 10007" x="2676" y="922" width="463" height="136" frameX="0" frameY="-3" frameWidth="463" frameHeight="139"/>
+	<SubTexture name="bf_win_under20miss instancia 10000" x="3155" y="922" width="292" height="280" frameX="-190" frameY="0" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10001" x="3155" y="922" width="292" height="280" frameX="-190" frameY="0" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10002" x="3463" y="922" width="278" height="425" frameX="-135" frameY="-97" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10003" x="3757" y="922" width="307" height="390" frameX="-36" frameY="-326" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10004" x="5" y="1363" width="339" height="277" frameX="-6" frameY="-442" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10005" x="5" y="1363" width="339" height="277" frameX="-6" frameY="-442" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10006" x="360" y="1363" width="335" height="290" frameX="0" frameY="-430" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10007" x="360" y="1363" width="335" height="290" frameX="0" frameY="-430" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10008" x="360" y="1363" width="335" height="290" frameX="0" frameY="-430" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10009" x="360" y="1363" width="335" height="290" frameX="0" frameY="-430" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10010" x="711" y="1363" width="332" height="278" frameX="-12" frameY="-441" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10011" x="711" y="1363" width="332" height="278" frameX="-12" frameY="-441" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10012" x="1059" y="1363" width="296" height="343" frameX="-8" frameY="-371" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10013" x="1059" y="1363" width="296" height="343" frameX="-8" frameY="-371" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10014" x="1371" y="1363" width="283" height="361" frameX="-20" frameY="-350" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10015" x="1371" y="1363" width="283" height="361" frameX="-20" frameY="-350" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10016" x="1371" y="1363" width="283" height="361" frameX="-20" frameY="-350" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10017" x="1371" y="1363" width="283" height="361" frameX="-20" frameY="-350" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10018" x="1670" y="1363" width="284" height="350" frameX="-18" frameY="-360" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10019" x="1670" y="1363" width="284" height="350" frameX="-18" frameY="-360" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10020" x="1670" y="1363" width="284" height="350" frameX="-18" frameY="-360" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10021" x="1670" y="1363" width="284" height="350" frameX="-18" frameY="-360" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10022" x="1970" y="1363" width="287" height="348" frameX="-27" frameY="-365" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10023" x="1970" y="1363" width="287" height="348" frameX="-27" frameY="-365" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10024" x="2273" y="1363" width="311" height="331" frameX="-32" frameY="-381" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10025" x="2273" y="1363" width="311" height="331" frameX="-32" frameY="-381" frameWidth="482" frameHeight="720"/>
+	<SubTexture name="bf_win_under20miss instancia 10026" x="2926" y="1363" width="311" height="333" frameX="-36" frameY="-380" frameWidth="311" frameHeight="333"/>
+	<SubTexture name="bf_win_under20miss instancia 10027" x="2926" y="1363" width="311" height="333" frameX="-36" frameY="-380" frameWidth="311" frameHeight="333"/>
+	<SubTexture name="bf_win_under20miss instancia 10028" x="2926" y="1363" width="311" height="333" frameX="-36" frameY="-380" frameWidth="311" frameHeight="333"/>
+	<SubTexture name="bf_win_under20miss instancia 10029" x="2926" y="1363" width="311" height="333" frameX="-36" frameY="-380" frameWidth="311" frameHeight="333"/>
+	<SubTexture name="bf_win_under20missLoop instancia 10000" x="2600" y="1363" width="310" height="333" frameX="-1" frameY="0" frameWidth="311" frameHeight="333"/>
+	<SubTexture name="bf_win_under20missLoop instancia 10001" x="2600" y="1363" width="310" height="333" frameX="-1" frameY="0" frameWidth="311" frameHeight="333"/>
+	<SubTexture name="bf_win_under20missLoop instancia 10002" x="2600" y="1363" width="310" height="333" frameX="-1" frameY="0" frameWidth="311" frameHeight="333"/>
+	<SubTexture name="bf_win_under20missLoop instancia 10003" x="2600" y="1363" width="310" height="333" frameX="-1" frameY="0" frameWidth="311" frameHeight="333"/>
+	<SubTexture name="bf_win_under20missLoop instancia 10004" x="2926" y="1363" width="311" height="333"/>
+	<SubTexture name="bf_win_under20missLoop instancia 10005" x="2926" y="1363" width="311" height="333"/>
+	<SubTexture name="bf_win_under20missLoop instancia 10006" x="2926" y="1363" width="311" height="333"/>
+	<SubTexture name="bf_win_under20missLoop instancia 10007" x="2926" y="1363" width="311" height="333"/>
 </TextureAtlas>
