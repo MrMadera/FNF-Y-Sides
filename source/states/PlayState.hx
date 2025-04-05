@@ -177,7 +177,7 @@ class PlayState extends MusicBeatState
 	public var camZooming:Bool = false;
 	public var camZoomingMult:Float = 1;
 	public var camZoomingDecay:Float = 1;
-	private var curSong:String = "";
+	public var curSong:String = "";
 
 	public var gfSpeed:Int = 1;
 	public var health(default, set):Float = 1;
@@ -229,6 +229,7 @@ class PlayState extends MusicBeatState
 
 	public static var campaignScore:Int = 0;
 	public static var campaignMisses:Int = 0;
+	public static var campaignRating:Int = 0;
 	public static var seenCutscene:Bool = false;
 	public static var deathCounter:Int = 0;
 
@@ -2679,6 +2680,8 @@ class PlayState extends MusicBeatState
 			{
 				campaignScore += songScore;
 				campaignMisses += songMisses;
+				campaignRating += Std.int(ratingPercent * 100);
+				totalSongsPlayed++;
 
 				storyPlaylist.remove(storyPlaylist[0]);
 
@@ -2768,6 +2771,7 @@ class PlayState extends MusicBeatState
 		eventNotes = [];
 	}
 
+	public var totalSongsPlayed:Int = 0;
 	public var totalPlayed:Int = 0;
 	public var totalNotesHit:Float = 0.0;
 

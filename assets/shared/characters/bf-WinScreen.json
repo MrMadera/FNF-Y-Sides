@@ -4,7 +4,7 @@
 			"offsets": [-15, -161],
 			"indices": [],
 			"fps": 24,
-			"anim": "90%loop",
+			"anim": "65%loop",
 			"loop": true,
 			"name": "bf_win_FCLoop"
 		},
@@ -28,7 +28,7 @@
 			"offsets": [44, -4],
 			"indices": [],
 			"fps": 24,
-			"anim": "65%",
+			"anim": "90%",
 			"loop": false,
 			"name": "bf_win_SFC0"
 		},
@@ -36,7 +36,7 @@
 			"offsets": [0, -210],
 			"indices": [],
 			"fps": 24,
-			"anim": "65%loop",
+			"anim": "90%loop",
 			"loop": true,
 			"name": "bf_win_SFCLoop"
 		},
@@ -44,7 +44,7 @@
 			"offsets": [0, 0],
 			"indices": [],
 			"fps": 24,
-			"anim": "90%",
+			"anim": "65%",
 			"loop": false,
 			"name": "bf_win_FC0"
 		},
@@ -52,7 +52,7 @@
 			"offsets": [47, -376],
 			"indices": [],
 			"fps": 24,
-			"anim": "55%loop",
+			"anim": "0%loop",
 			"loop": true,
 			"name": "bf_win_shitLoop"
 		},
@@ -60,7 +60,7 @@
 			"offsets": [50, 10],
 			"indices": [],
 			"fps": 24,
-			"anim": "55%",
+			"anim": "0%",
 			"loop": false,
 			"name": "bf_win_shit0"
 		},
@@ -68,7 +68,7 @@
 			"offsets": [30, 0],
 			"indices": [],
 			"fps": 24,
-			"anim": "0%",
+			"anim": "55%",
 			"loop": false,
 			"name": "bf_win_under20miss0"
 		},
@@ -76,7 +76,7 @@
 			"offsets": [6, -246],
 			"indices": [],
 			"fps": 24,
-			"anim": "0%loop",
+			"anim": "55%loop",
 			"loop": true,
 			"name": "bf_win_under20missLoop"
 		}
