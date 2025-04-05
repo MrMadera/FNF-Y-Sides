@@ -52,6 +52,7 @@ class StoryMenuState extends MusicBeatState
 	var loadedWeeks:Array<WeekData> = [];
 
 	var weekBackground:FlxSprite;
+	var weekCharacter:FlxSprite;
 	//var shaderFilter:ShaderFilter;
 
 	public static var backFromStoryMode:Bool = false;
@@ -98,6 +99,12 @@ class StoryMenuState extends MusicBeatState
 		icons.alpha = 0.3;
 		icons.antialiasing = ClientPrefs.data.antialiasing;
 		//add(icons);
+
+		weekCharacter = new FlxSprite();
+		weekCharacter.alpha = 0;
+		add(weekCharacter);
+
+		FlxTween.tween(weekCharacter, {alpha: 1}, 1, {ease: FlxEase.quartOut});
 
 		tv = new FlxSprite();
 		tv.loadGraphic(Paths.image('storymenu/TV'));
@@ -275,6 +282,7 @@ class StoryMenuState extends MusicBeatState
 			if (controls.BACK && !movedBack && !selectedWeek)
 			{
 				FlxTween.cancelTweensOf(weekBackground);
+				FlxTween.cancelTweensOf(weekCharacter);
 				FlxTween.cancelTweensOf(tv);
 				FlxTween.cancelTweensOf(escapeButton);
 				FlxTween.cancelTweensOf(leftArrow);
@@ -284,6 +292,7 @@ class StoryMenuState extends MusicBeatState
 				FlxTween.cancelTweensOf(songSpriteBack);
 
 				FlxTween.tween(weekBackground, {alpha: 0}, 1, {ease: FlxEase.quartOut});
+				FlxTween.tween(weekCharacter, {alpha: 0}, 1, {ease: FlxEase.quartOut});
 				FlxTween.tween(tv, {y: FlxG.height}, 1, {ease: FlxEase.quartOut});
 				FlxTween.tween(escapeButton, {y: -escapeButton.height}, 1, {ease: FlxEase.quartOut});
 				FlxTween.tween(leftArrow, {y: leftArrow.y + 10, alpha: 0}, 0.5, {ease: FlxEase.quartOut, startDelay: 0.1});
@@ -391,6 +400,7 @@ class StoryMenuState extends MusicBeatState
 			movedBack = true;
 
 			FlxTween.cancelTweensOf(weekBackground);
+			FlxTween.cancelTweensOf(weekCharacter);
 			FlxTween.cancelTweensOf(tv);
 			FlxTween.cancelTweensOf(escapeButton);
 			FlxTween.cancelTweensOf(leftArrow);
@@ -402,6 +412,7 @@ class StoryMenuState extends MusicBeatState
 			FlxTween.cancelTweensOf(songSpriteBack);
 
 			FlxTween.tween(weekBackground, {alpha: 0}, 0.6, {ease: FlxEase.quartOut});
+			FlxTween.tween(weekCharacter, {alpha: 0}, 0.6, {ease: FlxEase.quartOut});
 			FlxTween.tween(tv, {y: FlxG.height}, 0.6, {ease: FlxEase.quartOut});
 			FlxTween.tween(escapeButton, {y: -escapeButton.height}, 0.6, {ease: FlxEase.quartOut});
 			FlxTween.tween(leftArrow, {y: leftArrow.y + 10, alpha: 0}, 0.3, {ease: FlxEase.quartOut, startDelay: 0.1});
@@ -559,6 +570,14 @@ class StoryMenuState extends MusicBeatState
 		difficultySelectors.visible = unlocked;
 
 		weekBackground.loadGraphic(Paths.image('storymenu/bgs/${leWeek.fileName}'));
+		weekCharacter.loadGraphic(Paths.image('storymenu/characters/${leWeek.weekCharacters[0]}'));
+		weekCharacter.screenCenter(XY);
+
+		weekCharacter.y += 5;
+		weekCharacter.alpha = 0;
+
+		FlxTween.cancelTweensOf(weekCharacter);
+		FlxTween.tween(weekCharacter, {alpha: 1, y: weekCharacter.y - 10}, 0.1, {ease: FlxEase.quartOut});
 
 		if(Difficulty.list.contains(Difficulty.getDefault()))
 			curDifficulty = Math.round(Math.max(0, Difficulty.defaultList.indexOf(Difficulty.getDefault())));
