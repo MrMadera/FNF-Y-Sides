@@ -39,6 +39,6 @@
 - [x] Mouse tiny animation when you click
 - [x] Discord RPC Art
 - [ ] A very cool intro
-    - [ ] Improved flash warning
-    - [ ] Improved low-end pcs warning
+    - [x] Improved flash warning
+    - [x] Improved low-end pcs warning
     - [ ] Improved Title State texts section
