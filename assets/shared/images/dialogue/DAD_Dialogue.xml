@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="dad.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="normal0000" x="5" y="5" width="397" height="506"/>
+	<SubTexture name="normal0001" x="5" y="5" width="397" height="506"/>
+	<SubTexture name="normal0002" x="5" y="5" width="397" height="506"/>
+	<SubTexture name="normal0003" x="5" y="5" width="397" height="506"/>
+	<SubTexture name="normal0004" x="418" y="5" width="397" height="505" frameX="0" frameY="0" frameWidth="397" frameHeight="506"/>
+	<SubTexture name="normal0005" x="418" y="5" width="397" height="505" frameX="0" frameY="0" frameWidth="397" frameHeight="506"/>
+	<SubTexture name="normal0006" x="418" y="5" width="397" height="505" frameX="0" frameY="0" frameWidth="397" frameHeight="506"/>
+	<SubTexture name="normal0007" x="418" y="5" width="397" height="505" frameX="0" frameY="0" frameWidth="397" frameHeight="506"/>
+	<SubTexture name="serious0000" x="831" y="5" width="533" height="467"/>
+	<SubTexture name="serious0001" x="831" y="5" width="533" height="467"/>
+	<SubTexture name="serious0002" x="831" y="5" width="533" height="467"/>
+	<SubTexture name="serious0003" x="831" y="5" width="533" height="467"/>
+	<SubTexture name="serious0004" x="1380" y="5" width="533" height="467"/>
+	<SubTexture name="serious0005" x="1380" y="5" width="533" height="467"/>
+	<SubTexture name="serious0006" x="1380" y="5" width="533" height="467"/>
+	<SubTexture name="serious0007" x="1380" y="5" width="533" height="467"/>
+</TextureAtlas>
