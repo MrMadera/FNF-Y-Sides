@@ -23,7 +23,7 @@
 - [ ] Options
 - [x] Credits
 - [x] Results screen
-- [ ] Loading screen
+- [x] Loading screen
 - [x] Awards
 - [x] Gameover
 
