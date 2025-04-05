@@ -165,7 +165,7 @@ class LoadingState extends MusicBeatState
 		addBehindBar(logo);
 
 		#else // BASE GAME LOADING SCREEN
-		var bg = new FlxSprite().makeGraphic(1, 1, 0xFFCAFF4D);
+		var bg = new FlxSprite().makeGraphic(1, 1, 0xFF8C66C3);
 		bg.scale.set(FlxG.width, FlxG.height);
 		bg.updateHitbox();
 		bg.screenCenter();
