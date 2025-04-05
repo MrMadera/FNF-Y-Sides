@@ -2751,6 +2751,14 @@ class PlayState extends MusicBeatState
 	{
 		persistentUpdate = false;
 		persistentDraw = true;
+
+		var shit:FlxSprite = new FlxSprite();
+		shit.makeGraphic(1280, 720, 0xFF000000);
+		shit.cameras = [camOther];
+		shit.alpha = 0;
+		add(shit);
+
+		FlxTween.tween(shit, {alpha: 1}, 0.4);
 			
 		var winScreen = new WinScreen();
 		winScreen.cameras = [camOther];
