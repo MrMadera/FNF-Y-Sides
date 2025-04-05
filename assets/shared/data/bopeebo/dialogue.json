@@ -1,24 +1,84 @@
 {
-    "speechBackground": "",
+    "speechBackground": "dialogue/dialogueyside",
     "speechBackgroundPos": ["", ""],
-    "speechBackgroundAnim": ["", ""],
-    "speechTextFont": "",
-    "speechContinueThingSprite": "",
-    "speechContinueThingOffsets": [0, 0],
+    "speechBackgroundAnim": [],
+    "speechTextFont": "FredokaOne-Regular.ttf",
+    "speechContinueThingSprite": "dialogue/continueThing",
+    "speechContinueThingOffsets": [-70, -90],
     "speechBackgroundSize": [1, 1],
     "dialogues": 
     [
         {
-            "dialogue": "Welcome to this template",
+            "dialogue": "Yo!",
             "textSpeed": 0.04,
-            "speechTextOffsets": [0, 0],
-            "speechTextWidth": 0
+            "speechTextOffsets": [40, 40],
+            "speechTextWidth": 1170,
+            "currentCharacter":
+            {
+                "name": "dialogue/BF_Dialogue",
+                "position": [600, 150],
+                "anims": 
+                [
+                    ["BF LOOP", [0, 0]],
+                    ["BF0", [-1, -12]]
+                ],
+                "sounds": ["bftext"],
+                "addBehind": true
+            }
         },
         {
-            "dialogue": "Let's have sex",
+            "dialogue": "Uh...",
             "textSpeed": 0.04,
-            "speechTextOffsets": [0, 0],
-            "speechTextWidth": 0
+            "speechTextOffsets": [40, 40],
+            "speechTextWidth": 1170
+        },
+        {
+            "dialogue": "Who the hell are you?",
+            "textSpeed": 0.04,
+            "speechTextOffsets": [40, 40],
+            "speechTextWidth": 1170
+        },
+        {
+            "dialogue": "Ermm hey! It's me! Ummm, I'm your daugther's boyfriend...",
+            "textSpeed": 0.04,
+            "speechTextOffsets": [40, 40],
+            "speechTextWidth": 1170
+        },
+        {
+            "dialogue": "I thought you already knew about me...",
+            "textSpeed": 0.04,
+            "speechTextOffsets": [40, 40],
+            "speechTextWidth": 1170
+        },
+        {
+            "dialogue": "Don't worry dad! He's super cute and nice. He even likes gym like you",
+            "textSpeed": 0.04,
+            "speechTextOffsets": [40, 40],
+            "speechTextWidth": 1170
+        },
+        {
+            "dialogue": "HAHA! No one likes gym like me!",
+            "textSpeed": 0.04,
+            "speechTextOffsets": [40, 40],
+            "speechTextWidth": 1170
+        },
+        {
+            "dialogue": "Listen lil buddy, if you want to date my daughter, you have to prove yourself!",
+            "textSpeed": 0.04,
+            "speechTextOffsets": [40, 40],
+            "speechTextWidth": 1170
+        },
+        {
+            "dialogue": "Oh.",
+            "textSpeed": 0.04,
+            "speechTextOffsets": [40, 40],
+            "speechTextWidth": 1170
+        },
+        {
+            "dialogue": "Sure! >:)",
+            "textSpeed": 0.04,
+            "speechTextOffsets": [40, 40],
+            "speechTextWidth": 1170
         }
     ]
 }

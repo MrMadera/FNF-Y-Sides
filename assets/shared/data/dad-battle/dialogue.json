@@ -1,0 +1,71 @@
+{
+    "speechBackground": "dialogue/dialogueyside",
+    "speechBackgroundPos": ["", ""],
+    "speechBackgroundAnim": [],
+    "speechTextFont": "FredokaOne-Regular.ttf",
+    "speechContinueThingSprite": "dialogue/continueThing",
+    "speechContinueThingOffsets": [-70, -90],
+    "speechBackgroundSize": [1, 1],
+    "dialogues": 
+    [
+        {
+            "dialogue": "You did it pretty good honey!",
+            "textSpeed": 0.04,
+            "speechTextOffsets": [40, 40],
+            "speechTextWidth": 1170
+        },
+        {
+            "dialogue": "Thankssss :D",
+            "textSpeed": 0.04,
+            "speechTextOffsets": [40, 40],
+            "speechTextWidth": 1170,
+            "currentCharacter":
+            {
+                "name": "dialogue/BF_Dialogue",
+                "position": [600, 150],
+                "anims": 
+                [
+                    ["BF LOOP", [0, 0]],
+                    ["BF0", [-1, -12]]
+                ],
+                "sounds": ["bftext"],
+                "addBehind": true
+            }
+        },
+        {
+            "dialogue": "Hey, ngl you're very good at this, but that's only because we're playing with your rules, not mine",
+            "textSpeed": 0.04,
+            "speechTextOffsets": [40, 40],
+            "speechTextWidth": 1170
+        },
+        {
+            "dialogue": "What do you mean with that??",
+            "textSpeed": 0.04,
+            "speechTextOffsets": [40, 40],
+            "speechTextWidth": 1170,
+            "currentCharacter":
+            {
+                "name": "dialogue/BF_Dialogue",
+                "position": [600, 150],
+                "anims": 
+                [
+                    ["BF LOOP", [0, 0]],
+                    ["BF0", [-1, -12]]
+                ],
+                "sounds": ["bftext"],
+                "addBehind": true
+            }
+        },
+        {
+            "dialogue": "Prepare yourself!",
+            "textSpeed": 0.04,
+            "speechTextOffsets": [40, 40],
+            "speechTextWidth": 1170,
+            "cameraEffects":
+            {
+                "type": "shake",
+                "properties": [0.015, 0.4]
+            }
+        }
+    ]
+}

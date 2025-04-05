@@ -1,0 +1,42 @@
+{
+    "speechBackground": "dialogue/dialogueyside",
+    "speechBackgroundPos": ["", ""],
+    "speechBackgroundAnim": [],
+    "speechTextFont": "FredokaOne-Regular.ttf",
+    "speechContinueThingSprite": "dialogue/continueThing",
+    "speechContinueThingOffsets": [-70, -90],
+    "speechBackgroundSize": [1, 1],
+    "dialogues": 
+    [
+        {
+            "dialogue": "Hell man, you aren't that bad",
+            "textSpeed": 0.04,
+            "speechTextOffsets": [40, 40],
+            "speechTextWidth": 1170
+        },
+        {
+            "dialogue": "Thanks!",
+            "textSpeed": 0.04,
+            "speechTextOffsets": [40, 40],
+            "speechTextWidth": 1170
+        },
+        {
+            "dialogue": "Uhm...",
+            "textSpeed": 0.04,
+            "speechTextOffsets": [40, 40],
+            "speechTextWidth": 1170
+        },
+        {
+            "dialogue": "Let's continue",
+            "textSpeed": 0.04,
+            "speechTextOffsets": [40, 40],
+            "speechTextWidth": 1170
+        },
+        {
+            "dialogue": "Yup >:)",
+            "textSpeed": 0.04,
+            "speechTextOffsets": [40, 40],
+            "speechTextWidth": 1170
+        }
+    ]
+}

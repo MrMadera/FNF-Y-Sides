@@ -667,10 +667,10 @@ class PlayState extends MusicBeatState
 			eventNotes.sort(sortByTime);
 		}
 
-		if(FileSystem.exists(Paths.json('$curSong/dialogue')) && isStoryMode)
+		if(FileSystem.exists(Paths.json('${Paths.formatToSongPath(curSong)}/dialogue')) && isStoryMode)
 		{
-			trace(Paths.json('$curSong/dialogue'));
-			var file = Paths.json('$curSong/dialogue');
+			trace(Paths.json('${Paths.formatToSongPath(curSong)}/dialogue'));
+			var file = Paths.json('${Paths.formatToSongPath(curSong)}/dialogue');
 			startYSidesDialogue(NewDialogueBox.returnJsonData(file));
 			startCallback = null;
 		}

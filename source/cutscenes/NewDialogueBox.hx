@@ -163,9 +163,9 @@ class NewDialogueBox extends FlxSpriteGroup
 
 		speechText = new FlxTypeText(speechBackground.x + 15, speechBackground.y + 15, dialogue.dialogues[0].speechTextWidth, '', 24);
 		if (dialogue.speechTextFont == '')
-			speechText.font = "assets/fonts/vcr.ttf";
+			speechText.font = Paths.font('vcr.ttf');
 		else
-			speechText.font = "assets/fonts/" + dialogue.speechTextFont;
+			speechText.font = Paths.font(dialogue.speechTextFont);
 		speechText.color = 0xFFBBBBBB;
 		speechText.sounds = [FlxG.sound.load(Paths.sound('dialogue'), 0.6)];
 		speechText.borderStyle = SHADOW;

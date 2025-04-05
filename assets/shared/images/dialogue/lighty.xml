@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="lighty.png">
+	<!-- Created with Adobe Animate version 24.0.3.19 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="lighty0000" x="0" y="0" width="1203" height="297" frameX="-2" frameY="0" frameWidth="1205" frameHeight="297"/>
+	<SubTexture name="lighty0001" x="0" y="0" width="1203" height="297" frameX="-2" frameY="0" frameWidth="1205" frameHeight="297"/>
+	<SubTexture name="lighty0002" x="0" y="297" width="1205" height="297"/>
+	<SubTexture name="lighty0003" x="0" y="297" width="1205" height="297"/>
+</TextureAtlas>
