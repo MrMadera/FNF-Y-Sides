@@ -102,6 +102,7 @@ class StoryMenuState extends MusicBeatState
 		tv = new FlxSprite();
 		tv.loadGraphic(Paths.image('storymenu/TV'));
 		tv.y = FlxG.height;
+		tv.antialiasing = ClientPrefs.data.antialiasing;
 		add(tv);
 
 		FlxTween.tween(tv, {y: FlxG.height - tv.height}, 1, {ease: FlxEase.quartOut});
@@ -153,6 +154,7 @@ class StoryMenuState extends MusicBeatState
 		weekArrowUp.animation.play('idle');
 		weekArrowUp.x = tv.x + tv.width/2 - weekArrowUp.width/2;
 		weekArrowUp.y = 1000;
+		weekArrowUp.antialiasing = ClientPrefs.data.antialiasing;
 		add(weekArrowUp);
 
 		FlxTween.tween(weekArrowUp, {y: 510}, 1, {ease: FlxEase.quartOut});
@@ -165,6 +167,7 @@ class StoryMenuState extends MusicBeatState
 		weekArrowDown.animation.play('idle');
 		weekArrowDown.x = tv.x + tv.width/2 - weekArrowDown.width/2;
 		weekArrowDown.y = 1000;
+		weekArrowDown.antialiasing = ClientPrefs.data.antialiasing;
 		add(weekArrowDown);
 
 		FlxTween.tween(weekArrowDown, {y: 510}, 1, {ease: FlxEase.quartOut});
@@ -177,6 +180,7 @@ class StoryMenuState extends MusicBeatState
 		escapeButton.animation.addByPrefix('selectAnim', 'esc_selectedAnim');
 		escapeButton.animation.play('idle');
 		escapeButton.y = 0 - escapeButton.height;
+		escapeButton.antialiasing = ClientPrefs.data.antialiasing;
 		add(escapeButton);
 
 		FlxTween.tween(escapeButton, {y: 10}, 1, {ease: FlxEase.quartOut});
@@ -234,12 +238,14 @@ class StoryMenuState extends MusicBeatState
 		txtTracklist.alignment = CENTER;
 		txtTracklist.font = Paths.font("FredokaOne-Regular.ttf");
 		txtTracklist.color = 0xFFB996D4;
+		txtTracklist.antialiasing = ClientPrefs.data.antialiasing;
 		add(txtTracklist);
 
 		songSpriteBack = new FlxSprite();
 		songSpriteBack.loadGraphic(Paths.image('storymenu/scoreThing'));
 		songSpriteBack.x = FlxG.width - songSpriteBack.width;
 		songSpriteBack.y = FlxG.height;
+		songSpriteBack.antialiasing = ClientPrefs.data.antialiasing;
 		add(songSpriteBack);
 
 		FlxTween.tween(songSpriteBack, {y: FlxG.height - songSpriteBack.height}, 1, {ease: FlxEase.quartOut});
@@ -247,6 +253,7 @@ class StoryMenuState extends MusicBeatState
 		scoreText = new FlxText(songSpriteBack.x + 25, 0, 0, Language.getPhrase('week_score', 'WEEK SCORE: {1}', [lerpScore]), 36);
 		scoreText.setFormat(Paths.font("FredokaOne-Regular.ttf"), 32);
 		scoreText.y = songSpriteBack.y + songSpriteBack.height/2 - scoreText.height/2 + 25;
+		scoreText.antialiasing = ClientPrefs.data.antialiasing;
 		add(scoreText);
 
 		changeWeek();

@@ -8,6 +8,7 @@ class CreditsState2 extends MusicBeatState
 {
 	public static var watchingCredits:Bool = false;
 	public static var backFromCredits:Bool = false;
+	var wentBack:Bool = false;
 
 	var bg:FlxSprite;
 
@@ -222,6 +223,7 @@ class CreditsState2 extends MusicBeatState
 	var psychScale:Float = 1;
 	override function update(elapsed:Float) {
 		if (controls.BACK && !watchingCredits) {
+			wentBack = true;
 			
 			FlxTween.tween(owner, {alpha: 0}, tweenDuration);
 			FlxTween.tween(coOwner, {alpha: 0}, tweenDuration, {startDelay: 0.025});
@@ -240,6 +242,7 @@ class CreditsState2 extends MusicBeatState
 			new FlxTimer().start(0.45, function(tmr:FlxTimer)
 			{
 				backFromCredits = true;
+				watchingCredits = false;
 
 				MainMenuState.iconsPos.insert(0, icons.x);
 				MainMenuState.iconsPos.insert(1, icons.y);
@@ -305,6 +308,7 @@ class CreditsState2 extends MusicBeatState
 			psychScale = 1.1;
 			if(FlxG.mouse.justPressed)
 			{
+				watchingCredits = false;
 				MusicBeatState.switchState(new CreditsState());	
 			}
 		}
@@ -316,7 +320,7 @@ class CreditsState2 extends MusicBeatState
 	}
 
 	function automateSprites(spr:FlxSprite, info:Dynamic) {
-		if(FlxG.mouse.overlaps(spr) && !watchingCredits) {
+		if(FlxG.mouse.overlaps(spr) && !watchingCredits && !wentBack) {
 			spr.animation.play('select');
 			if(FlxG.mouse.justPressed) {
 				var xd = new InfoAboutPerson(info[0], info[1], info[2]);

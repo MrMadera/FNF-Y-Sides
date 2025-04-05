@@ -178,12 +178,14 @@ class FreeplayState extends MusicBeatState
 		missingTextBG = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		missingTextBG.alpha = 0.6;
 		missingTextBG.visible = false;
+		missingTextBG.antialiasing = ClientPrefs.data.antialiasing;
 		add(missingTextBG);
 		
 		missingText = new FlxText(50, 0, FlxG.width - 100, '', 24);
 		missingText.setFormat(Paths.font("vcr.ttf"), 24, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		missingText.scrollFactor.set();
 		missingText.visible = false;
+		missingText.antialiasing = ClientPrefs.data.antialiasing;
 		add(missingText);
 
 		scoreThing = new FlxSprite(75, 720);
@@ -193,9 +195,11 @@ class FreeplayState extends MusicBeatState
 
 		scoreText = new FlxText(85, 360, scoreThing.width - 20, "", 32);
 		scoreText.setFormat(Paths.font("FredokaOne-Regular.ttf"), 32, FlxColor.WHITE, CENTER);
+		scoreText.antialiasing = ClientPrefs.data.antialiasing;
 
 		diffText = new FlxText(scoreText.x, scoreText.y + scoreText.height + 40, scoreThing.width - 20, "", 78);
 		diffText.setFormat(Paths.font("FredokaOne-Regular.ttf"), 78, FlxColor.WHITE, CENTER);
+		diffText.antialiasing = ClientPrefs.data.antialiasing;
 		add(diffText);
 
 		add(scoreText);

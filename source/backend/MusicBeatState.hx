@@ -110,6 +110,7 @@ class MusicBeatState extends FlxState
 		splash.animation.addByPrefix('s', 'boing', 24, false);
 		splash.animation.play('s');
 		splash.offset.set(30, 35);
+		splash.antialiasing = ClientPrefs.data.antialiasing;
 		add(splash);
 
 		trace('splash position: ${splash.x}, ${splash.y} | mouse position: ${FlxG.mouse.x}, ${FlxG.mouse.y}');
