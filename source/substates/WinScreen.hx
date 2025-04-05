@@ -1,5 +1,6 @@
 package substates;
 
+import backend.WeekData;
 import flixel.addons.display.FlxBackdrop;
 import states.FreeplayState;
 import states.StoryMenuState;
@@ -86,7 +87,11 @@ class WinScreen extends MusicBeatSubstate
             rating = Std.int(PlayState.instance.ratingPercent * 100);
         }
 
-        songName = new FlxText(0, scoreChart.y + 40, scoreChart.width, PlayState.instance.curSong.toUpperCase());
+        songName = new FlxText(0, scoreChart.y + 40, scoreChart.width, '');
+        if(PlayState.isStoryMode) {
+            songName.text = WeekData.getCurrentWeek().weekName.toUpperCase();
+        }
+        else songName.text = PlayState.instance.curSong.toUpperCase();
 		songName.setFormat(Paths.font("FredokaOne-Regular.ttf"), 55, CENTER);
 		songName.antialiasing = ClientPrefs.data.antialiasing;
         add(songName);
@@ -218,6 +223,7 @@ class WinScreen extends MusicBeatSubstate
             FlxTween.tween(blackScreen, {alpha: 1}, 0.7, {onComplete: function(twn:FlxTween)
             {
                 close();
+				FlxG.sound.playMusic(Paths.music('freakyMenu'));
                 if(PlayState.isStoryMode)
                 {
 					FlxTransitionableState.skipNextTransIn = true;

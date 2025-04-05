@@ -2687,6 +2687,8 @@ class PlayState extends MusicBeatState
 
 				if (storyPlaylist.length <= 0)
 				{
+					winScreen();
+
 					/*
 					Mods.loadTopMod();
 					FlxG.sound.playMusic(Paths.music('freakyMenu'));
@@ -2708,8 +2710,6 @@ class PlayState extends MusicBeatState
 				}
 				else
 				{
-					winScreen();
-
 					var difficulty:String = Difficulty.getFilePath();
 
 					trace('LOADING NEXT SONG');
