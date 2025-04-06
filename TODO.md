@@ -29,7 +29,7 @@
 
 ### OTHER
 
-- [ ] Dialogues
+- [x] Dialogues
 - [x] Mechanics
 - [x] Main menu music
 
