@@ -1893,6 +1893,8 @@ class PlayState extends MusicBeatState
 					}
 				}
 
+				if(SONG.notes[curSection] == null) return;
+				
 				if(SONG.notes[curSection].sectionNotes != null)
 				{
 					var areNotesInBfSec:Bool = false;
