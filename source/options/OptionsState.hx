@@ -10,6 +10,7 @@ import states.CreditsState2;
 
 class OptionsState extends MusicBeatState
 {
+	public static var comingFromOptions:Bool = false;
 	public static var iconsPos:Array<Float> = [0, 0];
 
 	var options:Array<String> = [
@@ -301,6 +302,7 @@ class OptionsState extends MusicBeatState
 			else
 			{
 				CreditsState2.backFromCredits = true;
+				comingFromOptions = true;
 
 				FlxTween.cancelTweensOf(boardThing);
 				FlxTween.cancelTweensOf(verticalTriangleLeft);

@@ -8,6 +8,7 @@ import objects.Bar;
 #if ACHIEVEMENTS_ALLOWED
 class AchievementsMenuState extends MusicBeatState
 {
+	public static var comingFromAchievements:Bool = false;
 	public var curSelected:Int = 0;
 
 	public var options:Array<Dynamic> = [];
@@ -257,6 +258,7 @@ class AchievementsMenuState extends MusicBeatState
 			new FlxTimer().start(0.6, function(tmr:FlxTimer)
 			{
 				CreditsState2.backFromCredits = true;
+				comingFromAchievements = true;
 
 				MainMenuState.iconsPos.insert(0, icons.x);
 				MainMenuState.iconsPos.insert(1, icons.y);

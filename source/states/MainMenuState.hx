@@ -177,6 +177,16 @@ class MainMenuState extends MusicBeatState
 		}
 		#end
 
+		if(AchievementsMenuState.comingFromAchievements) {
+			AchievementsMenuState.comingFromAchievements = false;
+			actualRightColumn = true;
+		}
+
+		if(OptionsState.comingFromOptions) {
+			OptionsState.comingFromOptions = false;
+			actualRightColumn = true;
+		}
+
 		//FlxG.camera.follow(camFollow, null, 0.15);
 	}
 
