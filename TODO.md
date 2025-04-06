@@ -20,7 +20,7 @@
 - [x] Main Menu
 - [x] Story Mode
 - [x] Freeplay
-- [ ] Options
+- [x] Options
 - [x] Credits
 - [x] Results screen
 - [x] Loading screen
