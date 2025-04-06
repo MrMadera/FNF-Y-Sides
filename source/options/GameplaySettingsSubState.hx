@@ -133,10 +133,9 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			dialogueText.start(0.04, true);
 			dialogueText.completeCallback = function() 
 			{
-				character.playAnim('idle');
-	
-				new FlxTimer().start(1, function(t:FlxTimer)
+				new FlxTimer().start(thingTimer, function(t:FlxTimer)
 				{
+					if(character != null) character.playAnim('idle');
 					dialogueBox.alpha = 0;
 					dialogueText.alpha = 0;
 				});
@@ -157,10 +156,9 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			dialogueText.start(0.06, true);
 			dialogueText.completeCallback = function() 
 			{
-				character.playAnim('idle');
-	
 				new FlxTimer().start(1, function(t:FlxTimer)
 				{
+					if(character != null) character.playAnim('idle');
 					dialogueBox.alpha = 0;
 					dialogueText.alpha = 0;
 				});
@@ -181,10 +179,9 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			dialogueText.start(0.04, true);
 			dialogueText.completeCallback = function() 
 			{
-				character.playAnim('idle');
-	
-				new FlxTimer().start(1, function(t:FlxTimer)
+				new FlxTimer().start(thingTimer, function(t:FlxTimer)
 				{
+					if(character != null) character.playAnim('idle');
 					dialogueBox.alpha = 0;
 					dialogueText.alpha = 0;
 				});
@@ -205,10 +202,9 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			dialogueText.start(0.04, true);
 			dialogueText.completeCallback = function() 
 			{
-				character.playAnim('idle');
-	
-				new FlxTimer().start(1, function(t:FlxTimer)
+				new FlxTimer().start(thingTimer, function(t:FlxTimer)
 				{
+					if(character != null) character.playAnim('idle');
 					dialogueBox.alpha = 0;
 					dialogueText.alpha = 0;
 				});

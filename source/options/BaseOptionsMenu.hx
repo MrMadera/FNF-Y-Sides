@@ -38,6 +38,8 @@ class BaseOptionsMenu extends MusicBeatSubstate
 	public var dialogueBox:FlxSprite;
 	public var dialogueText:FlxTypeText;
 
+	public var thingTimer:Float = 1.8;
+
 	public function new()
 	{
 		super();
