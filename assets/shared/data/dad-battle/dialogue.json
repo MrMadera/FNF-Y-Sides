@@ -44,7 +44,7 @@
                 "anims": 
                 [
                     ["serious", [0, 0]],
-                    ["serious", [-1, -12]]
+                    ["serious", [0, 0]]
                 ],
                 "sounds": ["bftext"],
                 "addBehind": true
@@ -92,7 +92,7 @@
                 "anims": 
                 [
                     ["rarp", [0, 0]],
-                    ["rarp", [-1, -12]]
+                    ["rarp", [0, 0]]
                 ],
                 "sounds": ["bftext"],
                 "addBehind": true
