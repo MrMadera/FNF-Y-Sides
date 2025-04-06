@@ -64,6 +64,8 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		icons.antialiasing = ClientPrefs.data.antialiasing;
 		add(icons);
 
+		icons.setPosition(OptionsState.iconsPos[0], OptionsState.iconsPos[1]);
+
 		verticalTriangleLeft = new FlxBackdrop(Paths.image('optionsMenu/verticalTriangleThing'), Y);
 		verticalTriangleLeft.velocity.set(0, 20);
 		verticalTriangleLeft.x = 138;
@@ -186,6 +188,9 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		}
 
 		if (controls.BACK) {
+			OptionsState.iconsPos.insert(0, icons.x);
+			OptionsState.iconsPos.insert(1, icons.y);
+
 			close();
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 		}

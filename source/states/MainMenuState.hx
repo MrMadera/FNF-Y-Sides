@@ -356,6 +356,10 @@ class MainMenuState extends MusicBeatState
 					transitionToCredits();
 				}
 
+				if(option == 'options') {
+					transitionToOptions();
+				}
+
 				FlxFlicker.flicker(item, 1, 0.06, false, false, function(flick:FlxFlicker)
 				{
 					switch (option)
@@ -372,15 +376,6 @@ class MainMenuState extends MusicBeatState
 
 						case 'credits':
 							//MusicBeatState.switchState(new CreditsState2());
-						case 'options':
-							MusicBeatState.switchState(new OptionsState());
-							OptionsState.onPlayState = false;
-							if (PlayState.SONG != null)
-							{
-								PlayState.SONG.arrowSkin = null;
-								PlayState.SONG.splashSkin = null;
-								PlayState.stageUI = 'normal';
-							}
 						case 'donate':
 							CoolUtil.browserLoad('https://ninja-muffin24.itch.io/funkin');
 							selectedSomethin = false;
@@ -524,6 +519,39 @@ class MainMenuState extends MusicBeatState
 						FlxTransitionableState.skipNextTransIn = true;
 						FlxTransitionableState.skipNextTransOut = true;
 						MusicBeatState.switchState(new CreditsState2());
+
+						iconsPos.insert(0, icons.x);
+						iconsPos.insert(1, icons.y);
+					#end
+				});
+			}});
+		});
+	}
+
+	function transitionToOptions()
+	{
+		new FlxTimer().start(0.4, function(tmr:FlxTimer)
+		{
+			FlxTween.cancelTweensOf(characters);
+			FlxTween.tween(characters, {alpha: 0, y: characters.y + 10}, 0.35, {ease: FlxEase.quartIn, onComplete: function(twn:FlxTween)
+			{
+				new FlxTimer().start(0.15, function(tmr:FlxTimer)
+				{
+					#if ACHIEVEMENTS_ALLOWED
+						FlxTransitionableState.skipNextTransIn = true;
+						FlxTransitionableState.skipNextTransOut = true;
+
+						OptionsState.iconsPos.insert(0, icons.x);
+						OptionsState.iconsPos.insert(1, icons.y);
+						
+						MusicBeatState.switchState(new OptionsState());
+						OptionsState.onPlayState = false;
+						if (PlayState.SONG != null)
+						{
+							PlayState.SONG.arrowSkin = null;
+							PlayState.SONG.splashSkin = null;
+							PlayState.stageUI = 'normal';
+						}
 
 						iconsPos.insert(0, icons.x);
 						iconsPos.insert(1, icons.y);

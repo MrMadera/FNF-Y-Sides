@@ -1,44 +1,44 @@
 {
 	"animations": [
 		{
+			"loop": true,
 			"offsets": [0, 0],
-			"indices": [],
-			"fps": 24,
 			"anim": "idle",
-			"loop": true,
-			"name": "idle"
+			"fps": 24,
+			"name": "idle",
+			"indices": []
 		},
 		{
-			"offsets": [-11, 8],
-			"indices": [],
-			"fps": 24,
+			"loop": true,
+			"offsets": [39, 8],
 			"anim": "happy",
-			"loop": true,
-			"name": "happy"
+			"fps": 24,
+			"name": "happy",
+			"indices": []
 		},
 		{
-			"offsets": [-32, -4],
-			"indices": [],
-			"fps": 24,
+			"loop": true,
+			"offsets": [-21, -4],
 			"anim": "shocked",
-			"loop": true,
-			"name": "shocked"
+			"fps": 24,
+			"name": "shocked",
+			"indices": []
 		},
 		{
-			"offsets": [-17, 0],
-			"indices": [],
-			"fps": 24,
+			"loop": true,
+			"offsets": [14, 0],
 			"anim": "laugh",
-			"loop": true,
-			"name": "laugh"
+			"fps": 24,
+			"name": "laugh",
+			"indices": []
 		},
 		{
-			"offsets": [-10, 0],
-			"indices": [],
-			"fps": 24,
-			"anim": "question",
 			"loop": true,
-			"name": "question"
+			"offsets": [-90, 0],
+			"anim": "question",
+			"fps": 24,
+			"name": "question",
+			"indices": []
 		}
 	],
 	"vocals_file": "",
@@ -51,5 +51,5 @@
 	"camera_position": [0, 0],
 	"sing_duration": 4,
 	"scale": 1,
-	"_editor_isPlayer": true
+	"_editor_isPlayer": false
 }
