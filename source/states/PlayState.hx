@@ -214,6 +214,8 @@ class PlayState extends MusicBeatState
 	public var practiceMode:Bool = false;
 	public var pressMissDamage:Float = 0.05;
 
+	public var songCard:FlxSprite;
+
 	public var botplaySine:Float = 0;
 	public var botplayTxt:FlxText;
 
@@ -641,6 +643,13 @@ class PlayState extends MusicBeatState
 		uiGroup.add(botplayTxt);
 		if(ClientPrefs.data.downScroll)
 			botplayTxt.y = healthBar.y + 70;
+
+		songCard = new FlxSprite();
+		songCard.loadGraphic(Paths.image('songCards/${Paths.formatToSongPath(curSong)}'));
+		songCard.screenCenter(XY);
+		songCard.alpha = 0;
+		songCard.cameras = [camOther];
+		add(songCard);
 
 		uiGroup.cameras = [camHUD];
 		noteGroup.cameras = [camHUD];
@@ -1507,10 +1516,6 @@ class PlayState extends MusicBeatState
 						}
 					}
 				}
-
-				// for those who are wondering the reason of this, gbv was super kind of moving the fucking song a section forward then the chart was alredy done
-				// we didn't want the charter to redo it again so i just used the power of code
-				if(curSong == 'Bopeebo') spawnTime += 1950;
 
 				var swagNote:Note = new Note(spawnTime, noteColumn, oldNote);
 				var isAlt: Bool = section.altAnim && !gottaHitNote;
@@ -2716,6 +2721,7 @@ class PlayState extends MusicBeatState
 
 		#if ACHIEVEMENTS_ALLOWED
 		var weekNoMiss:String = WeekData.getWeekFileName() + '_nomiss';
+		var weekNoMissFreeplay:String = WeekData.getWeekFileName() + '_nomissfreeplay';
 		checkForAchievement([weekNoMiss, 'ur_bad', 'ur_good', 'hype', 'two_keys', 'toastie', 'debugger']);
 		#end
 
@@ -3563,9 +3569,41 @@ class PlayState extends MusicBeatState
 
 		switch(curSong)
 		{
+			case 'Tutorial':
+				switch(curStep)
+				{
+					case 1:
+						songCard.y += 10;
+						FlxTween.tween(songCard, {alpha: 1, y: songCard.y - 10}, 0.3);
+					case 64:
+						FlxTween.tween(songCard, {alpha: 0, y: songCard.y - 10}, 0.3);
+				}
+			case 'Bopeebo':
+				switch(curStep)
+				{
+					case 1:
+						songCard.y += 10;
+						FlxTween.tween(songCard, {alpha: 1, y: songCard.y - 10}, 0.3);
+					case 16:
+						FlxTween.tween(songCard, {alpha: 0, y: songCard.y - 10}, 0.3);
+				}
+			case 'Fresh':
+				switch(curStep)
+				{
+					case 64:
+						songCard.y += 10;
+						FlxTween.tween(songCard, {alpha: 1, y: songCard.y - 10}, 0.3);
+					case 96:
+						FlxTween.tween(songCard, {alpha: 0, y: songCard.y - 10}, 0.3);
+				}
 			case 'Dad Battle':
 				switch(curStep)
 				{
+					case 1:
+						songCard.y += 10;
+						FlxTween.tween(songCard, {alpha: 1, y: songCard.y - 10}, 0.3);
+					case 64:
+						FlxTween.tween(songCard, {alpha: 0, y: songCard.y - 10}, 0.3);
 					case 528:
 						forcedLiftingSection = true;
 
@@ -3582,6 +3620,15 @@ class PlayState extends MusicBeatState
 					case 656:
 						FlxTween.tween(spaceMechanicButton, {alpha: 0}, 0.3);
 						forcedLiftingSection = false;
+				}
+			case 'Test':
+				switch(curStep)
+				{
+					case 128:
+						songCard.y += 10;
+						FlxTween.tween(songCard, {alpha: 1, y: songCard.y - 10}, 0.3);
+					case 160:
+						FlxTween.tween(songCard, {alpha: 0, y: songCard.y - 10}, 0.3);
 				}
 		}
 
