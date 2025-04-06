@@ -1841,7 +1841,7 @@ class PlayState extends MusicBeatState
 
 		super.update(elapsed);
 
-		if(isLiftMechanicEnabled)
+		if(isLiftMechanicEnabled && !watchingMechanicInfo && !startedCountdown)
 		{
 			if(curSong == 'Dad Battle')
 			{
