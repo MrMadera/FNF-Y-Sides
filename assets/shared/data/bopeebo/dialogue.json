@@ -24,6 +24,12 @@
                 ],
                 "sounds": ["bftext"],
                 "addBehind": true
+            },
+            "background": 
+            {
+                "name": "dialogue/background",
+                "position": [0, 0],
+                "anims": []
             }
         },
         {
@@ -42,6 +48,12 @@
                 ],
                 "sounds": ["dadtext"],
                 "addBehind": true
+            },
+            "background": 
+            {
+                "name": "dialogue/background",
+                "position": [0, 0],
+                "anims": []
             }
         },
         {
@@ -60,6 +72,12 @@
                 ],
                 "sounds": ["dadtext"],
                 "addBehind": true
+            },
+            "background": 
+            {
+                "name": "dialogue/background",
+                "position": [0, 0],
+                "anims": []
             }
         },
         {
@@ -78,6 +96,12 @@
                 ],
                 "sounds": ["bftext"],
                 "addBehind": true
+            },
+            "background": 
+            {
+                "name": "dialogue/background",
+                "position": [0, 0],
+                "anims": []
             }
         },
         {
@@ -96,6 +120,12 @@
                 ],
                 "sounds": ["bftext"],
                 "addBehind": true
+            },
+            "background": 
+            {
+                "name": "dialogue/background",
+                "position": [0, 0],
+                "anims": []
             }
         },
         {
@@ -114,6 +144,12 @@
                 ],
                 "sounds": ["gftext"],
                 "addBehind": true
+            },
+            "background": 
+            {
+                "name": "dialogue/background",
+                "position": [0, 0],
+                "anims": []
             }
         },
         {
@@ -132,6 +168,12 @@
                 ],
                 "sounds": ["dadtext"],
                 "addBehind": true
+            },
+            "background": 
+            {
+                "name": "dialogue/background",
+                "position": [0, 0],
+                "anims": []
             }
         },
         {
@@ -150,6 +192,12 @@
                 ],
                 "sounds": ["dadtext"],
                 "addBehind": true
+            },
+            "background": 
+            {
+                "name": "dialogue/background",
+                "position": [0, 0],
+                "anims": []
             }
         },
         {
@@ -168,6 +216,12 @@
                 ],
                 "sounds": ["bftext"],
                 "addBehind": true
+            },
+            "background": 
+            {
+                "name": "dialogue/background",
+                "position": [0, 0],
+                "anims": []
             }
         },
         {
@@ -186,6 +240,12 @@
                 ],
                 "sounds": ["bftext"],
                 "addBehind": true
+            },
+            "background": 
+            {
+                "name": "dialogue/background",
+                "position": [0, 0],
+                "anims": []
             }
         }
     ]

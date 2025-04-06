@@ -24,6 +24,12 @@
                 ],
                 "sounds": ["gftext"],
                 "addBehind": true
+            },
+            "background": 
+            {
+                "name": "dialogue/background",
+                "position": [0, 0],
+                "anims": []
             }
         },
         {
@@ -34,14 +40,20 @@
             "currentCharacter":
             {
                 "name": "dialogue/BF_Dialogue",
-                "position": [600, 150],
+                "position": [800, 160],
                 "anims": 
                 [
-                    ["BF LOOP", [0, 0]],
-                    ["BF0", [-1, -12]]
+                    ["serious", [0, 0]],
+                    ["serious", [-1, -12]]
                 ],
                 "sounds": ["bftext"],
                 "addBehind": true
+            },
+            "background": 
+            {
+                "name": "dialogue/background",
+                "position": [0, 0],
+                "anims": []
             }
         },
         {
@@ -60,6 +72,12 @@
                 ],
                 "sounds": ["dadtext"],
                 "addBehind": true
+            },
+            "background": 
+            {
+                "name": "dialogue/background",
+                "position": [0, 0],
+                "anims": []
             }
         },
         {
@@ -70,14 +88,20 @@
             "currentCharacter":
             {
                 "name": "dialogue/BF_Dialogue",
-                "position": [600, 150],
+                "position": [800, 160],
                 "anims": 
                 [
-                    ["BF LOOP", [0, 0]],
-                    ["BF0", [-1, -12]]
+                    ["rarp", [0, 0]],
+                    ["rarp", [-1, -12]]
                 ],
                 "sounds": ["bftext"],
                 "addBehind": true
+            },
+            "background": 
+            {
+                "name": "dialogue/background",
+                "position": [0, 0],
+                "anims": []
             }
         },
         {
@@ -101,6 +125,12 @@
                 ],
                 "sounds": ["dadtext"],
                 "addBehind": true
+            },
+            "background": 
+            {
+                "name": "dialogue/background",
+                "position": [0, 0],
+                "anims": []
             }
         }
     ]

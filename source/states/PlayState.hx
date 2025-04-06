@@ -190,6 +190,10 @@ class PlayState extends MusicBeatState
 	var songPercent:Float = 0;
 
 	public var spaceMechanicButton:FlxSprite;
+	public var watchingMechanicInfo:Bool = false;
+	public var thisShittyBackground:FlxSprite;
+	public var mechanicPoster:FlxSprite;
+	public var mechanicEnterSprite:FlxSprite;
 
 	public var ratingsData:Array<Rating> = Rating.loadDefault();
 
@@ -613,6 +617,22 @@ class PlayState extends MusicBeatState
 		spaceMechanicButton.antialiasing = ClientPrefs.data.antialiasing;
 		add(spaceMechanicButton);
 
+		thisShittyBackground = new FlxSprite().makeGraphic(1280, 720, 0xFF000000);
+		thisShittyBackground.alpha = 0;
+		uiGroup.add(thisShittyBackground);
+
+		mechanicPoster = new FlxSprite(-600, 0);
+		mechanicPoster.loadGraphic(Paths.image('hud/mechanic/mechanic'));
+		mechanicPoster.screenCenter(Y);
+		mechanicPoster.antialiasing = ClientPrefs.data.antialiasing;
+		uiGroup.add(mechanicPoster);
+
+		mechanicEnterSprite = new FlxSprite(FlxG.width + 600, 0);
+		mechanicEnterSprite.loadGraphic(Paths.image('hud/mechanic/enter'));
+		mechanicEnterSprite.screenCenter(Y);
+		mechanicEnterSprite.antialiasing = ClientPrefs.data.antialiasing;
+		uiGroup.add(mechanicEnterSprite);
+
 		botplayTxt = new FlxText(400, healthBar.y - 90, FlxG.width - 800, Language.getPhrase("Botplay").toUpperCase(), 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botplayTxt.scrollFactor.set();
@@ -671,7 +691,19 @@ class PlayState extends MusicBeatState
 		{
 			trace(Paths.json('${Paths.formatToSongPath(curSong)}/dialogue'));
 			var file = Paths.json('${Paths.formatToSongPath(curSong)}/dialogue');
-			startYSidesDialogue(NewDialogueBox.returnJsonData(file));
+			var endFunc:Void->Void;
+			endFunc = startCountdown;
+			if(curSong == 'Dad Battle') 
+			{
+				endFunc = function()
+				{
+					FlxTween.tween(mechanicPoster, {x: 10}, 1, {ease: FlxEase.quartOut});
+					FlxTween.tween(mechanicEnterSprite, {x: FlxG.width - mechanicEnterSprite.width - 10}, 1, {ease: FlxEase.quartOut});
+					FlxTween.tween(thisShittyBackground, {alpha: 0.6}, 1, {ease: FlxEase.quartOut});
+					watchingMechanicInfo = true;
+				}
+			}
+			startYSidesDialogue(NewDialogueBox.returnJsonData(file), endFunc);
 			startCallback = null;
 		}
 
@@ -995,7 +1027,7 @@ class PlayState extends MusicBeatState
 
 	public var ysidesDialogue:NewDialogueBox;
 
-	public function startYSidesDialogue(dialogueFile:DialogueData)
+	public function startYSidesDialogue(dialogueFile:DialogueData, finishCallback:Void->Void)
 	{
 		inCutscene = true;
 
@@ -1006,7 +1038,7 @@ class PlayState extends MusicBeatState
 			new FlxTimer().start(0.25, function(tmr:FlxTimer)
 			{
 				if(endingSong) endSong();
-				else startCountdown();
+				else if(finishCallback != null) finishCallback();
 			});
 		}
 		add(ysidesDialogue);
@@ -1933,6 +1965,25 @@ class PlayState extends MusicBeatState
 		if(botplayTxt != null && botplayTxt.visible) {
 			botplaySine += 180 * elapsed;
 			botplayTxt.alpha = 1 - Math.sin((Math.PI * botplaySine) / 180);
+		}
+
+		if(watchingMechanicInfo)
+		{
+			if(FlxG.keys.justPressed.ENTER)
+			{
+				FlxTween.cancelTweensOf(mechanicPoster);
+				FlxTween.cancelTweensOf(mechanicEnterSprite);
+				FlxTween.cancelTweensOf(thisShittyBackground);
+
+				watchingMechanicInfo = false;
+
+				FlxTween.tween(mechanicPoster, {x: -600}, 1, {ease: FlxEase.quartOut});
+				FlxTween.tween(mechanicEnterSprite, {x: FlxG.width + 600}, 1, {ease: FlxEase.quartOut});
+				FlxTween.tween(thisShittyBackground, {alpha: 0}, 1, {ease: FlxEase.quartOut, onComplete: function(t:FlxTween)
+				{
+					startCountdown();
+				}});
+			}
 		}
 
 		if (controls.PAUSE && startedCountdown && canPause)

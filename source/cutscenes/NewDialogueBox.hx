@@ -251,6 +251,8 @@ class NewDialogueBox extends FlxSpriteGroup
 			{
 				finishedWholeDialogue = true;
 				speechBackground.destroy();
+				if (spriteBackground != null)
+					spriteBackground.destroy();
 				speechText.destroy();
 				finishThing();
 			}
