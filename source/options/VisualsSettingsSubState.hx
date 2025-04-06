@@ -202,18 +202,14 @@ class VisualsSettingsSubState extends BaseOptionsMenu
 		if(ClientPrefs.data.splashAlpha == 0)
 		{
 			alreadyTalked = true;
-			character.playAnim('laugh');
-			dialogueBox.alpha = 0.6;
-			dialogueText.alpha = 1;
+			startDialogue('laugh');
 			dialogueText.resetText('Loool here we have another jerk who plays without Note Splashes!');
 			dialogueText.start(0.04, true);
 			dialogueText.completeCallback = function() 
 			{
 				new FlxTimer().start(thingTimer, function(t:FlxTimer)
 				{
-					if(character != null) character.playAnim('idle');
-					dialogueBox.alpha = 0;
-					dialogueText.alpha = 0;
+					endDialogue();
 				});
 			}
 		}

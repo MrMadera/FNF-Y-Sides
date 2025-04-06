@@ -81,18 +81,14 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		if(ClientPrefs.data.framerate > 200 && !alreadyTalked)
 		{
 			alreadyTalked = true;
-			character.playAnim('shocked');
-			dialogueBox.alpha = 0.6;
-			dialogueText.alpha = 1;
+			startDialogue('shocked');
 			dialogueText.resetText('What kind of PC do you have???');
 			dialogueText.start(0.04, true);
 			dialogueText.completeCallback = function() 
 			{
 				new FlxTimer().start(thingTimer, function(t:FlxTimer)
 				{
-					if(character != null) character.playAnim('idle');
-					dialogueBox.alpha = 0;
-					dialogueText.alpha = 0;
+					endDialogue();
 				});
 			}
 		}

@@ -138,22 +138,44 @@ class OptionsState extends MusicBeatState
 			FlxG.save.data.firstTimeInOptions = false;
 			FlxG.save.flush();
 
-			character.playAnim('happy');
+			if(character != null) try {
+				character.playAnim('happy');
+			}
+			catch(exc) { trace ('Error: $exc'); }
 			dialogueText.resetText('Welcome to the options menu! Here you can tweak with some of the option we offer to you...');
 			dialogueText.start(0.04, true);
 			dialogueText.completeCallback = function() 
 			{
-				character.playAnim('idle');
+				new FlxTimer().start(1.8, function(t:FlxTimer)
+				{
+					if(character != null) try {
+						character.playAnim('idle');
+					}
+					catch(exc) { trace ('Error: $exc'); }
+					FlxTween.tween(dialogueBox, {alpha: 0, y: dialogueBox.y + 10}, 0.35, {ease: FlxEase.linear});
+					FlxTween.tween(dialogueText, {alpha: 0, y: dialogueText.y + 10}, 0.35, {ease: FlxEase.linear});
+				});
 			}
 		}
 		else
 		{
-			character.playAnim('happy');
+			if(character != null) try {
+				character.playAnim('happy');
+			}
+			catch(exc) { trace ('Error: $exc'); }
 			dialogueText.resetText(FlxG.random.getObject([welcomeBack1, welcomeBack2, welcomeBack3]));
 			dialogueText.start(0.04, true);
 			dialogueText.completeCallback = function() 
 			{
-				character.playAnim('idle');
+				new FlxTimer().start(1.8, function(t:FlxTimer)
+				{
+					if(character != null) try {
+						character.playAnim('idle');
+					}
+					catch(exc) { trace ('Error: $exc'); }
+					FlxTween.tween(dialogueBox, {alpha: 0, y: dialogueBox.y + 10}, 0.35, {ease: FlxEase.linear});
+					FlxTween.tween(dialogueText, {alpha: 0, y: dialogueText.y + 10}, 0.35, {ease: FlxEase.linear});
+				});
 			}
 		}
 

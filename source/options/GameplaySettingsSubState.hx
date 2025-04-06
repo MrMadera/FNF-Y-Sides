@@ -126,18 +126,14 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		if(ClientPrefs.data.downScroll && !alreadyTalked)
 		{
 			alreadyTalked = true;
-			character.playAnim('question');
-			dialogueBox.alpha = 0.6;
-			dialogueText.alpha = 1;
+			startDialogue('question');
 			dialogueText.resetText('Are you a pro player or something like that? Upscroll is nice, I mean...');
 			dialogueText.start(0.04, true);
 			dialogueText.completeCallback = function() 
 			{
 				new FlxTimer().start(thingTimer, function(t:FlxTimer)
 				{
-					if(character != null) character.playAnim('idle');
-					dialogueBox.alpha = 0;
-					dialogueText.alpha = 0;
+					endDialogue();
 				});
 			}
 		}
@@ -149,18 +145,14 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		if(ClientPrefs.data.middleScroll && !alreadyTalked2)
 		{
 			alreadyTalked2 = true;
-			character.playAnim('laugh');
-			dialogueBox.alpha = 0.6;
-			dialogueText.alpha = 1;
+			startDialogue('laugh');
 			dialogueText.resetText('Weirdo...');
 			dialogueText.start(0.06, true);
 			dialogueText.completeCallback = function() 
 			{
 				new FlxTimer().start(1, function(t:FlxTimer)
 				{
-					if(character != null) character.playAnim('idle');
-					dialogueBox.alpha = 0;
-					dialogueText.alpha = 0;
+					endDialogue();
 				});
 			}
 		}
@@ -172,18 +164,14 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		if(!ClientPrefs.data.opponentStrums && !alreadyTalked3)
 		{
 			alreadyTalked3 = true;
-			character.playAnim('question');
-			dialogueBox.alpha = 0.6;
-			dialogueText.alpha = 1;
+			startDialogue('question');
 			dialogueText.resetText('Do you hate opponent strums or what??? Nonsense...');
 			dialogueText.start(0.04, true);
 			dialogueText.completeCallback = function() 
 			{
 				new FlxTimer().start(thingTimer, function(t:FlxTimer)
 				{
-					if(character != null) character.playAnim('idle');
-					dialogueBox.alpha = 0;
-					dialogueText.alpha = 0;
+					endDialogue();
 				});
 			}
 		}
@@ -195,18 +183,14 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		if(!ClientPrefs.data.ghostTapping && !alreadyTalked4)
 		{
 			alreadyTalked4 = true;
-			character.playAnim('question');
-			dialogueBox.alpha = 0.6;
-			dialogueText.alpha = 1;
+			startDialogue('question');
 			dialogueText.resetText('Are you feeling nostalgic or just feeling inspired by V-Slice?');
 			dialogueText.start(0.04, true);
 			dialogueText.completeCallback = function() 
 			{
 				new FlxTimer().start(thingTimer, function(t:FlxTimer)
 				{
-					if(character != null) character.playAnim('idle');
-					dialogueBox.alpha = 0;
-					dialogueText.alpha = 0;
+					endDialogue();
 				});
 			}
 		}
