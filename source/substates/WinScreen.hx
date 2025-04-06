@@ -153,7 +153,7 @@ class WinScreen extends MusicBeatSubstate
             case 'SFC': otherRanks.animation.play('sfc');
             case 'GFC': otherRanks.animation.play('gfc');
             case 'FC': otherRanks.animation.play('fc');
-            case 'SDCB': otherRanks.animation.play('nofc');
+            default: otherRanks.animation.play('nofc');
         }
 
         new FlxTimer().start(0.5, function(tmr:FlxTimer)
