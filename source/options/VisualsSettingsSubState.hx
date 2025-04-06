@@ -196,8 +196,29 @@ class VisualsSettingsSubState extends BaseOptionsMenu
 		playNoteSplashes();
 	}
 
+	var alreadyTalked:Bool = false;
 	function playNoteSplashes()
 	{
+		if(ClientPrefs.data.splashAlpha == 0)
+		{
+			alreadyTalked = true;
+			character.playAnim('laugh');
+			dialogueBox.alpha = 0.6;
+			dialogueText.alpha = 1;
+			dialogueText.resetText('Loool here we have another jerk who plays without Note Splashes!');
+			dialogueText.start(0.04, true);
+			dialogueText.completeCallback = function() 
+			{
+				character.playAnim('idle');
+
+				new FlxTimer().start(1, function(t:FlxTimer)
+				{
+					dialogueBox.alpha = 0;
+					dialogueText.alpha = 0;
+				});
+			}
+		}
+
 		var rand:Int = 0;
 		if (splashes.members[0] != null && splashes.members[0].maxAnims > 1)
 			rand = FlxG.random.int(0, splashes.members[0].maxAnims - 1); // For playing the same random animation on all 4 splashes

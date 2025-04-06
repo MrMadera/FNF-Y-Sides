@@ -1,0 +1,55 @@
+{
+	"animations": [
+		{
+			"offsets": [0, 0],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": true,
+			"name": "idle"
+		},
+		{
+			"offsets": [-11, 8],
+			"indices": [],
+			"fps": 24,
+			"anim": "happy",
+			"loop": true,
+			"name": "happy"
+		},
+		{
+			"offsets": [-32, -4],
+			"indices": [],
+			"fps": 24,
+			"anim": "shocked",
+			"loop": true,
+			"name": "shocked"
+		},
+		{
+			"offsets": [-17, 0],
+			"indices": [],
+			"fps": 24,
+			"anim": "laugh",
+			"loop": true,
+			"name": "laugh"
+		},
+		{
+			"offsets": [-10, 0],
+			"indices": [],
+			"fps": 24,
+			"anim": "question",
+			"loop": true,
+			"name": "question"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "optionsMenu/options-guy",
+	"position": [0, 0],
+	"healthicon": "face",
+	"flip_x": false,
+	"healthbar_colors": [161, 161, 161],
+	"camera_position": [0, 0],
+	"sing_duration": 4,
+	"scale": 1,
+	"_editor_isPlayer": true
+}

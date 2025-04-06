@@ -1,13 +1,16 @@
 package options;
 
+import flixel.addons.display.FlxBackdrop;
+import objects.Character;
 import states.MainMenuState;
 import backend.StageData;
+import flixel.addons.text.FlxTypeText;
 
 class OptionsState extends MusicBeatState
 {
 	var options:Array<String> = [
 		'Controls',
-		'Adjust Delay and Combo',
+		'Adjust Delay',
 		'Graphics',
 		'Visuals',
 		'Gameplay'
@@ -31,15 +34,28 @@ class OptionsState extends MusicBeatState
 				openSubState(new options.VisualsSettingsSubState());
 			case 'Gameplay':
 				openSubState(new options.GameplaySettingsSubState());
-			case 'Adjust Delay and Combo':
+			case 'Adjust Delay':
 				MusicBeatState.switchState(new options.NoteOffsetState());
 			case 'Language':
 				openSubState(new options.LanguageSubState());
 		}
 	}
 
+	var icons:FlxBackdrop;
+	var verticalTriangleLeft:FlxBackdrop;
+	var verticalTriangleRight:FlxBackdrop;
+
 	var selectorLeft:Alphabet;
 	var selectorRight:Alphabet;
+	var character:Character;
+	var isDoingSpecialAnim:Bool = false;
+
+	private var dialogueBox:FlxSprite;
+	private var dialogueText:FlxTypeText;
+
+	var welcomeBack1:String = 'Hello again!';
+	var welcomeBack2:String = 'Welcome back! Looks like you wanna change something here...';
+	var welcomeBack3:String = 'Hey! How are you doing with the mod?';
 
 	override function create()
 	{
@@ -47,13 +63,37 @@ class OptionsState extends MusicBeatState
 		DiscordClient.changePresence("Options Menu", null);
 		#end
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		var bg:FlxSprite = new FlxSprite().makeGraphic(1280, 720, 0xFFEEE4FF);
 		bg.antialiasing = ClientPrefs.data.antialiasing;
-		bg.color = 0xFFea71fd;
 		bg.updateHitbox();
 
 		bg.screenCenter();
 		add(bg);
+
+		icons = new FlxBackdrop(Paths.image('mainmenu/icons'), XY);
+		icons.velocity.set(10, 10);
+		icons.alpha = 0.45;
+		icons.antialiasing = ClientPrefs.data.antialiasing;
+		add(icons);
+
+		FlxTween.tween(icons, {alpha: 0.2}, 0.7);
+
+		verticalTriangleLeft = new FlxBackdrop(Paths.image('optionsMenu/verticalTriangleThing'), Y);
+		verticalTriangleLeft.velocity.set(0, 20);
+		verticalTriangleLeft.x = 138;
+		verticalTriangleLeft.antialiasing = ClientPrefs.data.antialiasing;
+		add(verticalTriangleLeft);
+
+		verticalTriangleRight = new FlxBackdrop(Paths.image('optionsMenu/verticalTriangleThing'), Y);
+
+		verticalTriangleRight.angle = 180;
+		//verticalTriangleRight.flipX = true;
+		verticalTriangleRight.updateHitbox();
+
+		verticalTriangleRight.velocity.set(0, -20);
+		verticalTriangleRight.x = FlxG.width - verticalTriangleRight.width - 138;
+		verticalTriangleRight.antialiasing = ClientPrefs.data.antialiasing;
+		add(verticalTriangleRight);
 
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
@@ -61,15 +101,63 @@ class OptionsState extends MusicBeatState
 		for (num => option in options)
 		{
 			var optionText:Alphabet = new Alphabet(0, 0, Language.getPhrase('options_$option', option), true);
-			optionText.screenCenter();
+			optionText.screenCenter(Y);
+			optionText.x = 150;
 			optionText.y += (92 * (num - (options.length / 2))) + 45;
 			grpOptions.add(optionText);
 		}
 
 		selectorLeft = new Alphabet(0, 0, '>', true);
-		add(selectorLeft);
+		//add(selectorLeft);
 		selectorRight = new Alphabet(0, 0, '<', true);
-		add(selectorRight);
+		//add(selectorRight);
+
+		var boardThing:FlxSprite = new FlxSprite().loadGraphic(Paths.image('optionsMenu/boardThing'));
+		boardThing.screenCenter();
+		boardThing.antialiasing = ClientPrefs.data.antialiasing;
+		add(boardThing);
+
+		character = new Character(800, 200, 'options-guy');
+		character.playAnim('idle');
+		character.antialiasing = ClientPrefs.data.antialiasing;
+		add(character);
+
+		dialogueBox = new FlxSprite(40, 600).makeGraphic(1200, 80, FlxColor.BLACK);
+		dialogueBox.alpha = 0.6;
+		dialogueBox.antialiasing = ClientPrefs.data.antialiasing;
+		add(dialogueBox);
+
+		dialogueText = new FlxTypeText(50, dialogueBox.y + 10, 1180, "", 32);
+		dialogueText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		dialogueText.scrollFactor.set();
+		dialogueText.sounds = [FlxG.sound.load(Paths.sound('dialogue'), 0.6)];
+		dialogueText.antialiasing = ClientPrefs.data.antialiasing;
+
+		if(FlxG.save.data.firstTimeInOptions == null)
+		{
+			FlxG.save.data.firstTimeInOptions = false;
+			FlxG.save.flush();
+
+			character.playAnim('happy');
+			dialogueText.resetText('Welcome to the options menu! Here you can tweak with some of the option we offer to you...');
+			dialogueText.start(0.04, true);
+			dialogueText.completeCallback = function() 
+			{
+				character.playAnim('idle');
+			}
+		}
+		else
+		{
+			character.playAnim('happy');
+			dialogueText.resetText(FlxG.random.getObject([welcomeBack1, welcomeBack2, welcomeBack3]));
+			dialogueText.start(0.04, true);
+			dialogueText.completeCallback = function() 
+			{
+				character.playAnim('idle');
+			}
+		}
+
+		add(dialogueText);
 
 		changeSelection();
 		ClientPrefs.saveSettings();
@@ -88,6 +176,9 @@ class OptionsState extends MusicBeatState
 
 	override function update(elapsed:Float) {
 		super.update(elapsed);
+
+		if (FlxG.sound.music != null)
+			Conductor.songPosition = FlxG.sound.music.time;
 
 		if (controls.UI_UP_P)
 			changeSelection(-1);

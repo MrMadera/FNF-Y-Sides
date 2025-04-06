@@ -12,24 +12,28 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			'If checked, notes go Down instead of Up, simple enough.', //Description
 			'downScroll', //Save data variable name
 			BOOL); //Variable type
+		option.onChange = onChangeDownscroll;
 		addOption(option);
 
 		var option:Option = new Option('Middlescroll',
 			'If checked, your notes get centered.',
 			'middleScroll',
 			BOOL);
+		option.onChange = onChangeMiddleScroll;
 		addOption(option);
 
 		var option:Option = new Option('Opponent Notes',
 			'If unchecked, opponent notes get hidden.',
 			'opponentStrums',
 			BOOL);
+		option.onChange = onChangeOpponentStrums;
 		addOption(option);
 
 		var option:Option = new Option('Ghost Tapping',
 			"If checked, you won't get misses from pressing keys\nwhile there are no notes able to be hit.",
 			'ghostTapping',
 			BOOL);
+		option.onChange = onChangeGhostTapping;
 		addOption(option);
 		
 		var option:Option = new Option('Auto Pause',
@@ -114,6 +118,102 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		addOption(option);
 
 		super();
+	}
+
+	var alreadyTalked:Bool = false;
+	function onChangeDownscroll()
+	{
+		if(ClientPrefs.data.downScroll && !alreadyTalked)
+		{
+			alreadyTalked = true;
+			character.playAnim('question');
+			dialogueBox.alpha = 0.6;
+			dialogueText.alpha = 1;
+			dialogueText.resetText('Are you a pro player or something like that? Upscroll is nice, I mean...');
+			dialogueText.start(0.04, true);
+			dialogueText.completeCallback = function() 
+			{
+				character.playAnim('idle');
+	
+				new FlxTimer().start(1, function(t:FlxTimer)
+				{
+					dialogueBox.alpha = 0;
+					dialogueText.alpha = 0;
+				});
+			}
+		}
+	}
+
+	var alreadyTalked2:Bool = false;
+	function onChangeMiddleScroll()
+	{
+		if(ClientPrefs.data.middleScroll && !alreadyTalked2)
+		{
+			alreadyTalked2 = true;
+			character.playAnim('laugh');
+			dialogueBox.alpha = 0.6;
+			dialogueText.alpha = 1;
+			dialogueText.resetText('Weirdo...');
+			dialogueText.start(0.06, true);
+			dialogueText.completeCallback = function() 
+			{
+				character.playAnim('idle');
+	
+				new FlxTimer().start(1, function(t:FlxTimer)
+				{
+					dialogueBox.alpha = 0;
+					dialogueText.alpha = 0;
+				});
+			}
+		}
+	}
+
+	var alreadyTalked3:Bool = false;
+	function onChangeOpponentStrums()
+	{
+		if(!ClientPrefs.data.opponentStrums && !alreadyTalked3)
+		{
+			alreadyTalked3 = true;
+			character.playAnim('question');
+			dialogueBox.alpha = 0.6;
+			dialogueText.alpha = 1;
+			dialogueText.resetText('Do you hate opponent strums or what??? Nonsense...');
+			dialogueText.start(0.04, true);
+			dialogueText.completeCallback = function() 
+			{
+				character.playAnim('idle');
+	
+				new FlxTimer().start(1, function(t:FlxTimer)
+				{
+					dialogueBox.alpha = 0;
+					dialogueText.alpha = 0;
+				});
+			}
+		}
+	}
+
+	var alreadyTalked4:Bool = false;
+	function onChangeGhostTapping()
+	{
+		if(!ClientPrefs.data.ghostTapping && !alreadyTalked4)
+		{
+			alreadyTalked4 = true;
+			character.playAnim('question');
+			dialogueBox.alpha = 0.6;
+			dialogueText.alpha = 1;
+			dialogueText.resetText('Are you feeling nostalgic or just feeling inspired by V-Slice?');
+			dialogueText.start(0.04, true);
+			dialogueText.completeCallback = function() 
+			{
+				character.playAnim('idle');
+	
+				new FlxTimer().start(1, function(t:FlxTimer)
+				{
+					dialogueBox.alpha = 0;
+					dialogueText.alpha = 0;
+				});
+			}
+		}
 	}
 
 	function onChangeHitsoundVolume()

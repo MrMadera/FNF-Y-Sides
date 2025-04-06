@@ -5,6 +5,10 @@ import flixel.input.gamepad.FlxGamepad;
 import flixel.input.gamepad.FlxGamepadInputID;
 import flixel.input.gamepad.FlxGamepadManager;
 
+import flixel.addons.text.FlxTypeText;
+import flixel.addons.display.FlxBackdrop;
+import objects.Character;
+
 import objects.CheckboxThingie;
 import objects.AttachedText;
 import options.Option;
@@ -20,13 +24,20 @@ class BaseOptionsMenu extends MusicBeatSubstate
 	private var checkboxGroup:FlxTypedGroup<CheckboxThingie>;
 	private var grpTexts:FlxTypedGroup<AttachedText>;
 
-	private var descBox:FlxSprite;
-	private var descText:FlxText;
-
 	public var title:String;
 	public var rpcTitle:String;
 
 	public var bg:FlxSprite;
+	var icons:FlxBackdrop;
+	var verticalTriangleLeft:FlxBackdrop;
+	var verticalTriangleRight:FlxBackdrop;
+
+	public var character:Character;
+	var isDoingSpecialAnim:Bool = false;
+
+	public var dialogueBox:FlxSprite;
+	public var dialogueText:FlxTypeText;
+
 	public function new()
 	{
 		super();
@@ -38,11 +49,35 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		DiscordClient.changePresence(rpcTitle, null);
 		#end
 		
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		bg.color = 0xFFea71fd;
-		bg.screenCenter();
+		bg = new FlxSprite().makeGraphic(1280, 720, 0xFFEEE4FF);
 		bg.antialiasing = ClientPrefs.data.antialiasing;
+		bg.updateHitbox();
+
+		bg.screenCenter();
 		add(bg);
+
+		icons = new FlxBackdrop(Paths.image('mainmenu/icons'), XY);
+		icons.velocity.set(10, 10);
+		icons.alpha = 0.2;
+		icons.antialiasing = ClientPrefs.data.antialiasing;
+		add(icons);
+
+		verticalTriangleLeft = new FlxBackdrop(Paths.image('optionsMenu/verticalTriangleThing'), Y);
+		verticalTriangleLeft.velocity.set(0, 20);
+		verticalTriangleLeft.x = 138;
+		verticalTriangleLeft.antialiasing = ClientPrefs.data.antialiasing;
+		add(verticalTriangleLeft);
+
+		verticalTriangleRight = new FlxBackdrop(Paths.image('optionsMenu/verticalTriangleThing'), Y);
+
+		verticalTriangleRight.angle = 180;
+		//verticalTriangleRight.flipX = true;
+		verticalTriangleRight.updateHitbox();
+
+		verticalTriangleRight.velocity.set(0, -20);
+		verticalTriangleRight.x = FlxG.width - verticalTriangleRight.width - 138;
+		verticalTriangleRight.antialiasing = ClientPrefs.data.antialiasing;
+		add(verticalTriangleRight);
 
 		// avoids lagspikes while scrolling through menus!
 		grpOptions = new FlxTypedGroup<Alphabet>();
@@ -54,41 +89,50 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		checkboxGroup = new FlxTypedGroup<CheckboxThingie>();
 		add(checkboxGroup);
 
-		descBox = new FlxSprite().makeGraphic(1, 1, FlxColor.BLACK);
-		descBox.alpha = 0.6;
-		add(descBox);
+		var boardThing:FlxSprite = new FlxSprite().loadGraphic(Paths.image('optionsMenu/boardThing'));
+		boardThing.screenCenter();
+		boardThing.antialiasing = ClientPrefs.data.antialiasing;
+		add(boardThing);
 
-		var titleText:Alphabet = new Alphabet(75, 45, title, true);
-		titleText.setScale(0.6);
-		titleText.alpha = 0.4;
-		add(titleText);
+		character = new Character(800, 200, 'options-guy');
+		character.playAnim('idle');
+		character.antialiasing = ClientPrefs.data.antialiasing;
+		add(character);
 
-		descText = new FlxText(50, 600, 1180, "", 32);
-		descText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		descText.scrollFactor.set();
-		descText.borderSize = 2.4;
-		add(descText);
+		dialogueBox = new FlxSprite(40, 600).makeGraphic(1200, 80, FlxColor.BLACK);
+		dialogueBox.alpha = 0;
+		dialogueBox.antialiasing = ClientPrefs.data.antialiasing;
+		add(dialogueBox);
+
+		dialogueText = new FlxTypeText(50, dialogueBox.y + 10, 1180, "", 32);
+		dialogueText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		dialogueText.scrollFactor.set();
+		dialogueText.sounds = [FlxG.sound.load(Paths.sound('dialogue'), 0.6)];
+		dialogueText.antialiasing = ClientPrefs.data.antialiasing;
+		add(dialogueText);
 
 		for (i in 0...optionsArray.length)
 		{
-			var optionText:Alphabet = new Alphabet(220, 260, optionsArray[i].name, false);
+			var optionText:Alphabet = new Alphabet(150, 260, optionsArray[i].name, false);
+			optionText.setScale(0.9, 0.9);
 			optionText.isMenuItem = true;
 			/*optionText.forceX = 300;
 			optionText.yMult = 90;*/
 			optionText.targetY = i;
+			optionText.changeX = false;
 			grpOptions.add(optionText);
 
 			if(optionsArray[i].type == BOOL)
 			{
-				var checkbox:CheckboxThingie = new CheckboxThingie(optionText.x - 105, optionText.y, Std.string(optionsArray[i].getValue()) == 'true');
+				var checkbox:CheckboxThingie = new CheckboxThingie(optionText.x + optionText.width + 105, optionText.y, Std.string(optionsArray[i].getValue()) == 'true');
 				checkbox.sprTracker = optionText;
 				checkbox.ID = i;
 				checkboxGroup.add(checkbox);
 			}
 			else
 			{
-				optionText.x -= 80;
-				optionText.startPosition.x -= 80;
+				//optionText.x -= 80;
+				//optionText.startPosition.x -= 80;
 				//optionText.xAdd -= 80;
 				var valueText:AttachedText = new AttachedText('' + optionsArray[i].getValue(), optionText.width + 60);
 				valueText.sprTracker = optionText;
@@ -476,10 +520,6 @@ class BaseOptionsMenu extends MusicBeatSubstate
 	{
 		curSelected = FlxMath.wrap(curSelected + change, 0, optionsArray.length - 1);
 
-		descText.text = optionsArray[curSelected].description;
-		descText.screenCenter(Y);
-		descText.y += 270;
-
 		for (num => item in grpOptions.members)
 		{
 			item.targetY = num - curSelected;
@@ -491,10 +531,6 @@ class BaseOptionsMenu extends MusicBeatSubstate
 			text.alpha = 0.6;
 			if(text.ID == curSelected) text.alpha = 1;
 		}
-
-		descBox.setPosition(descText.x - 10, descText.y - 10);
-		descBox.setGraphicSize(Std.int(descText.width + 20), Std.int(descText.height + 25));
-		descBox.updateHitbox();
 
 		curOption = optionsArray[curSelected]; //shorter lol
 		FlxG.sound.play(Paths.sound('scrollMenu'));

@@ -75,8 +75,29 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		}
 	}
 
+	var alreadyTalked:Bool = false;
 	function onChangeFramerate()
 	{
+		if(ClientPrefs.data.framerate > 200 && !alreadyTalked)
+		{
+			alreadyTalked = true;
+			character.playAnim('shocked');
+			dialogueBox.alpha = 0.6;
+			dialogueText.alpha = 1;
+			dialogueText.resetText('What kind of PC do you have???');
+			dialogueText.start(0.04, true);
+			dialogueText.completeCallback = function() 
+			{
+				character.playAnim('idle');
+
+				new FlxTimer().start(1, function(t:FlxTimer)
+				{
+					dialogueBox.alpha = 0;
+					dialogueText.alpha = 0;
+				});
+			}
+		}
+
 		if(ClientPrefs.data.framerate > FlxG.drawFramerate)
 		{
 			FlxG.updateFramerate = ClientPrefs.data.framerate;
@@ -92,6 +113,6 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 	override function changeSelection(change:Int = 0)
 	{
 		super.changeSelection(change);
-		boyfriend.visible = (antialiasingOption == curSelected);
+		boyfriend.visible = false;
 	}
 }
