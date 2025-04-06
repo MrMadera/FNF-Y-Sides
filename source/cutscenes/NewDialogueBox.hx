@@ -255,6 +255,10 @@ class NewDialogueBox extends FlxSpriteGroup
 					spriteBackground.destroy();
 				speechText.destroy();
 				finishThing();
+				new FlxTimer().start(0.3, function(tmr:FlxTimer)
+				{
+					destroy();
+				});
 			}
 		}
 	}
