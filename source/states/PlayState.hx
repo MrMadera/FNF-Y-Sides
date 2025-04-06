@@ -1894,7 +1894,7 @@ class PlayState extends MusicBeatState
 				}
 
 				if(SONG.notes[curSection] == null) return;
-				
+
 				if(SONG.notes[curSection].sectionNotes != null)
 				{
 					var areNotesInBfSec:Bool = false;
@@ -2724,7 +2724,7 @@ class PlayState extends MusicBeatState
 		#if ACHIEVEMENTS_ALLOWED
 		var weekNoMiss:String = WeekData.getWeekFileName() + '_nomiss';
 		var weekNoMissFreeplay:String = WeekData.getWeekFileName() + '_nomissfreeplay';
-		checkForAchievement([weekNoMiss, 'ur_bad', 'ur_good', 'hype', 'two_keys', 'toastie', 'debugger']);
+		checkForAchievement([weekNoMiss, weekNoMissFreeplay, 'ur_bad', 'ur_good', 'hype', 'two_keys', 'toastie', 'debugger']);
 		#end
 
 		var ret:Dynamic = callOnScripts('onEndSong', null, true);
@@ -3967,10 +3967,13 @@ class PlayState extends MusicBeatState
 		for (name in achievesToCheck) {
 			if(!Achievements.exists(name)) continue;
 
+			trace(WeekData.getWeekFileName() + '_nomissfreeplay');
 			var unlock:Bool = false;
-			if (name != WeekData.getWeekFileName() + '_nomiss') // common achievements 
+			if (name == WeekData.getWeekFileName() + '_nomiss') // common achievements 
 			{
-
+				if(isStoryMode && campaignMisses + songMisses < 1 && Difficulty.getString().toUpperCase() == 'HARD'
+					&& storyPlaylist.length <= 1 && !changedDifficulty && !usedPractice)
+					unlock = true;
 			}
 			else if(name == WeekData.getWeekFileName() + '_nomissfreeplay')
 			{
@@ -3979,9 +3982,7 @@ class PlayState extends MusicBeatState
 			}
 			else // any FC achievements, name should be "weekFileName_nomiss", e.g: "week3_nomiss";
 			{
-				if(isStoryMode && campaignMisses + songMisses < 1 && Difficulty.getString().toUpperCase() == 'HARD'
-					&& storyPlaylist.length <= 1 && !changedDifficulty && !usedPractice)
-					unlock = true;
+
 			}
 
 			if(unlock) Achievements.unlock(name);

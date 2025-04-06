@@ -63,14 +63,12 @@ class MusicBeatState extends FlxState
 		updateCurStep();
 		updateBeat();
 
-		#if debug
-			if(FlxG.mouse.justPressed) { // just to test
-				if(FlxG.mouse.visible) {
-					var clicks = Achievements.addScore('click');
-					trace('Clicked $clicks times...');
-				}
+		if(FlxG.mouse.justPressed) {
+			if(FlxG.mouse.visible) {
+				var clicks = Achievements.addScore('click');
+				trace('Clicked $clicks times...');
 			}
-		#end
+		}
 
 		if (oldStep != curStep)
 		{
