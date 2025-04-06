@@ -12,7 +12,19 @@
             "dialogue": "You did it pretty good honey!",
             "textSpeed": 0.04,
             "speechTextOffsets": [40, 40],
-            "speechTextWidth": 1170
+            "speechTextWidth": 1170,
+            "currentCharacter":
+            {
+                "name": "dialogue/GF_Dialogue",
+                "position": [500, 190],
+                "anims": 
+                [
+                    ["cososa", [0, 0]],
+                    ["cososa", [0, 0]]
+                ],
+                "sounds": ["gftext"],
+                "addBehind": true
+            }
         },
         {
             "dialogue": "Thankssss :D",
@@ -36,7 +48,19 @@
             "dialogue": "Hey, ngl you're very good at this, but that's only because we're playing with your rules, not mine",
             "textSpeed": 0.04,
             "speechTextOffsets": [40, 40],
-            "speechTextWidth": 1170
+            "speechTextWidth": 1170,
+            "currentCharacter":
+            {
+                "name": "dialogue/DAD_Dialogue",
+                "position": [70, 60],
+                "anims": 
+                [
+                    ["normal", [0, 0]],
+                    ["normal", [0, 0]]
+                ],
+                "sounds": ["dadtext"],
+                "addBehind": true
+            }
         },
         {
             "dialogue": "What do you mean with that??",
@@ -65,6 +89,18 @@
             {
                 "type": "shake",
                 "properties": [0.015, 0.4]
+            },
+            "currentCharacter":
+            {
+                "name": "dialogue/DAD_Dialogue",
+                "position": [70, 60],
+                "anims": 
+                [
+                    ["serious", [0, 0]],
+                    ["serious", [0, 0]]
+                ],
+                "sounds": ["dadtext"],
+                "addBehind": true
             }
         }
     ]
